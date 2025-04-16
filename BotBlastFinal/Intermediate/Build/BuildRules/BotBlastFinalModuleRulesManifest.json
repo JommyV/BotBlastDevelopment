@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"D:\\UnrealProjects2\\BotBlastDevelopment\\BotBlastFinal\\Source\\BotBlastFinal\\BotBlastFinal.Build.cs",
+		"D:\\UnrealProjects2\\BotBlastDevelopment\\BotBlastFinal\\Source\\BotBlastFinal.Target.cs",
+		"D:\\UnrealProjects2\\BotBlastDevelopment\\BotBlastFinal\\Source\\BotBlastFinalEditor.Target.cs"
+	],
+	"EngineVersion": "5.5.4"
+}

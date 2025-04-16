@@ -1,0 +1,24 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\unrealprojects2\\botblastdevelopment\\botblastfinal\\intermediate\\build\\win64\\unrealeditor\\inc\\botblastfinal\\uht\\taracharacter.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\unrealprojects2\\botblastdevelopment\\botblastfinal\\intermediate\\build\\win64\\x64\\botblastfinaleditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "d:\\unrealprojects2\\botblastdevelopment\\botblastfinal\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\botblastfinal\\definitions.botblastfinal.h",
+            "d:\\unrealprojects2\\botblastdevelopment\\botblastfinal\\source\\botblastfinal\\taracharacter.h",
+            "d:\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\gameframework\\character.h",
+            "d:\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\gameframework\\charactermovementreplication.h",
+            "d:\\ue_5.5\\engine\\source\\runtime\\net\\core\\public\\net\\core\\nettoken\\nettokenexportcontext.h",
+            "d:\\ue_5.5\\engine\\source\\runtime\\experimental\\iris\\core\\public\\iris\\serialization\\irisobjectreferencepackagemap.h",
+            "d:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\iriscore\\uht\\irisobjectreferencepackagemap.generated.h",
+            "d:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\charactermovementreplication.generated.h",
+            "d:\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\gameframework\\rootmotionsource.h",
+            "d:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\rootmotionsource.generated.h",
+            "d:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\character.generated.h",
+            "d:\\unrealprojects2\\botblastdevelopment\\botblastfinal\\intermediate\\build\\win64\\unrealeditor\\inc\\botblastfinal\\uht\\taracharacter.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

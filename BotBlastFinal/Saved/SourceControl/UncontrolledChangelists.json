@@ -16,7 +16,21 @@
 				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Map/BotBlastMap.umap",
 				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Input/TaraControllerBB.uasset",
 				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Input/Sprint.uasset",
-				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/BotBlastKey_BP.uasset"
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/BotBlastKey_BP.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Satchel/Satchel_BP.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/TaraClass_BP.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/Black.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/Hair.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/Skin.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/Tara__2__PhysicsAsset.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/Tara__2__Skeleton.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/Tara__2_.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/Tara__2__Anim_RunAnim.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/Tara__2__Anim_RunAnim_001.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/Tara__2__Anim_IdleAnim.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/Tara__2__Anim_IdleAnim_001.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/Tara__2__Anim_AttackAnim.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/Tara__2__Anim_Tara_001_IdleAnim.uasset"
 			]
 		}
 	]

@@ -18,6 +18,9 @@ BOTBLASTFINAL_API UFunction* Z_Construct_UDelegateFunction_BotBlastFinal_IntStat
 BOTBLASTFINAL_API UFunction* Z_Construct_UDelegateFunction_BotBlastFinal_KeyWalletAction__DelegateSignature();
 BOTBLASTFINAL_API UFunction* Z_Construct_UDelegateFunction_BotBlastFinal_PlayerIsDead__DelegateSignature();
 ENGINE_API UClass* Z_Construct_UClass_ACharacter();
+ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
+ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
+ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 UPackage* Z_Construct_UPackage__Script_BotBlastFinal();
 // End Cross Module References
 
@@ -668,6 +671,21 @@ struct Z_Construct_UClass_ATaraCharacter_Statics
 		{ "IncludePath", "TaraCharacter.h" },
 		{ "ModuleRelativePath", "TaraCharacter.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SpringArmComp_MetaData[] = {
+		{ "Category", "TaraCharacter" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "TaraCharacter.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CameraComp_MetaData[] = {
+		{ "Category", "TaraCharacter" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "TaraCharacter.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_StaticMeshComp_MetaData[] = {
+		{ "Category", "TaraCharacter" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "TaraCharacter.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SatchelThrown_MetaData[] = {
 		{ "Category", "Player|Satchel" },
 #if !UE_BUILD_SHIPPING
@@ -699,6 +717,9 @@ struct Z_Construct_UClass_ATaraCharacter_Statics
 #endif
 	};
 #endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_SpringArmComp;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_CameraComp;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_StaticMeshComp;
 	static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_SatchelThrown;
 	static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_OnSatchelCountChanged;
 	static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_OnKeyWalletAction;
@@ -719,10 +740,16 @@ struct Z_Construct_UClass_ATaraCharacter_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATaraCharacter_Statics::NewProp_SpringArmComp = { "SpringArmComp", nullptr, (EPropertyFlags)0x0020080000080009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATaraCharacter, SpringArmComp), Z_Construct_UClass_USpringArmComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SpringArmComp_MetaData), NewProp_SpringArmComp_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATaraCharacter_Statics::NewProp_CameraComp = { "CameraComp", nullptr, (EPropertyFlags)0x0020080000080009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATaraCharacter, CameraComp), Z_Construct_UClass_UCameraComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CameraComp_MetaData), NewProp_CameraComp_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATaraCharacter_Statics::NewProp_StaticMeshComp = { "StaticMeshComp", nullptr, (EPropertyFlags)0x0020080000080009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATaraCharacter, StaticMeshComp), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_StaticMeshComp_MetaData), NewProp_StaticMeshComp_MetaData) };
 const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_ATaraCharacter_Statics::NewProp_SatchelThrown = { "SatchelThrown", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATaraCharacter, SatchelThrown), Z_Construct_UDelegateFunction_BotBlastFinal_IntStatUpdated__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SatchelThrown_MetaData), NewProp_SatchelThrown_MetaData) }; // 3804676975
 const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_ATaraCharacter_Statics::NewProp_OnSatchelCountChanged = { "OnSatchelCountChanged", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATaraCharacter, OnSatchelCountChanged), Z_Construct_UDelegateFunction_BotBlastFinal_FloatStatUpdated__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OnSatchelCountChanged_MetaData), NewProp_OnSatchelCountChanged_MetaData) }; // 3598338825
 const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_ATaraCharacter_Statics::NewProp_OnKeyWalletAction = { "OnKeyWalletAction", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATaraCharacter, OnKeyWalletAction), Z_Construct_UDelegateFunction_BotBlastFinal_KeyWalletAction__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OnKeyWalletAction_MetaData), NewProp_OnKeyWalletAction_MetaData) }; // 4039393992
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ATaraCharacter_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATaraCharacter_Statics::NewProp_SpringArmComp,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATaraCharacter_Statics::NewProp_CameraComp,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATaraCharacter_Statics::NewProp_StaticMeshComp,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATaraCharacter_Statics::NewProp_SatchelThrown,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATaraCharacter_Statics::NewProp_OnSatchelCountChanged,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATaraCharacter_Statics::NewProp_OnKeyWalletAction,
@@ -771,10 +798,10 @@ struct Z_CompiledInDeferFile_FID_UnrealProjects2_BotBlastDevelopment_BotBlastFin
 		{ EPlayerKeyAction_StaticEnum, TEXT("EPlayerKeyAction"), &Z_Registration_Info_UEnum_EPlayerKeyAction, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3677451385U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ATaraCharacter, ATaraCharacter::StaticClass, TEXT("ATaraCharacter"), &Z_Registration_Info_UClass_ATaraCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ATaraCharacter), 384023318U) },
+		{ Z_Construct_UClass_ATaraCharacter, ATaraCharacter::StaticClass, TEXT("ATaraCharacter"), &Z_Registration_Info_UClass_ATaraCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ATaraCharacter), 2788986506U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_1892725665(TEXT("/Script/BotBlastFinal"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_977979652(TEXT("/Script/BotBlastFinal"),
 	Z_CompiledInDeferFile_FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_Statics::ClassInfo),
 	nullptr, 0,
 	Z_CompiledInDeferFile_FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_Statics::EnumInfo));

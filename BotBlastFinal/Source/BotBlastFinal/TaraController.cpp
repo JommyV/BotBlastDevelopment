@@ -71,20 +71,27 @@ void ATaraController::HandleLook(const FInputActionValue& InputActionValue)
 	const FVector2D LookAxisVector = InputActionValue.Get<FVector2D>();
 
 	// Add yaw and pitch input to controller
-	AddYawInput(LookAxisVector.X);
-	AddPitchInput(LookAxisVector.Y);
+	
+	PlayerCharacter->AddControllerYawInput(LookAxisVector.X);
+	PlayerCharacter->AddControllerPitchInput(LookAxisVector.Y);
 }
 
 void ATaraController::HandleMove(const FInputActionValue& InputActionValue)
 {
-	// Value is a Vector2D
 	const FVector2D MovementVector = InputActionValue.Get<FVector2D>();
 
-	// Add movement to the Player's Character Pawn
 	if (PlayerCharacter)
 	{
-		PlayerCharacter->AddMovementInput(PlayerCharacter->GetActorForwardVector(), MovementVector.Y);
-		PlayerCharacter->AddMovementInput(PlayerCharacter->GetActorRightVector(), MovementVector.X);
+		// Get the control rotation, but zero out pitch/roll (we only want yaw)
+		const FRotator YawRotation(0.f, GetControlRotation().Yaw, 0.f);
+
+		// Get forward and right vector relative to the camera
+		const FVector ForwardDir = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
+		const FVector RightDir   = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
+
+		// Apply movement in those directions
+		PlayerCharacter->AddMovementInput(ForwardDir, MovementVector.Y);
+		PlayerCharacter->AddMovementInput(RightDir, MovementVector.X);
 	}
 }
 
@@ -123,3 +130,6 @@ void ATaraController::HandleToggleSprint()
 {
 	
 }
+
+
+

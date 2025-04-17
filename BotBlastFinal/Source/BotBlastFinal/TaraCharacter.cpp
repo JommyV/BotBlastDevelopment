@@ -3,6 +3,12 @@
 
 #include "TaraCharacter.h"
 #include "GameFramework/PawnMovementComponent.h"
+#include "GameFramework/SpringArmComponent.h"
+#include "Camera/CameraComponent.h"
+#include "Components/SceneComponent.h"
+#include "Components/CapsuleComponent.h"
+#include "GameFramework/CharacterMovementComponent.h"
+
 
 
 // Sets default values
@@ -11,6 +17,32 @@ ATaraCharacter::ATaraCharacter()
 	PrimaryActorTick.bCanEverTick = true;
 	SetActorTickInterval(0.5f);
 	SetActorTickEnabled(true);
+
+	//Create our components
+	StaticMeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMeshComponent"));
+	StaticMeshComp->SetupAttachment(GetCapsuleComponent()); // Attach to the capsule
+
+	SpringArmComp = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComponent"));
+	SpringArmComp->SetupAttachment(GetCapsuleComponent());  // Attach to capsule too
+
+	CameraComp = CreateDefaultSubobject<UCameraComponent>(TEXT("CameraComponent"));
+	CameraComp->SetupAttachment(SpringArmComp, USpringArmComponent::SocketName);
+
+		
+	//Assign SpringArm class variables.
+	SpringArmComp->SetRelativeLocationAndRotation(FVector(0.0f, 0.0f, 50.0f), FRotator(-60.0f, 0.0f, 0.0f));
+	SpringArmComp->TargetArmLength = 400.f;
+	SpringArmComp->bEnableCameraLag = true;
+	SpringArmComp->CameraLagSpeed = 3.0f;
+
+	GetCharacterMovement()->bOrientRotationToMovement = true;
+	GetCharacterMovement()->RotationRate = FRotator(0.0f, 540.0f, 0.0f); // Adjust turn speed here
+	
+	SpringArmComp->bUsePawnControlRotation = true;
+	CameraComp->bUsePawnControlRotation = false; // Let spring arm handle the rotation
+	bUseControllerRotationYaw = false;            // Let controller rotate the whole pawn
+	
+	AutoPossessPlayer = EAutoReceiveInput::Player0;
 }
 
 // Called when the game starts or when spawned
@@ -115,6 +147,17 @@ bool ATaraCharacter::IsPlayerCarryingKey(FString DesiredKey)
 {
 	return KeyWallet.Contains(DesiredKey);
 }
+
+void ATaraCharacter::PitchCamera(float AxisValue)
+{
+	CameraInput.Y = AxisValue;
+}
+
+void ATaraCharacter::YawCamera(float AxisValue)
+{
+	CameraInput.X = AxisValue;
+}
+
 
 
 

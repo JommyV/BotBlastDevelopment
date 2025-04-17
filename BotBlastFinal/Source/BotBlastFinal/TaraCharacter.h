@@ -7,6 +7,7 @@
 #include "TaraCharacter.generated.h"
 
 
+
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FIntStatUpdated,
 											   int32, OldValue,
 											   int32, NewValue,
@@ -47,6 +48,17 @@ class BOTBLASTFINAL_API ATaraCharacter : public ACharacter
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+	UPROPERTY(EditAnywhere)
+	class USpringArmComponent* SpringArmComp;
+		
+	UPROPERTY(EditAnywhere)
+	class UCameraComponent* CameraComp;
+		
+	UPROPERTY(EditAnywhere)
+	UStaticMeshComponent* StaticMeshComp;
+
+	
 
 public:
 	// Sets default values for this character's properties
@@ -119,6 +131,11 @@ public:
 	UPROPERTY(BlueprintAssignable, Category = "Player|KeyWallet")
 	FKeyWalletAction OnKeyWalletAction;
 
+	//Camera input that is changed by the character when the controller
+	//calls for it.
+	void PitchCamera(float AxisValue);
+	void YawCamera(float AxisValue);
+
 private:
 	//Player keys
 	TArray<FString>KeyWallet;
@@ -134,10 +151,16 @@ private:
 	//Has player jumped
 	bool bHasPlayerJumped = false;
 
-	//
+	//Camera
+	FVector2D CameraInput;
 
 	
+	
+
+
 	GENERATED_BODY()
 };
+
+
 
 

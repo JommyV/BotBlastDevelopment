@@ -9,7 +9,6 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class AActor;
 enum class EPlayerKeyAction : uint8;
 #ifdef BOTBLASTFINAL_TaraCharacter_generated_h
 #error "TaraCharacter.generated.h already included, missing '#pragma once' in TaraCharacter.h"
@@ -32,18 +31,17 @@ BOTBLASTFINAL_API void FFloatStatUpdated_DelegateWrapper(const FMulticastScriptD
 BOTBLASTFINAL_API void FKeyWalletAction_DelegateWrapper(const FMulticastScriptDelegate& KeyWalletAction, const FString& KeyString, EPlayerKeyAction KeyAction, bool IsSuccess);
 
 
-#define FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_139_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_140_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execIsPlayerCarryingKey); \
 	DECLARE_FUNCTION(execRemoveKey); \
 	DECLARE_FUNCTION(execAddKey); \
-	DECLARE_FUNCTION(execRechargeSatchels); \
 	DECLARE_FUNCTION(execThrowSatchel); \
 	DECLARE_FUNCTION(execGetSatchelRechargeRate); \
 	DECLARE_FUNCTION(execGetCurrentSatchels); \
 	DECLARE_FUNCTION(execGetMaxSatchels);
 
 
-#define FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_139_INCLASS_NO_PURE_DECLS \
+#define FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_140_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesATaraCharacter(); \
 	friend struct Z_Construct_UClass_ATaraCharacter_Statics; \
@@ -52,7 +50,7 @@ public: \
 	DECLARE_SERIALIZER(ATaraCharacter)
 
 
-#define FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_139_ENHANCED_CONSTRUCTORS \
+#define FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_140_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	ATaraCharacter(ATaraCharacter&&); \
@@ -65,12 +63,12 @@ public: \
 
 
 #define FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_42_PROLOG
-#define FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_139_GENERATED_BODY \
+#define FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_140_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_139_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_139_INCLASS_NO_PURE_DECLS \
-	FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_139_ENHANCED_CONSTRUCTORS \
+	FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_140_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_140_INCLASS_NO_PURE_DECLS \
+	FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_140_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

@@ -32,16 +32,16 @@ void ATaraCharacter::Tick(float DeltaTime)
 	{
 		const int PreviousSatchels = CurrentSatchels;
 
-		CurrentSatchels = FMath::Clamp<int>(CurrentSatchels+SatchelRechargeRate, 0, MaxSatchels - 1);
+		CurrentSatchels = FMath::Clamp(CurrentSatchels+SatchelRechargeRate, 0, MaxSatchels);
 		OnSatchelCountChanged.Broadcast(PreviousSatchels, CurrentSatchels,MaxSatchels);
 	}
 	GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Silver,
 									 *(FString::Printf(
-										 TEXT("Movement - IsCrouched:%d"), bIsCrouched)));
+										 TEXT("Movement - IsCrouched: %d"), bIsCrouched)));
 
 	GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Cyan,
 									 *(FString::Printf(
-										 TEXT("Satchel - Current:%i | Maximum:%i"), CurrentSatchels, MaxSatchels)));
+										 TEXT("Satchel - Current: %f | Maximum: %i"), CurrentSatchels, MaxSatchels)));
 
 	GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Orange,
 									 *(FString::Printf(TEXT("Keys - %d Keys Currently held"), KeyWallet.Num())));
@@ -69,45 +69,45 @@ float ATaraCharacter::GetSatchelRechargeRate()
 	return SatchelRechargeRate;
 }
 
-void ATaraCharacter::ThrowSatchel(AActor* satchel)
+void ATaraCharacter::ThrowSatchel()
 {
-	if (CurrentSatchels > 1 && IsSatchelActive == false)
+	if (CurrentSatchels >= 1)
 	{
 		//implement satchel throwing here
 		CurrentSatchels--;
-		return;
+		UE_LOG(LogTemp,Display, TEXT("Boom, Baby"));
 	}
 	else
 	{
-		//If player has less than one satchel
-		return;
+		UE_LOG(LogTemp,Display, TEXT("No boom, Baby"));
 	}
 }
 
-void ATaraCharacter::RechargeSatchels()
-{
-	
-}
 
-void ATaraCharacter::AddKey(FString KeytoAdd)
+void ATaraCharacter::AddKey(FString KeyToAdd)
 {
-	if (KeyWallet.Contains(KeytoAdd))
+	if (KeyWallet.Contains(KeyToAdd))
 	{
-		//Key Already in there, play noise or something
-		return;
+		OnKeyWalletAction.Broadcast(KeyToAdd, EPlayerKeyAction::AddKey, false);
 	}
 	else
 	{
-		KeyWallet.Add(KeytoAdd);
-		//maybe add feedback
+		KeyWallet.Add(KeyToAdd);
+		// And maybe play a sound effect?
+		OnKeyWalletAction.Broadcast(KeyToAdd, EPlayerKeyAction::AddKey, true);
 	}
 }
 
-void ATaraCharacter::RemoveKey(FString KeytoRemove)
+void ATaraCharacter::RemoveKey(FString KeyToRemove)
 {
-	if (KeyWallet.Contains(KeytoRemove))
+	if (KeyWallet.Contains(KeyToRemove))
 	{
-		KeyWallet.Remove(KeytoRemove);
+		KeyWallet.Remove(KeyToRemove);
+		OnKeyWalletAction.Broadcast(KeyToRemove, EPlayerKeyAction::RemoveKey, true);
+	}
+	else
+	{
+		OnKeyWalletAction.Broadcast(KeyToRemove, EPlayerKeyAction::RemoveKey, true);
 	}
 }
 

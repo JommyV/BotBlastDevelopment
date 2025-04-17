@@ -38,11 +38,10 @@ void ATaraController::OnPossess(APawn* aPawn)
 	if (ActionMove)
 		EnhancedInputComponent->BindAction(ActionMove, ETriggerEvent::Triggered, this,
 		                                   &ATaraController::HandleMove);
-
+	
 	if (ActionLook)
 		EnhancedInputComponent->BindAction(ActionLook, ETriggerEvent::Triggered, this,
 		                                   &ATaraController::HandleLook);
-
 	if (ActionJump)
 		EnhancedInputComponent->BindAction(ActionJump, ETriggerEvent::Triggered, this,
 		                                   &ATaraController::HandleJump);
@@ -117,7 +116,7 @@ void ATaraController::HandleCrouch()
 
 void ATaraController::HandleSatchel()
 {
-	return;
+	PlayerCharacter->ThrowSatchel();
 }
 
 void ATaraController::HandleToggleSprint()

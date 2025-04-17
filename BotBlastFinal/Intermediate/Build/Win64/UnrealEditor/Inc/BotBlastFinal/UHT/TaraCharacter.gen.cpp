@@ -17,7 +17,6 @@ BOTBLASTFINAL_API UFunction* Z_Construct_UDelegateFunction_BotBlastFinal_FloatSt
 BOTBLASTFINAL_API UFunction* Z_Construct_UDelegateFunction_BotBlastFinal_IntStatUpdated__DelegateSignature();
 BOTBLASTFINAL_API UFunction* Z_Construct_UDelegateFunction_BotBlastFinal_KeyWalletAction__DelegateSignature();
 BOTBLASTFINAL_API UFunction* Z_Construct_UDelegateFunction_BotBlastFinal_PlayerIsDead__DelegateSignature();
-ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 UPackage* Z_Construct_UPackage__Script_BotBlastFinal();
 // End Cross Module References
@@ -314,7 +313,7 @@ struct Z_Construct_UFunction_ATaraCharacter_AddKey_Statics
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "Category", "Player|Keys" },
+		{ "Category", "Player|KeyWallet" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// Add a key to the wallet if it isn't already in there.\n// If it is already in there, dont do anything.\n" },
 #endif
@@ -508,7 +507,7 @@ struct Z_Construct_UFunction_ATaraCharacter_IsPlayerCarryingKey_Statics
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "Category", "Player|Keys" },
+		{ "Category", "Player|KeyWallet" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// Does the player have a given key?\n// Returns true if they do, and false if they dont.\n" },
 #endif
@@ -556,36 +555,6 @@ DEFINE_FUNCTION(ATaraCharacter::execIsPlayerCarryingKey)
 }
 // End Class ATaraCharacter Function IsPlayerCarryingKey
 
-// Begin Class ATaraCharacter Function RechargeSatchels
-struct Z_Construct_UFunction_ATaraCharacter_RechargeSatchels_Statics
-{
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "Category", "Player|Satchel" },
-		{ "ModuleRelativePath", "TaraCharacter.h" },
-	};
-#endif // WITH_METADATA
-	static const UECodeGen_Private::FFunctionParams FuncParams;
-};
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ATaraCharacter_RechargeSatchels_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ATaraCharacter, nullptr, "RechargeSatchels", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ATaraCharacter_RechargeSatchels_Statics::Function_MetaDataParams), Z_Construct_UFunction_ATaraCharacter_RechargeSatchels_Statics::Function_MetaDataParams) };
-UFunction* Z_Construct_UFunction_ATaraCharacter_RechargeSatchels()
-{
-	static UFunction* ReturnFunction = nullptr;
-	if (!ReturnFunction)
-	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ATaraCharacter_RechargeSatchels_Statics::FuncParams);
-	}
-	return ReturnFunction;
-}
-DEFINE_FUNCTION(ATaraCharacter::execRechargeSatchels)
-{
-	P_FINISH;
-	P_NATIVE_BEGIN;
-	P_THIS->RechargeSatchels();
-	P_NATIVE_END;
-}
-// End Class ATaraCharacter Function RechargeSatchels
-
 // Begin Class ATaraCharacter Function RemoveKey
 struct Z_Construct_UFunction_ATaraCharacter_RemoveKey_Statics
 {
@@ -595,7 +564,7 @@ struct Z_Construct_UFunction_ATaraCharacter_RemoveKey_Statics
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "Category", "Player|Keys" },
+		{ "Category", "Player|KeyWallet" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// Remove a key (do we even need to do that in our game?)\n// If the key isn't in the wallet, we do nothing.\n" },
 #endif
@@ -638,10 +607,6 @@ DEFINE_FUNCTION(ATaraCharacter::execRemoveKey)
 // Begin Class ATaraCharacter Function ThrowSatchel
 struct Z_Construct_UFunction_ATaraCharacter_ThrowSatchel_Statics
 {
-	struct TaraCharacter_eventThrowSatchel_Parms
-	{
-		AActor* satchel;
-	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Player|Satchel" },
@@ -654,17 +619,9 @@ struct Z_Construct_UFunction_ATaraCharacter_ThrowSatchel_Statics
 #endif
 	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_satchel;
-	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ATaraCharacter_ThrowSatchel_Statics::NewProp_satchel = { "satchel", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(TaraCharacter_eventThrowSatchel_Parms, satchel), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ATaraCharacter_ThrowSatchel_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ATaraCharacter_ThrowSatchel_Statics::NewProp_satchel,
-};
-static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ATaraCharacter_ThrowSatchel_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ATaraCharacter_ThrowSatchel_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ATaraCharacter, nullptr, "ThrowSatchel", nullptr, nullptr, Z_Construct_UFunction_ATaraCharacter_ThrowSatchel_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ATaraCharacter_ThrowSatchel_Statics::PropPointers), sizeof(Z_Construct_UFunction_ATaraCharacter_ThrowSatchel_Statics::TaraCharacter_eventThrowSatchel_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ATaraCharacter_ThrowSatchel_Statics::Function_MetaDataParams), Z_Construct_UFunction_ATaraCharacter_ThrowSatchel_Statics::Function_MetaDataParams) };
-static_assert(sizeof(Z_Construct_UFunction_ATaraCharacter_ThrowSatchel_Statics::TaraCharacter_eventThrowSatchel_Parms) < MAX_uint16);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ATaraCharacter_ThrowSatchel_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ATaraCharacter, nullptr, "ThrowSatchel", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ATaraCharacter_ThrowSatchel_Statics::Function_MetaDataParams), Z_Construct_UFunction_ATaraCharacter_ThrowSatchel_Statics::Function_MetaDataParams) };
 UFunction* Z_Construct_UFunction_ATaraCharacter_ThrowSatchel()
 {
 	static UFunction* ReturnFunction = nullptr;
@@ -676,10 +633,9 @@ UFunction* Z_Construct_UFunction_ATaraCharacter_ThrowSatchel()
 }
 DEFINE_FUNCTION(ATaraCharacter::execThrowSatchel)
 {
-	P_GET_OBJECT(AActor,Z_Param_satchel);
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	P_THIS->ThrowSatchel(Z_Param_satchel);
+	P_THIS->ThrowSatchel();
 	P_NATIVE_END;
 }
 // End Class ATaraCharacter Function ThrowSatchel
@@ -694,7 +650,6 @@ void ATaraCharacter::StaticRegisterNativesATaraCharacter()
 		{ "GetMaxSatchels", &ATaraCharacter::execGetMaxSatchels },
 		{ "GetSatchelRechargeRate", &ATaraCharacter::execGetSatchelRechargeRate },
 		{ "IsPlayerCarryingKey", &ATaraCharacter::execIsPlayerCarryingKey },
-		{ "RechargeSatchels", &ATaraCharacter::execRechargeSatchels },
 		{ "RemoveKey", &ATaraCharacter::execRemoveKey },
 		{ "ThrowSatchel", &ATaraCharacter::execThrowSatchel },
 	};
@@ -724,7 +679,7 @@ struct Z_Construct_UClass_ATaraCharacter_Statics
 #endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_OnSatchelCountChanged_MetaData[] = {
-		{ "Category", "Player|KeyWallet" },
+		{ "Category", "Player|Satchel" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// Triggered when something happens with the player's key wallet.\n" },
 #endif
@@ -750,14 +705,13 @@ struct Z_Construct_UClass_ATaraCharacter_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_ATaraCharacter_AddKey, "AddKey" }, // 1569158250
+		{ &Z_Construct_UFunction_ATaraCharacter_AddKey, "AddKey" }, // 4237726308
 		{ &Z_Construct_UFunction_ATaraCharacter_GetCurrentSatchels, "GetCurrentSatchels" }, // 3237286982
 		{ &Z_Construct_UFunction_ATaraCharacter_GetMaxSatchels, "GetMaxSatchels" }, // 1709898494
 		{ &Z_Construct_UFunction_ATaraCharacter_GetSatchelRechargeRate, "GetSatchelRechargeRate" }, // 551314260
-		{ &Z_Construct_UFunction_ATaraCharacter_IsPlayerCarryingKey, "IsPlayerCarryingKey" }, // 3999404268
-		{ &Z_Construct_UFunction_ATaraCharacter_RechargeSatchels, "RechargeSatchels" }, // 473985748
-		{ &Z_Construct_UFunction_ATaraCharacter_RemoveKey, "RemoveKey" }, // 1646904262
-		{ &Z_Construct_UFunction_ATaraCharacter_ThrowSatchel, "ThrowSatchel" }, // 1341518096
+		{ &Z_Construct_UFunction_ATaraCharacter_IsPlayerCarryingKey, "IsPlayerCarryingKey" }, // 851387898
+		{ &Z_Construct_UFunction_ATaraCharacter_RemoveKey, "RemoveKey" }, // 1821947775
+		{ &Z_Construct_UFunction_ATaraCharacter_ThrowSatchel, "ThrowSatchel" }, // 3484997733
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -817,10 +771,10 @@ struct Z_CompiledInDeferFile_FID_UnrealProjects2_BotBlastDevelopment_BotBlastFin
 		{ EPlayerKeyAction_StaticEnum, TEXT("EPlayerKeyAction"), &Z_Registration_Info_UEnum_EPlayerKeyAction, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3677451385U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ATaraCharacter, ATaraCharacter::StaticClass, TEXT("ATaraCharacter"), &Z_Registration_Info_UClass_ATaraCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ATaraCharacter), 2069234657U) },
+		{ Z_Construct_UClass_ATaraCharacter, ATaraCharacter::StaticClass, TEXT("ATaraCharacter"), &Z_Registration_Info_UClass_ATaraCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ATaraCharacter), 384023318U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_376517514(TEXT("/Script/BotBlastFinal"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_1892725665(TEXT("/Script/BotBlastFinal"),
 	Z_CompiledInDeferFile_FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_Statics::ClassInfo),
 	nullptr, 0,
 	Z_CompiledInDeferFile_FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_Statics::EnumInfo));

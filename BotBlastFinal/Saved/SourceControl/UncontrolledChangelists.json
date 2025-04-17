@@ -30,7 +30,9 @@
 				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/Tara__2__Anim_IdleAnim.uasset",
 				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/Tara__2__Anim_IdleAnim_001.uasset",
 				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/Tara__2__Anim_AttackAnim.uasset",
-				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/Tara__2__Anim_Tara_001_IdleAnim.uasset"
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/Tara__2__Anim_Tara_001_IdleAnim.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Input/WallJump.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Input/AttachToWall.uasset"
 			]
 		}
 	]

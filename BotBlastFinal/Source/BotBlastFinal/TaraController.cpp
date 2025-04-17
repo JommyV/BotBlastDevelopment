@@ -5,6 +5,7 @@
 #include "TaraCharacter.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
+#include "GameFramework/CharacterMovementComponent.h"
 
 void ATaraController::OnPossess(APawn* aPawn)
 {
@@ -78,9 +79,42 @@ void ATaraController::HandleLook(const FInputActionValue& InputActionValue)
 
 void ATaraController::HandleMove(const FInputActionValue& InputActionValue)
 {
+	if (!PlayerCharacter) return;
 	const FVector2D MovementVector = InputActionValue.Get<FVector2D>();
+	//bool bIsAttached = PlayerCharacter->bIsAttached;
+	if (MovementVector.IsNearlyZero()) return;
 
-	if (PlayerCharacter)
+
+	// Get control rotation and zero out pitch/roll
+	const FRotator ControlRot = GetControlRotation();
+	const FRotator YawRot(0.f, ControlRot.Yaw, 0.f);
+
+	// Get forward and right directions from controller
+	const FVector Forward = FRotationMatrix(YawRot).GetUnitAxis(EAxis::X);
+	const FVector Right = FRotationMatrix(YawRot).GetUnitAxis(EAxis::Y);
+
+	// Check if character is attached
+	const bool bIsAttached = PlayerCharacter->bIsAttached;
+
+	// Movement input
+	FVector MoveDirectionForward = bIsAttached ? -Forward : Forward;
+
+	// Apply movement input
+	PlayerCharacter->AddMovementInput(MoveDirectionForward, MovementVector.Y);
+	PlayerCharacter->AddMovementInput(Right, MovementVector.X);
+
+	// Set movement rotation behavior
+	UCharacterMovementComponent* MovementComp = PlayerCharacter->GetCharacterMovement();
+	if (MovementComp)
+	{
+		MovementComp->bOrientRotationToMovement = !bIsAttached;
+		PlayerCharacter->bUseControllerRotationYaw = bIsAttached;
+	}
+}
+
+
+	
+	/*if (PlayerCharacter && !bIsAttached)
 	{
 		// Get the control rotation, but zero out pitch/roll (we only want yaw)
 		const FRotator YawRotation(0.f, GetControlRotation().Yaw, 0.f);
@@ -92,8 +126,10 @@ void ATaraController::HandleMove(const FInputActionValue& InputActionValue)
 		// Apply movement in those directions
 		PlayerCharacter->AddMovementInput(ForwardDir, MovementVector.Y);
 		PlayerCharacter->AddMovementInput(RightDir, MovementVector.X);
-	}
-}
+	}*/
+
+	
+
 
 void ATaraController::HandleJump()
 {

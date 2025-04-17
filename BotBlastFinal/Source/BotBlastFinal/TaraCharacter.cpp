@@ -15,7 +15,7 @@
 ATaraCharacter::ATaraCharacter()
 {
 	PrimaryActorTick.bCanEverTick = true;
-	SetActorTickInterval(0.5f);
+	//SetActorTickInterval(0.5f);
 	SetActorTickEnabled(true);
 
 	//Create our components
@@ -36,7 +36,7 @@ ATaraCharacter::ATaraCharacter()
 	SpringArmComp->CameraLagSpeed = 3.0f;
 
 	GetCharacterMovement()->bOrientRotationToMovement = true;
-	GetCharacterMovement()->RotationRate = FRotator(0.0f, 540.0f, 0.0f); // Adjust turn speed here
+	GetCharacterMovement()->RotationRate = FRotator(0.0f, 250.0f, 0.0f); // Adjust turn speed here
 	
 	SpringArmComp->bUsePawnControlRotation = true;
 	CameraComp->bUsePawnControlRotation = false; // Let spring arm handle the rotation
@@ -57,7 +57,6 @@ void ATaraCharacter::BeginPlay()
 void ATaraCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 	
 
 	if (CurrentSatchels != MaxSatchels)

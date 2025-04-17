@@ -52,7 +52,7 @@ protected:
 	UPROPERTY(EditAnywhere)
 	class USpringArmComponent* SpringArmComp;
 		
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere,BlueprintReadOnly)
 	class UCameraComponent* CameraComp;
 		
 	UPROPERTY(EditAnywhere)
@@ -136,6 +136,12 @@ public:
 	void PitchCamera(float AxisValue);
 	void YawCamera(float AxisValue);
 
+	UPROPERTY(BlueprintReadWrite)
+	bool bIsAttached = false;
+
+	
+	
+
 private:
 	//Player keys
 	TArray<FString>KeyWallet;
@@ -154,6 +160,7 @@ private:
 	//Camera
 	FVector2D CameraInput;
 
+	
 	
 	
 

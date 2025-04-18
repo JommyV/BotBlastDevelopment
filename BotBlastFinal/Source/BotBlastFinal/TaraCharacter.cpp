@@ -58,6 +58,9 @@ void ATaraCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	
+	GEngine->AddOnScreenDebugMessage(-1, 0.1f, FColor::Silver,
+									*(FString::Printf(
+									TEXT("Movement - IsAttached: %d"), bIsAttached)));
 
 	if (CurrentSatchels != MaxSatchels)
 	{
@@ -66,16 +69,16 @@ void ATaraCharacter::Tick(float DeltaTime)
 		CurrentSatchels = FMath::Clamp(CurrentSatchels+SatchelRechargeRate, 0, MaxSatchels);
 		OnSatchelCountChanged.Broadcast(PreviousSatchels, CurrentSatchels,MaxSatchels);
 	}
-	GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Silver,
-									 *(FString::Printf(
-										 TEXT("Movement - IsCrouched: %d"), bIsCrouched)));
+	//GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Silver,
+									// *(FString::Printf(
+									//	 TEXT("Movement - IsCrouched: %d"), bIsCrouched)));
 
-	GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Cyan,
-									 *(FString::Printf(
-										 TEXT("Satchel - Current: %f | Maximum: %i"), CurrentSatchels, MaxSatchels)));
+	//GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Cyan,
+									// *(FString::Printf(
+									//	 TEXT("Satchel - Current: %f | Maximum: %i"), CurrentSatchels, MaxSatchels)));
 
-	GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Orange,
-									 *(FString::Printf(TEXT("Keys - %d Keys Currently held"), KeyWallet.Num())));
+	//GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Orange,
+									// *(FString::Printf(TEXT("Keys - %d Keys Currently held"), KeyWallet.Num())));
 }
 
 

@@ -101,8 +101,10 @@ void ATaraController::HandleMove(const FInputActionValue& InputActionValue)
 
 	// Apply movement input
 	PlayerCharacter->AddMovementInput(MoveDirectionForward, MovementVector.Y);
-	PlayerCharacter->AddMovementInput(Right, MovementVector.X);
-
+	if (!bIsAttached)
+	{
+		PlayerCharacter->AddMovementInput(Right, MovementVector.X);
+	}
 	// Set movement rotation behavior
 	UCharacterMovementComponent* MovementComp = PlayerCharacter->GetCharacterMovement();
 	if (MovementComp)

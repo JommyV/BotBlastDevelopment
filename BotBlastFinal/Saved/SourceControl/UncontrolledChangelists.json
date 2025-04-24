@@ -5,6 +5,8 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
+				"C:/Users/Vivobook/Documents/Unreal Projects/BotBlastDevelopment/BotBlastFinal/Content/Core/Map/BotBlastMap.umap",
+				"C:/Users/Vivobook/Documents/Unreal Projects/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/TaraClass_BP.uasset",
 				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/StarterContent/Architecture/Floor_400x400.uasset",
 				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Input/Jump.uasset",
 				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Input/Move.uasset",

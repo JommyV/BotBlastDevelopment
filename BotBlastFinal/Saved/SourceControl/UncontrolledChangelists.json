@@ -19,6 +19,18 @@
 				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/BotBlastKey_BP.uasset",
 				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Satchel/Satchel_BP.uasset",
 				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/TaraClass_BP.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Input/WallJump.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Input/AttachToWall.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/Animations/TaraBlendSpace_BP.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/Animations/TaraAnimation_BP.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Satchel/highlight.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Satchel/light.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Satchel/metal1.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Satchel/metal2.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Satchel/plastic.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Satchel/satchel1.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Wallrun/GripTimer.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Map2/NewMapBot.umap",
 				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/Black.uasset",
 				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/Hair.uasset",
 				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/Skin.uasset",
@@ -30,9 +42,7 @@
 				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/Tara__2__Anim_IdleAnim.uasset",
 				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/Tara__2__Anim_IdleAnim_001.uasset",
 				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/Tara__2__Anim_AttackAnim.uasset",
-				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/Tara__2__Anim_Tara_001_IdleAnim.uasset",
-				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Input/WallJump.uasset",
-				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Input/AttachToWall.uasset"
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/Tara__2__Anim_Tara_001_IdleAnim.uasset"
 			]
 		}
 	]

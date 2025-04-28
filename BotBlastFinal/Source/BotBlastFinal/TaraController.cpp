@@ -81,7 +81,6 @@ void ATaraController::HandleMove(const FInputActionValue& InputActionValue)
 {
 	if (!PlayerCharacter) return;
 	const FVector2D MovementVector = InputActionValue.Get<FVector2D>();
-	//bool bIsAttached = PlayerCharacter->bIsAttached;
 	if (MovementVector.IsNearlyZero()) return;
 
 
@@ -92,26 +91,23 @@ void ATaraController::HandleMove(const FInputActionValue& InputActionValue)
 	// Get forward and right directions from controller
 	const FVector Forward = FRotationMatrix(YawRot).GetUnitAxis(EAxis::X);
 	const FVector Right = FRotationMatrix(YawRot).GetUnitAxis(EAxis::Y);
-
-	// Check if character is attached
-	const bool bIsAttached = PlayerCharacter->bIsAttached;
-
-	// Movement input
-	FVector MoveDirectionForward = bIsAttached ? -Forward : Forward;
+	
+	FVector MoveDirectionForward = Forward;
 
 	// Apply movement input
-	PlayerCharacter->AddMovementInput(MoveDirectionForward, MovementVector.Y);
-	if (!bIsAttached)
+	PlayerCharacter->AddMovementInput(Forward, MovementVector.Y);
+	//If player is wallrunning, don't allow sideways movement
+	if (!PlayerCharacter->bIsWallRunning)
 	{
 		PlayerCharacter->AddMovementInput(Right, MovementVector.X);
 	}
-	// Set movement rotation behavior
-	UCharacterMovementComponent* MovementComp = PlayerCharacter->GetCharacterMovement();
-	if (MovementComp)
+	else
 	{
-		MovementComp->bOrientRotationToMovement = !bIsAttached;
-		PlayerCharacter->bUseControllerRotationYaw = bIsAttached;
+		PlayerCharacter->AddMovementInput(Right, MovementVector.X, false);
 	}
+
+
+	
 }
 
 

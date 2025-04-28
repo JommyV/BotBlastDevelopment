@@ -139,7 +139,9 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	bool bIsAttached = false;
 
-	
+	UPROPERTY(BlueprintReadWrite)
+	bool bIsWallRunning = false;
+
 	
 
 private:

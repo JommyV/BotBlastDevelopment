@@ -142,15 +142,23 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	bool bIsWallRunning = false;
 
-	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Player|Satchel")
+	float SatchelRechargeRate = 0.001f;
 
+	UPROPERTY(BlueprintReadWrite)
+	int	ActiveSatchels = 0;
+
+	UPROPERTY(BlueprintReadWrite)
+	float CurrentSatchels = MaxSatchels;
+
+	
 private:
 	//Player keys
 	TArray<FString>KeyWallet;
 
 	int					 MaxSatchels = 2;
-	float				 CurrentSatchels = MaxSatchels;
-	float				 SatchelRechargeRate = 0.2f;
+	
+	
 	bool				 IsSatchelActive = false;
 
 	//Has a satchel been thrown

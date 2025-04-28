@@ -60,7 +60,7 @@ void ATaraCharacter::Tick(float DeltaTime)
 	
 	GEngine->AddOnScreenDebugMessage(-1, 0.1f, FColor::Silver,
 									*(FString::Printf(
-									TEXT("Movement - IsAttached: %d"), bIsAttached)));
+									TEXT("ActiveSatchels: %i"), ActiveSatchels)));
 
 	if (CurrentSatchels != MaxSatchels)
 	{
@@ -73,9 +73,9 @@ void ATaraCharacter::Tick(float DeltaTime)
 									// *(FString::Printf(
 									//	 TEXT("Movement - IsCrouched: %d"), bIsCrouched)));
 
-	//GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Cyan,
-									// *(FString::Printf(
-									//	 TEXT("Satchel - Current: %f | Maximum: %i"), CurrentSatchels, MaxSatchels)));
+	GEngine->AddOnScreenDebugMessage(-1, 0.05f, FColor::Cyan,
+									 *(FString::Printf(
+										 TEXT("Satchel - Current: %f | Maximum: %i"), CurrentSatchels, MaxSatchels)));
 
 	//GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Orange,
 									// *(FString::Printf(TEXT("Keys - %d Keys Currently held"), KeyWallet.Num())));
@@ -105,16 +105,16 @@ float ATaraCharacter::GetSatchelRechargeRate()
 
 void ATaraCharacter::ThrowSatchel()
 {
-	if (CurrentSatchels >= 1)
+	/*if (CurrentSatchels >= 1 && ActiveSatchels == 0)
 	{
 		//implement satchel throwing here
 		CurrentSatchels--;
-		UE_LOG(LogTemp,Display, TEXT("Boom, Baby"));
+		ActiveSatchels++;
 	}
-	else
+	else if (ActiveSatchels >= 1)
 	{
-		UE_LOG(LogTemp,Display, TEXT("No boom, Baby"));
-	}
+		ActiveSatchels--;
+	}*/
 }
 
 

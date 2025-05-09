@@ -70,8 +70,9 @@ void ATaraCharacter::Tick(float DeltaTime)
 		OnSatchelCountChanged.Broadcast(PreviousSatchels, CurrentSatchels,MaxSatchels);
 	}
 	//GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Silver,
-									// *(FString::Printf(
-									//	 TEXT("Movement - IsCrouched: %d"), bIsCrouched)));
+    									// *(FString::Printf(
+    									//	 TEXT("Movement - IsCrouched: %d"), bIsCrouched)));}
+	
 
 	GEngine->AddOnScreenDebugMessage(-1, 0.05f, FColor::Cyan,
 									 *(FString::Printf(

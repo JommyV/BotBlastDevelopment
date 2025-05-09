@@ -1,0 +1,19 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\unrealprojects2\\botblastdevelopment\\botblastfinal\\source\\botblastfinal\\gamemodebotblast.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\unrealprojects2\\botblastdevelopment\\botblastfinal\\intermediate\\build\\win64\\x64\\botblastfinaleditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "d:\\unrealprojects2\\botblastdevelopment\\botblastfinal\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\botblastfinal\\definitions.botblastfinal.h",
+            "d:\\unrealprojects2\\botblastdevelopment\\botblastfinal\\source\\botblastfinal\\gamemodebotblast.h",
+            "d:\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamemodebase.h",
+            "d:\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\engine\\serverstatreplicator.h",
+            "d:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\serverstatreplicator.generated.h",
+            "d:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamemodebase.generated.h",
+            "d:\\unrealprojects2\\botblastdevelopment\\botblastfinal\\intermediate\\build\\win64\\unrealeditor\\inc\\botblastfinal\\uht\\gamemodebotblast.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

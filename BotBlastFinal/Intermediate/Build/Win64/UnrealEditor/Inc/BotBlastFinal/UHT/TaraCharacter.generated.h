@@ -31,7 +31,7 @@ BOTBLASTFINAL_API void FFloatStatUpdated_DelegateWrapper(const FMulticastScriptD
 BOTBLASTFINAL_API void FKeyWalletAction_DelegateWrapper(const FMulticastScriptDelegate& KeyWalletAction, const FString& KeyString, EPlayerKeyAction KeyAction, bool IsSuccess);
 
 
-#define FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_178_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_180_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execIsPlayerCarryingKey); \
 	DECLARE_FUNCTION(execRemoveKey); \
 	DECLARE_FUNCTION(execAddKey); \
@@ -41,7 +41,7 @@ BOTBLASTFINAL_API void FKeyWalletAction_DelegateWrapper(const FMulticastScriptDe
 	DECLARE_FUNCTION(execGetMaxSatchels);
 
 
-#define FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_178_INCLASS_NO_PURE_DECLS \
+#define FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_180_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesATaraCharacter(); \
 	friend struct Z_Construct_UClass_ATaraCharacter_Statics; \
@@ -50,7 +50,7 @@ public: \
 	DECLARE_SERIALIZER(ATaraCharacter)
 
 
-#define FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_178_ENHANCED_CONSTRUCTORS \
+#define FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_180_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	ATaraCharacter(ATaraCharacter&&); \
@@ -63,12 +63,12 @@ public: \
 
 
 #define FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_43_PROLOG
-#define FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_178_GENERATED_BODY \
+#define FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_180_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_178_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_178_INCLASS_NO_PURE_DECLS \
-	FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_178_ENHANCED_CONSTRUCTORS \
+	FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_180_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_180_INCLASS_NO_PURE_DECLS \
+	FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_180_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

@@ -1,6 +1,14 @@
 {
 	"SourceFiles": [
 		"D:\\UnrealProjects2\\BotBlastDevelopment\\BotBlastFinal\\Source\\BotBlastFinal\\BotBlastFinal.Build.cs",
+		"D:\\UnrealProjects2\\BotBlastDevelopment\\BotBlastFinal\\Plugins\\Developer\\RiderLink\\Source\\RD\\RD.Build.cs",
+		"D:\\UnrealProjects2\\BotBlastDevelopment\\BotBlastFinal\\Plugins\\Developer\\RiderLink\\Source\\RiderBlueprint\\RiderBlueprint.Build.cs",
+		"D:\\UnrealProjects2\\BotBlastDevelopment\\BotBlastFinal\\Plugins\\Developer\\RiderLink\\Source\\RiderDebuggerSupport\\RiderDebuggerSupport.Build.cs",
+		"D:\\UnrealProjects2\\BotBlastDevelopment\\BotBlastFinal\\Plugins\\Developer\\RiderLink\\Source\\RiderGameControl\\RiderGameControl.Build.cs",
+		"D:\\UnrealProjects2\\BotBlastDevelopment\\BotBlastFinal\\Plugins\\Developer\\RiderLink\\Source\\RiderLC\\RiderLC.Build.cs",
+		"D:\\UnrealProjects2\\BotBlastDevelopment\\BotBlastFinal\\Plugins\\Developer\\RiderLink\\Source\\RiderLink\\RiderLink.Build.cs",
+		"D:\\UnrealProjects2\\BotBlastDevelopment\\BotBlastFinal\\Plugins\\Developer\\RiderLink\\Source\\RiderLogging\\RiderLogging.Build.cs",
+		"D:\\UnrealProjects2\\BotBlastDevelopment\\BotBlastFinal\\Plugins\\Developer\\RiderLink\\Source\\RiderShaderInfo\\RiderShaderInfo.Build.cs",
 		"D:\\UnrealProjects2\\BotBlastDevelopment\\BotBlastFinal\\Source\\BotBlastFinal.Target.cs",
 		"D:\\UnrealProjects2\\BotBlastDevelopment\\BotBlastFinal\\Source\\BotBlastFinalEditor.Target.cs"
 	],

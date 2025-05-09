@@ -41,10 +41,23 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Player Input|Character Movement")
 	TObjectPtr<UInputAction> ActionSatchel = nullptr;
 
+	// The Input Action to map to Restart PlayInEditor
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Player Input|Character Movement")
+	TObjectPtr<UInputAction> ActionRestartGame = nullptr;
+	
 	// The Input Mapping Context to use.
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Player Input|Character Movement")
 	TObjectPtr<UInputMappingContext> InputMappingContent = nullptr;
 
+	//Variables to change how much air control you have on each axis.
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "AirMovement")
+	float ForwardAirControl = 0.3f;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "AirMovement")
+	float BackwardsAirControl = 1.f ;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "AirMovement")
+	float SideWaysAirControl = 0.3f;
+	
+	
 protected:
 	// Action Handler Functions
 	void         HandleLook(const FInputActionValue& InputActionValue);
@@ -53,9 +66,12 @@ protected:
 	void         HandleCrouch();
 	void         HandleSatchel();
 	void		 HandleToggleSprint();
+	void		 HandleRestartGame();
 	
 	virtual void OnPossess(APawn* aPawn) override;
 	virtual void OnUnPossess() override;
+
+	
 
 private:
 	// Used to store a reference to the InputComponent cast to an EnhancedInputComponent.

@@ -736,6 +736,10 @@ struct Z_Construct_UClass_ATaraCharacter_Statics
 		{ "Category", "TaraCharacter" },
 		{ "ModuleRelativePath", "TaraCharacter.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MaxSatchels_MetaData[] = {
+		{ "Category", "Player|Satchel" },
+		{ "ModuleRelativePath", "TaraCharacter.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_SpringArmComp;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_CameraComp;
@@ -750,6 +754,7 @@ struct Z_Construct_UClass_ATaraCharacter_Statics
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_SatchelRechargeRate;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_ActiveSatchels;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_CurrentSatchels;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_MaxSatchels;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -786,6 +791,7 @@ const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ATaraCharacter_S
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ATaraCharacter_Statics::NewProp_SatchelRechargeRate = { "SatchelRechargeRate", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATaraCharacter, SatchelRechargeRate), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SatchelRechargeRate_MetaData), NewProp_SatchelRechargeRate_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ATaraCharacter_Statics::NewProp_ActiveSatchels = { "ActiveSatchels", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATaraCharacter, ActiveSatchels), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ActiveSatchels_MetaData), NewProp_ActiveSatchels_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ATaraCharacter_Statics::NewProp_CurrentSatchels = { "CurrentSatchels", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATaraCharacter, CurrentSatchels), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CurrentSatchels_MetaData), NewProp_CurrentSatchels_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ATaraCharacter_Statics::NewProp_MaxSatchels = { "MaxSatchels", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATaraCharacter, MaxSatchels), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MaxSatchels_MetaData), NewProp_MaxSatchels_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ATaraCharacter_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATaraCharacter_Statics::NewProp_SpringArmComp,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATaraCharacter_Statics::NewProp_CameraComp,
@@ -798,6 +804,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ATaraChar
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATaraCharacter_Statics::NewProp_SatchelRechargeRate,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATaraCharacter_Statics::NewProp_ActiveSatchels,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATaraCharacter_Statics::NewProp_CurrentSatchels,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATaraCharacter_Statics::NewProp_MaxSatchels,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ATaraCharacter_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ATaraCharacter_Statics::DependentSingletons[])() = {
@@ -843,10 +850,10 @@ struct Z_CompiledInDeferFile_FID_UnrealProjects2_BotBlastDevelopment_BotBlastFin
 		{ EPlayerKeyAction_StaticEnum, TEXT("EPlayerKeyAction"), &Z_Registration_Info_UEnum_EPlayerKeyAction, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3677451385U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ATaraCharacter, ATaraCharacter::StaticClass, TEXT("ATaraCharacter"), &Z_Registration_Info_UClass_ATaraCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ATaraCharacter), 1003224775U) },
+		{ Z_Construct_UClass_ATaraCharacter, ATaraCharacter::StaticClass, TEXT("ATaraCharacter"), &Z_Registration_Info_UClass_ATaraCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ATaraCharacter), 307892107U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_3047475731(TEXT("/Script/BotBlastFinal"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_3664078127(TEXT("/Script/BotBlastFinal"),
 	Z_CompiledInDeferFile_FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_Statics::ClassInfo),
 	nullptr, 0,
 	Z_CompiledInDeferFile_FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraCharacter_h_Statics::EnumInfo));

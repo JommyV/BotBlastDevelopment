@@ -151,13 +151,15 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	float CurrentSatchels = MaxSatchels;
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Player|Satchel")
+	int	MaxSatchels = 2;
+
+	
 	
 private:
 	//Player keys
 	TArray<FString>KeyWallet;
 
-	int					 MaxSatchels = 2;
-	
 	
 	bool				 IsSatchelActive = false;
 

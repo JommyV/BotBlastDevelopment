@@ -10,3 +10,6 @@ void ABotBlastHud::CycleToNextViewMode()
 	UE_LOG(LogTemp, Warning, TEXT("CycleToNextViewMode %s"), *UEnum::GetValueAsString(CurrentViewMode));
 	//UpdateWidgets();
 }
+
+	
+	

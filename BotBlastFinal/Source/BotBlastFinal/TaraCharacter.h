@@ -173,10 +173,6 @@ private:
 	FVector2D CameraInput;
 
 	
-	
-	
-
-
 	GENERATED_BODY()
 };
 

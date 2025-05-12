@@ -65,6 +65,7 @@ public:
 	ATaraCharacter();
 
 
+	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
@@ -136,11 +137,35 @@ public:
 	void PitchCamera(float AxisValue);
 	void YawCamera(float AxisValue);
 
+	
 	UPROPERTY(BlueprintReadWrite)
 	bool bIsAttached = false;
 
 	UPROPERTY(BlueprintReadWrite)
+<<<<<<< Updated upstream
 	bool bIsWallRunning = false;
+=======
+	int					 MaxSatchels = 2;
+
+	UPROPERTY(BlueprintReadWrite)
+	float				 SatchelRechargeRate = 0.2f;
+
+	
+	bool bIsWallRunning = false;
+	FVector WallNormal;
+	float WallRunStartTime = 3.0;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Wallrun")
+	float WallRunForce = 1000.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Wallrun")
+	float WallRunDuration = 1.5f;
+
+	void StartWallRun(const FVector& InWallNormal);
+	void StopWallRun();
+	bool CanStillWallRun() const;
+	
+>>>>>>> Stashed changes
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Player|Satchel")
 	float SatchelRechargeRate = 0.001f;
@@ -161,6 +186,10 @@ private:
 	TArray<FString>KeyWallet;
 
 	
+<<<<<<< Updated upstream
+=======
+	float				 CurrentSatchels = MaxSatchels;
+>>>>>>> Stashed changes
 	bool				 IsSatchelActive = false;
 
 	//Has a satchel been thrown
@@ -173,10 +202,6 @@ private:
 	FVector2D CameraInput;
 
 	
-	
-	
-
-
 	GENERATED_BODY()
 };
 

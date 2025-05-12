@@ -118,14 +118,12 @@ void ATaraController::HandleMove(const FInputActionValue& InputActionValue)
 	}
 	else
 	{
-		// If not on air, let character spin towards the movement
-		PlayerCharacter->GetCharacterMovement()->bOrientRotationToMovement = true;
 		// Apply movement input
 		PlayerCharacter->AddMovementInput(Forward, MovementVector.Y);
 		//If player is wallrunning, don't allow sideways movement
 		if (!PlayerCharacter->bIsWallRunning)
 		{
-			PlayerCharacter->AddMovementInput(Right, MovementVector.X);
+			PlayerCharacter->AddMovementInput(Right*0.5f, MovementVector.X);
 		}
 		else
 		{

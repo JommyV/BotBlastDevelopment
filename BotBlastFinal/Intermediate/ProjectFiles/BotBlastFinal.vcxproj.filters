@@ -1546,6 +1546,18 @@
     <ClCompile Include="..\..\Source\BotBlastFinal\BotBlastFinal.h">
       <Filter>Source\BotBlastFinal</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\BotBlastFinal\BotBlastHud.cpp">
+      <Filter>Source\BotBlastFinal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BotBlastFinal\BotBlastHud.h">
+      <Filter>Source\BotBlastFinal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BotBlastFinal\GameModeBotBlast.cpp">
+      <Filter>Source\BotBlastFinal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BotBlastFinal\GameModeBotBlast.h">
+      <Filter>Source\BotBlastFinal</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\BotBlastFinal\TaraCharacter.cpp">
       <Filter>Source\BotBlastFinal</Filter>
     </ClCompile>
@@ -1556,6 +1568,12 @@
       <Filter>Source\BotBlastFinal</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\BotBlastFinal\TaraController.h">
+      <Filter>Source\BotBlastFinal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BotBlastFinal\WidgetBase.cpp">
+      <Filter>Source\BotBlastFinal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BotBlastFinal\WidgetBase.h">
       <Filter>Source\BotBlastFinal</Filter>
     </ClCompile>
   </ItemGroup>

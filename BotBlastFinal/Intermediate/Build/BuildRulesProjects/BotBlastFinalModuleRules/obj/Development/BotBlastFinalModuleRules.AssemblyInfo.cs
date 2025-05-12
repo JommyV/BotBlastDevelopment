@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BotBlastFinalModuleRules")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Development")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7528c8d6cc669d05d4a30ddfb6d49522eda9dc96")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b89e678a870b7782952a134ed086ee592119aa78")]
 [assembly: System.Reflection.AssemblyProductAttribute("BotBlastFinalModuleRules")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BotBlastFinalModuleRules")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

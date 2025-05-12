@@ -35,12 +35,12 @@ ATaraCharacter::ATaraCharacter()
 	SpringArmComp->bEnableCameraLag = true;
 	SpringArmComp->CameraLagSpeed = 3.0f;
 
-	GetCharacterMovement()->bOrientRotationToMovement = true;
+	GetCharacterMovement()->bOrientRotationToMovement = false;
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 250.0f, 0.0f); // Adjust turn speed here
 	
 	SpringArmComp->bUsePawnControlRotation = true;
 	CameraComp->bUsePawnControlRotation = false; // Let spring arm handle the rotation
-	bUseControllerRotationYaw = false;            // Let controller rotate the whole pawn
+	bUseControllerRotationYaw = true;            // Let controller rotate the whole pawn
 	
 	AutoPossessPlayer = EAutoReceiveInput::Player0;
 }

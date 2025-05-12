@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "BotBlastHud.h"
 #include "InputAction.h"
 #include "InputActionValue.h"
 #include "GameFramework/PlayerController.h"
@@ -42,8 +43,14 @@ public:
 	TObjectPtr<UInputAction> ActionSatchel = nullptr;
 
 	// The Input Action to map to Restart PlayInEditor
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Player Input|Character Movement")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Player Input|Game Control")
 	TObjectPtr<UInputAction> ActionRestartGame = nullptr;
+
+
+	// The Input Action to map to Restart PlayInEditor
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Player Input|UI")
+	TObjectPtr<UInputAction> ActionCycleUI = nullptr;
+	
 	
 	// The Input Mapping Context to use.
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Player Input|Character Movement")
@@ -67,6 +74,7 @@ protected:
 	void         HandleSatchel();
 	void		 HandleToggleSprint();
 	void		 HandleRestartGame();
+	void		 HandleCycleUI();
 	
 	virtual void OnPossess(APawn* aPawn) override;
 	virtual void OnUnPossess() override;
@@ -81,6 +89,10 @@ private:
 	// Used to store a reference to the pawn we are controlling.
 	UPROPERTY()
 	TObjectPtr<ATaraCharacter> PlayerCharacter = nullptr;
+
+	// USed to store a reference to the HUD we want to change.
+	UPROPERTY()
+	TObjectPtr<ABotBlastHud> PlayerHud = nullptr;
 
 	GENERATED_BODY()
 };

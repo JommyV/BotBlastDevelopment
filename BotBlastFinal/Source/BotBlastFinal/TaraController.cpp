@@ -59,6 +59,11 @@ void ATaraController::OnPossess(APawn* aPawn)
 	if (ActionRestartGame)
 		EnhancedInputComponent->BindAction(ActionRestartGame, ETriggerEvent::Triggered, this,
 											&ATaraController::HandleRestartGame);
+	if (ActionCycleUI)
+		EnhancedInputComponent->BindAction(ActionCycleUI, ETriggerEvent::Triggered, this,
+											&ATaraController::HandleCycleUI);
+
+
 }
 
 void ATaraController::OnUnPossess()
@@ -174,6 +179,12 @@ void ATaraController::HandleRestartGame()
 	
 	//AGameModeBotBlast* GameMode = Cast<AGameModeBotBlast>(UGameplayStatics::GetGameMode(this));
 	UGameplayStatics::OpenLevel(this, FName(*GetWorld()->GetName()), false);
+}
+
+void ATaraController::HandleCycleUI()
+{
+	if (PlayerHud)
+		PlayerHud->CycleToNextViewMode();
 }
 
 

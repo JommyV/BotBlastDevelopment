@@ -14,7 +14,6 @@
 				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Input/TaraInputContext.uasset",
 				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Input/Look.uasset",
 				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Map/BotBlastMap.umap",
-				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Input/TaraControllerBB.uasset",
 				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Input/Sprint.uasset",
 				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/BotBlastKey_BP.uasset",
 				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Satchel/Satchel_BP.uasset",
@@ -47,6 +46,9 @@
 				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/StarterContent/Blueprints/Blueprint_Effect_Explosion.uasset",
 				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Input/Restart.uasset",
 				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/GameModeBotBlastInherited_BP.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Input/TaraController_BP.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Input/UIChange.uasset",
+				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Input/TaraControllerBB.uasset",
 				"D:/UnrealProjects2/BotBlastDevelopment/BotBlastFinal/Content/Core/Tara/Left_RightEnum.uasset"
 			]
 		}

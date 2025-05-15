@@ -51,7 +51,7 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Player Input|UI")
 	TObjectPtr<UInputAction> ActionCycleUI = nullptr;
 	
-	
+
 	// The Input Mapping Context to use.
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Player Input|Character Movement")
 	TObjectPtr<UInputMappingContext> InputMappingContent = nullptr;
@@ -63,6 +63,8 @@ public:
 	float BackwardsAirControl = 1.f ;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "AirMovement")
 	float SideWaysAirControl = 0.3f;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "GroundMovement")
+	float GroundStrafingSpeed = 0.5f;
 	
 	
 protected:

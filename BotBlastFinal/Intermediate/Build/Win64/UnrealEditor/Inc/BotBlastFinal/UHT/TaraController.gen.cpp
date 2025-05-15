@@ -146,6 +146,10 @@ struct Z_Construct_UClass_ATaraController_Statics
 		{ "Category", "AirMovement" },
 		{ "ModuleRelativePath", "TaraController.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_GroundStrafingSpeed_MetaData[] = {
+		{ "Category", "GroundMovement" },
+		{ "ModuleRelativePath", "TaraController.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_EnhancedInputComponent_MetaData[] = {
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// Used to store a reference to the InputComponent cast to an EnhancedInputComponent.\n" },
@@ -187,6 +191,7 @@ struct Z_Construct_UClass_ATaraController_Statics
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_ForwardAirControl;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_BackwardsAirControl;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_SideWaysAirControl;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_GroundStrafingSpeed;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_EnhancedInputComponent;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_PlayerCharacter;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_PlayerHud;
@@ -209,6 +214,7 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATaraControlle
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ATaraController_Statics::NewProp_ForwardAirControl = { "ForwardAirControl", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATaraController, ForwardAirControl), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ForwardAirControl_MetaData), NewProp_ForwardAirControl_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ATaraController_Statics::NewProp_BackwardsAirControl = { "BackwardsAirControl", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATaraController, BackwardsAirControl), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_BackwardsAirControl_MetaData), NewProp_BackwardsAirControl_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ATaraController_Statics::NewProp_SideWaysAirControl = { "SideWaysAirControl", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATaraController, SideWaysAirControl), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SideWaysAirControl_MetaData), NewProp_SideWaysAirControl_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ATaraController_Statics::NewProp_GroundStrafingSpeed = { "GroundStrafingSpeed", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATaraController, GroundStrafingSpeed), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_GroundStrafingSpeed_MetaData), NewProp_GroundStrafingSpeed_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATaraController_Statics::NewProp_EnhancedInputComponent = { "EnhancedInputComponent", nullptr, (EPropertyFlags)0x0144000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATaraController, EnhancedInputComponent), Z_Construct_UClass_UEnhancedInputComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_EnhancedInputComponent_MetaData), NewProp_EnhancedInputComponent_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATaraController_Statics::NewProp_PlayerCharacter = { "PlayerCharacter", nullptr, (EPropertyFlags)0x0144000000000000, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATaraController, PlayerCharacter), Z_Construct_UClass_ATaraCharacter_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PlayerCharacter_MetaData), NewProp_PlayerCharacter_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATaraController_Statics::NewProp_PlayerHud = { "PlayerHud", nullptr, (EPropertyFlags)0x0144000000000000, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATaraController, PlayerHud), Z_Construct_UClass_ABotBlastHud_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PlayerHud_MetaData), NewProp_PlayerHud_MetaData) };
@@ -225,6 +231,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ATaraCont
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATaraController_Statics::NewProp_ForwardAirControl,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATaraController_Statics::NewProp_BackwardsAirControl,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATaraController_Statics::NewProp_SideWaysAirControl,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATaraController_Statics::NewProp_GroundStrafingSpeed,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATaraController_Statics::NewProp_EnhancedInputComponent,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATaraController_Statics::NewProp_PlayerCharacter,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATaraController_Statics::NewProp_PlayerHud,
@@ -271,10 +278,10 @@ ATaraController::~ATaraController() {}
 struct Z_CompiledInDeferFile_FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraController_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ATaraController, ATaraController::StaticClass, TEXT("ATaraController"), &Z_Registration_Info_UClass_ATaraController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ATaraController), 2832416820U) },
+		{ Z_Construct_UClass_ATaraController, ATaraController::StaticClass, TEXT("ATaraController"), &Z_Registration_Info_UClass_ATaraController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ATaraController), 86907073U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraController_h_3636286969(TEXT("/Script/BotBlastFinal"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraController_h_180800932(TEXT("/Script/BotBlastFinal"),
 	Z_CompiledInDeferFile_FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UnrealProjects2_BotBlastDevelopment_BotBlastFinal_Source_BotBlastFinal_TaraController_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

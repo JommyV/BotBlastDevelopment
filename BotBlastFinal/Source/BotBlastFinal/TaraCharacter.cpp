@@ -62,24 +62,14 @@ void ATaraCharacter::Tick(float DeltaTime)
 									*(FString::Printf(
 									TEXT("ActiveSatchels: %i"), ActiveSatchels)));
 
-	/*if (CurrentSatchels != MaxSatchels)
-	{
-		const int PreviousSatchels = CurrentSatchels;
-
-		CurrentSatchels = FMath::Clamp(CurrentSatchels+SatchelRechargeRate, 0, MaxSatchels);
-		OnSatchelCountChanged.Broadcast(PreviousSatchels, CurrentSatchels,MaxSatchels);
-	}*/
-	//GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Silver,
-    									// *(FString::Printf(
-    									//	 TEXT("Movement - IsCrouched: %d"), bIsCrouched)));}
-	
-
+		
 	GEngine->AddOnScreenDebugMessage(-1, 0.05f, FColor::Cyan,
 									 *(FString::Printf(
 										 TEXT("Satchel - Current: %f | Maximum: %i"), CurrentSatchels, MaxSatchels)));
 
-	//GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Orange,
-									// *(FString::Printf(TEXT("Keys - %d Keys Currently held"), KeyWallet.Num())));
+	
+
+	
 }
 
 

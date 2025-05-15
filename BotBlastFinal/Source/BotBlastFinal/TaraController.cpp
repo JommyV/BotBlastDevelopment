@@ -123,7 +123,7 @@ void ATaraController::HandleMove(const FInputActionValue& InputActionValue)
 		//If player is wallrunning, don't allow sideways movement
 		if (!PlayerCharacter->bIsWallRunning)
 		{
-			PlayerCharacter->AddMovementInput(Right*0.5f, MovementVector.X);
+			PlayerCharacter->AddMovementInput(Right*GroundStrafingSpeed, MovementVector.X);
 		}
 		else
 		{

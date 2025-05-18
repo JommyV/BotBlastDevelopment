@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "CoreMinimal.h "
+#include "CoreMinimal.h"
 #include "Components/SceneComponent.h"
 #include "ShadowComponent.generated.h"
 

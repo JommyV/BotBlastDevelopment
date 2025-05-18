@@ -1,11 +1,11 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "d:\\unrealprojects2\\botblastdevelopment\\botblastfinal\\plugins\\developer\\riderlink\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\ridershaderinfo\\module.ridershaderinfo.cpp",
+        "Source": "d:\\unrealprojects2\\botblastdevelopment\\plugins\\developer\\riderlink\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\ridershaderinfo\\module.ridershaderinfo.cpp",
         "ProvidedModule": "",
         "Includes": [
-            "d:\\unrealprojects2\\botblastdevelopment\\botblastfinal\\plugins\\developer\\riderlink\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\ridershaderinfo\\definitions.h",
-            "d:\\unrealprojects2\\botblastdevelopment\\botblastfinal\\plugins\\developer\\riderlink\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\ridershaderinfo\\permoduleinline.gen.cpp",
+            "d:\\unrealprojects2\\botblastdevelopment\\plugins\\developer\\riderlink\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\ridershaderinfo\\definitions.h",
+            "d:\\unrealprojects2\\botblastdevelopment\\plugins\\developer\\riderlink\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\ridershaderinfo\\permoduleinline.gen.cpp",
             "d:\\ue_5.5\\engine\\source\\runtime\\core\\public\\hal\\permoduleinline.inl",
             "d:\\ue_5.5\\engine\\source\\runtime\\core\\public\\coreglobals.h",
             "d:\\ue_5.5\\engine\\source\\runtime\\core\\public\\containers\\unrealstring.h",
@@ -299,8 +299,8 @@
             "d:\\ue_5.5\\engine\\source\\runtime\\core\\public\\profilingdebugging\\formatargstrace.h",
             "d:\\ue_5.5\\engine\\source\\runtime\\core\\public\\modules\\boilerplate\\moduleboilerplate.h",
             "d:\\ue_5.5\\engine\\source\\runtime\\core\\public\\modules\\visualizerdebuggingstate.h",
-            "d:\\unrealprojects2\\botblastdevelopment\\botblastfinal\\plugins\\developer\\riderlink\\source\\ridershaderinfo\\ridershaderinfo.cpp",
-            "d:\\unrealprojects2\\botblastdevelopment\\botblastfinal\\plugins\\developer\\riderlink\\source\\ridershaderinfo\\ridershaderinfo.h",
+            "d:\\unrealprojects2\\botblastdevelopment\\plugins\\developer\\riderlink\\source\\ridershaderinfo\\ridershaderinfo.cpp",
+            "d:\\unrealprojects2\\botblastdevelopment\\plugins\\developer\\riderlink\\source\\ridershaderinfo\\ridershaderinfo.h",
             "d:\\ue_5.5\\engine\\source\\runtime\\core\\public\\modules\\moduleinterface.h",
             "d:\\ue_5.5\\engine\\source\\runtime\\core\\public\\hal\\filemanager.h",
             "d:\\ue_5.5\\engine\\source\\runtime\\core\\public\\misc\\datetime.h",

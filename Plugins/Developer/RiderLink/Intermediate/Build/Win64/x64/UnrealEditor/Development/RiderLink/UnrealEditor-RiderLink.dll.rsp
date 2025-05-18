@@ -36,10 +36,10 @@
 /NODEFAULTLIB:"LIBCPD"
 /FUNCTIONPADMIN:6
 /NOIMPLIB
-"D:\UnrealProjects2\BotBlastDevelopment\BotBlastFinal\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderLink\Module.RiderLink.cpp.obj"
-"D:\UnrealProjects2\BotBlastDevelopment\BotBlastFinal\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderLink\Default.rc2.res"
+"D:\UnrealProjects2\BotBlastDevelopment\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderLink\Module.RiderLink.cpp.obj"
+"D:\UnrealProjects2\BotBlastDevelopment\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderLink\Default.rc2.res"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Core\UnrealEditor-Core.lib"
-"D:\UnrealProjects2\BotBlastDevelopment\BotBlastFinal\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RD\UnrealEditor-RD.lib"
+"D:\UnrealProjects2\BotBlastDevelopment\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RD\UnrealEditor-RD.lib"
 "delayimp.lib"
 "wininet.lib"
 "rpcrt4.lib"
@@ -65,6 +65,6 @@
 "synchronization.lib"
 "dwmapi.lib"
 "imm32.lib"
-/OUT:"D:\UnrealProjects2\BotBlastDevelopment\BotBlastFinal\Plugins\Developer\RiderLink\Binaries\Win64\UnrealEditor-RiderLink.dll"
-/PDB:"D:\UnrealProjects2\BotBlastDevelopment\BotBlastFinal\Plugins\Developer\RiderLink\Binaries\Win64\UnrealEditor-RiderLink.pdb"
+/OUT:"D:\UnrealProjects2\BotBlastDevelopment\Plugins\Developer\RiderLink\Binaries\Win64\UnrealEditor-RiderLink.dll"
+/PDB:"D:\UnrealProjects2\BotBlastDevelopment\Plugins\Developer\RiderLink\Binaries\Win64\UnrealEditor-RiderLink.pdb"
 /ignore:4078

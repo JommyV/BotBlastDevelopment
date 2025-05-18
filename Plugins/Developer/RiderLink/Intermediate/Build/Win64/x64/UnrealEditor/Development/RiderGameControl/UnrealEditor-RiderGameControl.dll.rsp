@@ -36,10 +36,10 @@
 /NODEFAULTLIB:"LIBCPD"
 /FUNCTIONPADMIN:6
 /NOIMPLIB
-"D:\UnrealProjects2\BotBlastDevelopment\BotBlastFinal\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderGameControl\Module.RiderGameControl.cpp.obj"
-"D:\UnrealProjects2\BotBlastDevelopment\BotBlastFinal\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderGameControl\Default.rc2.res"
-"D:\UnrealProjects2\BotBlastDevelopment\BotBlastFinal\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RD\UnrealEditor-RD.lib"
-"D:\UnrealProjects2\BotBlastDevelopment\BotBlastFinal\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderLink\UnrealEditor-RiderLink.lib"
+"D:\UnrealProjects2\BotBlastDevelopment\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderGameControl\Module.RiderGameControl.cpp.obj"
+"D:\UnrealProjects2\BotBlastDevelopment\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderGameControl\Default.rc2.res"
+"D:\UnrealProjects2\BotBlastDevelopment\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RD\UnrealEditor-RD.lib"
+"D:\UnrealProjects2\BotBlastDevelopment\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\RiderLink\UnrealEditor-RiderLink.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\HeadMountedDisplay\UnrealEditor-HeadMountedDisplay.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\LevelEditor\UnrealEditor-LevelEditor.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\UnrealEd\UnrealEditor-UnrealEd.lib"
@@ -72,6 +72,6 @@
 "synchronization.lib"
 "dwmapi.lib"
 "imm32.lib"
-/OUT:"D:\UnrealProjects2\BotBlastDevelopment\BotBlastFinal\Plugins\Developer\RiderLink\Binaries\Win64\UnrealEditor-RiderGameControl.dll"
-/PDB:"D:\UnrealProjects2\BotBlastDevelopment\BotBlastFinal\Plugins\Developer\RiderLink\Binaries\Win64\UnrealEditor-RiderGameControl.pdb"
+/OUT:"D:\UnrealProjects2\BotBlastDevelopment\Plugins\Developer\RiderLink\Binaries\Win64\UnrealEditor-RiderGameControl.dll"
+/PDB:"D:\UnrealProjects2\BotBlastDevelopment\Plugins\Developer\RiderLink\Binaries\Win64\UnrealEditor-RiderGameControl.pdb"
 /ignore:4078

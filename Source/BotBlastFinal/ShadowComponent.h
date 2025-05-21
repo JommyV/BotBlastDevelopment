@@ -10,8 +10,6 @@
 UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
 class BOTBLASTFINAL_API UShadowComponent : public USceneComponent
 {
-	GENERATED_BODY()
-
 public:
 	// Sets default values for this component's properties
 	UShadowComponent();
@@ -25,5 +23,8 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType,
 	                           FActorComponentTickFunction* ThisTickFunction) override;
 
-	void FindShadowSpot();
+	void FindShadowSpot();	
+	void PerformDownwardTrace();
+
+	GENERATED_BODY()
 };

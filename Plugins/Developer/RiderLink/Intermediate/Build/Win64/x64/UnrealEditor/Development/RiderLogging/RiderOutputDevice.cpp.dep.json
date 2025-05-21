@@ -1,11 +1,11 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "d:\\unrealprojects2\\botblastdevelopment\\botblastfinal\\plugins\\developer\\riderlink\\source\\riderlogging\\private\\rideroutputdevice.cpp",
+        "Source": "d:\\unrealprojects2\\botblastdevelopment\\plugins\\developer\\riderlink\\source\\riderlogging\\private\\rideroutputdevice.cpp",
         "ProvidedModule": "",
         "Includes": [
-            "d:\\unrealprojects2\\botblastdevelopment\\botblastfinal\\plugins\\developer\\riderlink\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\riderlogging\\definitions.h",
-            "d:\\unrealprojects2\\botblastdevelopment\\botblastfinal\\plugins\\developer\\riderlink\\source\\riderlogging\\private\\rideroutputdevice.hpp",
+            "d:\\unrealprojects2\\botblastdevelopment\\plugins\\developer\\riderlink\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\riderlogging\\definitions.h",
+            "d:\\unrealprojects2\\botblastdevelopment\\plugins\\developer\\riderlink\\source\\riderlogging\\private\\rideroutputdevice.hpp",
             "d:\\ue_5.5\\engine\\source\\runtime\\core\\public\\misc\\outputdevice.h",
             "d:\\ue_5.5\\engine\\source\\runtime\\core\\public\\corefwd.h",
             "d:\\ue_5.5\\engine\\source\\runtime\\core\\public\\coretypes.h",

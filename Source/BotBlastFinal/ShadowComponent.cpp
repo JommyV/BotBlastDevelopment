@@ -2,6 +2,8 @@
 
 
 #include "ShadowComponent.h"
+#include "GameFramework/Actor.h"
+#include "Components/PrimitiveComponent.h"
 
 
 // Sets default values for this component's properties
@@ -38,3 +40,26 @@ void UShadowComponent::FindShadowSpot()
 	
 }
 
+void UShadowComponent::PerformDownwardTrace()
+{
+	FVector Start = GetComponentLocation();
+	FVector End = Start + FVector(0.0f, 0.0f, -1000.0f); // Trace 1000 units downward
+
+	FHitResult HitResult;
+	FCollisionQueryParams TraceParams(FName(TEXT("DownwardTrace")), true, GetOwner());
+
+	bool bHit = GetWorld()->LineTraceSingleByChannel(
+		HitResult,
+		Start,
+		End,
+		ECC_Visibility,
+		TraceParams
+	);
+
+	if (bHit)
+	{
+		//UE_LOG(LogTemp, Warning, TEXT("Hit: %s"), *HitResult.Actor->GetName());
+		// Optional: draw debug line
+		DrawDebugLine(GetWorld(), Start, End, FColor::Red, false, 2.0f);
+	}
+}

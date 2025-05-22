@@ -60,16 +60,16 @@ void ATaraCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	
-	GEngine->AddOnScreenDebugMessage(-1, 0.1f, FColor::Silver,
+	/*GEngine->AddOnScreenDebugMessage(-1, 0.005f, FColor::Silver,
 									*(FString::Printf(
 									TEXT("ActiveSatchels: %i"), ActiveSatchels)));
 
 		
-	GEngine->AddOnScreenDebugMessage(-1, 0.05f, FColor::Cyan,
+	GEngine->AddOnScreenDebugMessage(-1, 0.005f, FColor::Cyan,
 									 *(FString::Printf(
 										 TEXT("Satchel - Current: %f | Maximum: %i"), CurrentSatchels, MaxSatchels)));
 
-	
+	*/
 
 	
 }

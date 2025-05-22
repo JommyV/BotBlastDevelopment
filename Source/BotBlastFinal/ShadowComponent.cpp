@@ -2,8 +2,11 @@
 
 
 #include "ShadowComponent.h"
+#include "DrawDebugHelpers.h"
+#include "Components/DecalComponent.h"
 #include "GameFramework/Actor.h"
-#include "Components/PrimitiveComponent.h"
+#include "Engine/World.h"
+#include "Kismet/GameplayStatics.h"
 
 
 // Sets default values for this component's properties
@@ -21,8 +24,16 @@ UShadowComponent::UShadowComponent()
 void UShadowComponent::BeginPlay()
 {
 	Super::BeginPlay();
-
-	// ...
+	
+	if (DecalMaterial)
+	{
+		PersistentDecal = NewObject<UDecalComponent>(GetOwner());
+		PersistentDecal->RegisterComponent(); // important
+		PersistentDecal->AttachToComponent(GetOwner()->GetRootComponent(), FAttachmentTransformRules::KeepWorldTransform);
+		PersistentDecal->SetDecalMaterial(DecalMaterial);
+		PersistentDecal->DecalSize = DecalSize;
+		PersistentDecal->SetVisibility(false); // hide until first valid hit
+	}
 	
 }
 
@@ -31,35 +42,57 @@ void UShadowComponent::BeginPlay()
 void UShadowComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+	FVector Start = GetOwner()->GetActorLocation();
+	FVector End = Start - FVector(0, 0, TraceDistance);
+	FHitResult Hit;
 
-	// ...
-}
-
-void UShadowComponent::FindShadowSpot()
-{
+	if (GetWorld()->LineTraceSingleByChannel(Hit, Start, End, ECC_Visibility))
+	{
+		if (PersistentDecal)
+		{
+			PersistentDecal->SetWorldLocation(Hit.Location);
+			PersistentDecal->SetWorldRotation(Hit.ImpactNormal.Rotation());
+			PersistentDecal->SetVisibility(true);
+		}
+	}
+	else if (PersistentDecal)
+	{
+		PersistentDecal->SetVisibility(false); // hide if not hitting
+	}
 	
 }
 
-void UShadowComponent::PerformDownwardTrace()
+/*void UShadowComponent::TraceDownAndPlaceDecal()
 {
-	FVector Start = GetComponentLocation();
-	FVector End = Start + FVector(0.0f, 0.0f, -1000.0f); // Trace 1000 units downward
+	if (!GetOwner()) return;
 
-	FHitResult HitResult;
-	FCollisionQueryParams TraceParams(FName(TEXT("DownwardTrace")), true, GetOwner());
+	FVector Start = GetOwner()->GetActorLocation();
+	FVector End = Start - FVector(0.f, 0.f, TraceDistance);
 
-	bool bHit = GetWorld()->LineTraceSingleByChannel(
-		HitResult,
-		Start,
-		End,
-		ECC_Visibility,
-		TraceParams
-	);
+	FHitResult Hit;
+	FCollisionQueryParams Params;
+	Params.AddIgnoredActor(GetOwner());
+
+	bool bHit = GetWorld()->LineTraceSingleByChannel(Hit, Start, End, ECC_Visibility, Params);
 
 	if (bHit)
 	{
-		//UE_LOG(LogTemp, Warning, TEXT("Hit: %s"), *HitResult.Actor->GetName());
-		// Optional: draw debug line
-		DrawDebugLine(GetWorld(), Start, End, FColor::Red, false, 2.0f);
+		// Debug line
+		DrawDebugLine(GetWorld(), Start, Hit.Location, FColor::Green, false, 2.0f, 0, 2.0f);
+
+		// Spawn decal at hit location
+		if (DecalMaterial)
+		{
+			UDecalComponent* Decal = UGameplayStatics::SpawnDecalAtLocation(
+				GetWorld(),
+				DecalMaterial,
+				DecalSize,
+				Hit.Location,
+				Hit.ImpactNormal.Rotation(), // Align with surface
+				DecalLifeSpan // Life span
+			);
+		}
 	}
-}
+
+}*/
+

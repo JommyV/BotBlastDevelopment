@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "ShadowComponent.h"
 #include "GameFramework/Character.h"
 #include "TaraCharacter.generated.h"
 
@@ -57,6 +58,9 @@ protected:
 		
 	UPROPERTY(EditAnywhere)
 	UStaticMeshComponent* StaticMeshComp;
+
+	UPROPERTY(EditAnywhere)
+	UShadowComponent* ShadowComp;
 
 	
 

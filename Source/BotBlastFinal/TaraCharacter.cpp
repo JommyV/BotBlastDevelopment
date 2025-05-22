@@ -28,6 +28,8 @@ ATaraCharacter::ATaraCharacter()
 	CameraComp = CreateDefaultSubobject<UCameraComponent>(TEXT("CameraComponent"));
 	CameraComp->SetupAttachment(SpringArmComp, USpringArmComponent::SocketName);
 
+	ShadowComp = CreateDefaultSubobject<UShadowComponent>(TEXT("ShadowComponent"));
+
 		
 	//Assign SpringArm class variables.
 	SpringArmComp->SetRelativeLocationAndRotation(FVector(0.0f, 0.0f, 50.0f), FRotator(-60.0f, 0.0f, 0.0f));

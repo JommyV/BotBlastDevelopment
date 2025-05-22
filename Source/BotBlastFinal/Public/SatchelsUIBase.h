@@ -36,6 +36,9 @@ public:
 
 
 protected:
+
+	virtual void NativeOnInitialized() override;
+	
 	UPROPERTY(BlueprintReadOnly, Category = "Constituent Controls", meta = (BindWidget))
 	TObjectPtr<UBorder> MainBorder = nullptr;
 

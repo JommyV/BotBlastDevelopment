@@ -62,9 +62,9 @@ void UShadowComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActo
 	
 }
 
-/*void UShadowComponent::TraceDownAndPlaceDecal()
+void UShadowComponent::TraceDownAndPlaceDecal()
 {
-	if (!GetOwner()) return;
+	/*if (!GetOwner()) return;
 
 	FVector Start = GetOwner()->GetActorLocation();
 	FVector End = Start - FVector(0.f, 0.f, TraceDistance);
@@ -93,6 +93,6 @@ void UShadowComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActo
 			);
 		}
 	}
-
-}*/
+*/
+}
 

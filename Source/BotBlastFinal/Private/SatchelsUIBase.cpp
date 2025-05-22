@@ -1,7 +1,7 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "BotBlastFinal/Public/SatchelsUIBase.h"
+#include "SatchelsUIBase.h"
 #include "Components/Border.h"
 #include "Components/Image.h"
 #include "Components/TextBlock.h"
@@ -10,12 +10,12 @@
 #include "Blueprint/UserWidget.h"
 
 
-/*void USatchelsUIBase::NativeOnInitialized()
+void USatchelsUIBase::NativeOnInitialized()
 {
 	Super::NativeOnInitialized();
 	UE_LOG(LogTemp, Warning, TEXT("NativeOnInitialized()"));
 	UpdateWidget();
-}*/
+}
 
 void USatchelsUIBase::OnIntStatUpdated(int32 OldValue, int32 NewValue, int32 MaxValue)
 {

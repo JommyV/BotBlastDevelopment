@@ -36,10 +36,10 @@
 /NODEFAULTLIB:"LIBCPD"
 /FUNCTIONPADMIN:6
 /NOIMPLIB
-"C:\Users\Vivobook\Documents\Unreal Projects\BotBlastDevelopment\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\RiderLink\Module.RiderLink.cpp.obj"
-"C:\Users\Vivobook\Documents\Unreal Projects\BotBlastDevelopment\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\RiderLink\Default.rc2.res"
+"C:\Users\megaf\Documents\Unreal Projects\BotBlastDevelopment\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\RiderLink\Module.RiderLink.cpp.obj"
+"C:\Users\megaf\Documents\Unreal Projects\BotBlastDevelopment\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\RiderLink\Default.rc2.res"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Core\UnrealEditor-Core.lib"
-"C:\Users\Vivobook\Documents\Unreal Projects\BotBlastDevelopment\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\RD\UnrealEditor-RD-Win64-DebugGame.lib"
+"C:\Users\megaf\Documents\Unreal Projects\BotBlastDevelopment\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\RD\UnrealEditor-RD-Win64-DebugGame.lib"
 "delayimp.lib"
 "wininet.lib"
 "rpcrt4.lib"
@@ -65,6 +65,6 @@
 "synchronization.lib"
 "dwmapi.lib"
 "imm32.lib"
-/OUT:"C:\Users\Vivobook\Documents\Unreal Projects\BotBlastDevelopment\Plugins\Developer\RiderLink\Binaries\Win64\UnrealEditor-RiderLink-Win64-DebugGame.dll"
-/PDB:"C:\Users\Vivobook\Documents\Unreal Projects\BotBlastDevelopment\Plugins\Developer\RiderLink\Binaries\Win64\UnrealEditor-RiderLink-Win64-DebugGame.pdb"
+/OUT:"C:\Users\megaf\Documents\Unreal Projects\BotBlastDevelopment\Plugins\Developer\RiderLink\Binaries\Win64\UnrealEditor-RiderLink-Win64-DebugGame.dll"
+/PDB:"C:\Users\megaf\Documents\Unreal Projects\BotBlastDevelopment\Plugins\Developer\RiderLink\Binaries\Win64\UnrealEditor-RiderLink-Win64-DebugGame.pdb"
 /ignore:4078

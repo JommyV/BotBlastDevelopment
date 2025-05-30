@@ -1,9 +1,9 @@
-"C:\Users\Vivobook\Documents\Unreal Projects\BotBlastDevelopment\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\RiderLink\Module.RiderLink.cpp"
-/FI"C:\Users\Vivobook\Documents\Unreal Projects\BotBlastDevelopment\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\RiderLink\Definitions.h"
-/Fo"C:\Users\Vivobook\Documents\Unreal Projects\BotBlastDevelopment\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\RiderLink\Module.RiderLink.cpp.obj"
-/experimental:log "C:\Users\Vivobook\Documents\Unreal Projects\BotBlastDevelopment\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\RiderLink\Module.RiderLink.cpp.sarif"
-/sourceDependencies "C:\Users\Vivobook\Documents\Unreal Projects\BotBlastDevelopment\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\RiderLink\Module.RiderLink.cpp.dep.json"
-@"C:\Users\Vivobook\Documents\Unreal Projects\BotBlastDevelopment\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\RiderLink\RiderLink.Shared.rsp"
+"C:\Users\megaf\Documents\Unreal Projects\BotBlastDevelopment\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\RiderLink\Module.RiderLink.cpp"
+/FI"C:\Users\megaf\Documents\Unreal Projects\BotBlastDevelopment\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\RiderLink\Definitions.h"
+/Fo"C:\Users\megaf\Documents\Unreal Projects\BotBlastDevelopment\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\RiderLink\Module.RiderLink.cpp.obj"
+/experimental:log "C:\Users\megaf\Documents\Unreal Projects\BotBlastDevelopment\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\RiderLink\Module.RiderLink.cpp.sarif"
+/sourceDependencies "C:\Users\megaf\Documents\Unreal Projects\BotBlastDevelopment\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\RiderLink\Module.RiderLink.cpp.dep.json"
+@"C:\Users\megaf\Documents\Unreal Projects\BotBlastDevelopment\Plugins\Developer\RiderLink\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\RiderLink\RiderLink.Shared.rsp"
 /d2ssa-cfg-question-
 /Zc:inline
 /nologo

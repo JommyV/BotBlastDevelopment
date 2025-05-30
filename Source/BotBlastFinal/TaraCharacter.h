@@ -29,7 +29,8 @@ enum class EPlayerKeyAction: uint8
 {
 	AddKey UMETA(Tooltip = "Attempt to add a key to player's wallet."),
 	RemoveKey UMETA(Tooltip = "Attempt to remove a key from player's wallet."),
-	TestKey UMETA(Tooltip = "Check if the player has a specific key.")
+	TestKey UMETA(Tooltip = "Check if the player has a specific key."),
+	CountKeys UMETA(Tooltip = "How many keys are in the collection.")
 };
 
 // Delegate for when actions occur with the player's keys.
@@ -139,6 +140,12 @@ public:
 	//calls for it.
 	void PitchCamera(float AxisValue);
 	void YawCamera(float AxisValue);
+
+	// Called whenever something needs the latest stat values re-broadcast from the
+	// character, instead of waiting for something to cause an update via a change.
+	// (Most commonly used when switching UI elements)
+	UFUNCTION(BlueprintCallable,Category="Player|Stats")
+	void BroadcastCurrentStats();
 
 	UPROPERTY(BlueprintReadWrite)
 	bool bIsAttached = false;

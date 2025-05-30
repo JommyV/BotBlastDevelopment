@@ -153,6 +153,23 @@ void ATaraCharacter::YawCamera(float AxisValue)
 	CameraInput.X = AxisValue;
 }
 
+void ATaraCharacter::BroadcastCurrentStats()
+{
+	OnSatchelCountChanged.Broadcast(CurrentSatchels, CurrentSatchels, MaxSatchels);
+	//OnStaminaChanged.Broadcast(CurrentStamina, CurrentStamina, MaxStamina);
+	//OnPsiPowerChanged.Broadcast(CurrentPsiPower, CurrentPsiPower, MaxPsiPower);
+
+	// Make a string of all the keys
+	// If there are ANY members, the string will end with a trailing comma ','
+	// We dont care to remove that here, it doesnt matter.
+	FString AllKeys = FString();
+	for (FString Key : KeyWallet)
+	{
+		AllKeys.Appendf(TEXT("%s,"),&Key);
+	}
+
+	OnKeyWalletAction.Broadcast(AllKeys, EPlayerKeyAction::CountKeys, true);
+}
 
 
 

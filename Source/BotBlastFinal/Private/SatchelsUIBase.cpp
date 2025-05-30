@@ -2,6 +2,7 @@
 
 
 #include "SatchelsUIBase.h"
+#include "CustomLogging.h"
 #include "Components/Border.h"
 #include "Components/Image.h"
 #include "Components/TextBlock.h"
@@ -13,7 +14,7 @@
 void USatchelsUIBase::NativeOnInitialized()
 {
 	Super::NativeOnInitialized();
-	UE_LOG(LogTemp, Warning, TEXT("NativeOnInitialized()"));
+	UE_LOG(BBLog, Warning, TEXT("NativeOnInitialized()"));
 	UpdateWidget();
 }
 

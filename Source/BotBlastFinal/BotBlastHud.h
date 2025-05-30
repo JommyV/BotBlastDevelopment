@@ -10,6 +10,9 @@
  * 
  */
 
+class ATaraCharacter;
+class UILayout;
+
 UENUM(BlueprintType)
 enum class EHudViewMode: uint8
 {
@@ -41,19 +44,48 @@ inline EHudViewMode& operator--(EHudViewMode& ViewMode)
 UCLASS()
 class BOTBLASTFINAL_API ABotBlastHud : public AHUD
 {
-	GENERATED_BODY()
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<UILayout> LayoutClass = nullptr;
+	
+
 
 public:
+	// Allow code and blueprints to put the hud in a specific viewmode directly
+	// Possibly useful for cinematic cutscenes etc?
+	UFUNCTION(BlueprintCallable)
+	void SetCurrentViewMode(EHudViewMode NewViewMode);
+
+
 	// Change to the next viewmode 
 	UFUNCTION(BlueprintCallable) 
 	void CycleToNextViewMode();
 
 
 	
+protected:
+	virtual void BeginPlay() override;
+	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
+	
 private:
 	// Determines what UI elements should be displayed.
 	UPROPERTY(EditAnywhere)
 	EHudViewMode CurrentViewMode = EHudViewMode::Moderate;
 
+	// whenever we change the view mode, this private function is called to show the appropriate widgets.
+	void UpdateWidgets();
+
+	// Release any delegate bindings.
+	void ClearAllHandlers();
+
 	
+	UPROPERTY()
+	TObjectPtr<UWorld> World = nullptr;
+	
+	UPROPERTY()
+	TObjectPtr<UILayout>  LayoutWidget  = nullptr;
+
+	UPROPERTY()
+	TObjectPtr<ATaraCharacter> PlayerCharacter = nullptr;
+	
+	GENERATED_BODY()
 };

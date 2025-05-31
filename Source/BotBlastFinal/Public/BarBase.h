@@ -19,7 +19,7 @@ class BOTBLASTFINAL_API UBarBase : public UWidgetBase
 
 public:
 	UPROPERTY(BlueprintReadOnly, Category = "Constituent Controls", meta = (BindWidget))
-	TObjectPtr<USatchelsUIBase> SatchelBar = nullptr;
+	TObjectPtr<USatchelsUIBase> SatchelBarMain = nullptr;
 	
 	//For future if different variables are needed.
 	//UPROPERTY(BlueprintReadOnly, Category = "Constituent Controls", meta = (BindWidget))

@@ -80,7 +80,10 @@ private:
 
 	// This is the 'actual' value of the current amount
 	UPROPERTY(EditAnywhere, Category="Stat Bar|Testing", meta=(ClampMin=0, UIMin=0))
-	float CurrentValue = 100.f;
+	float CurrentSatchelsNumber = MaxSatchels;
+
+	UPROPERTY(EditAnywhere, Category="Stat Bar|Testing", meta=(ClampMin=0, UIMin=0))
+	float MaxSatchels = 2.f;
 
 	// This does not need to be a property as it is never serialized,
 	// and is totally dependent on the CurrentValue.

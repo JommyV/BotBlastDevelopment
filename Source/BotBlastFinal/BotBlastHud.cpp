@@ -19,7 +19,7 @@ void ABotBlastHud::BeginPlay()
 	checkf(World, TEXT("Failed to reference world."));
 
 	// Ensure we have valid values for the 3 classes of widget used by the HUD
-	checkf(LayoutWidget, TEXT("Invalid MinimalLayoutClass reference."));
+	//checkf(LayoutWidget, TEXT("Invalid MinimalLayoutClass reference."));
 
 
 	// create the 3 types of layout widget, and add them to the viewport
@@ -75,7 +75,7 @@ void ABotBlastHud::UpdateWidgets()
 		// Currently there isn't actually anything to do here!
 		break;
 	case EHudViewMode::Minimal:
-		PlayerCharacter->OnSatchelCountChanged.AddDynamic(LayoutWidget->ItemBar->SatchelBar,
+		PlayerCharacter->OnSatchelCountChanged.AddDynamic(LayoutWidget->ItemBar->SatchelBarMain,
 		                                            &USatchelsUIBase::OnFloatStatUpdated);
 
 		//For future if different HUDS are needed.

@@ -52,26 +52,38 @@ void ATaraCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	if (GetMovementComponent()) GetMovementComponent()->GetNavAgentPropertiesRef().bCanCrouch = true;
-	
+	BroadcastCurrentStats();
 }
 
 // Called every frame
 void ATaraCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	
 	/*GEngine->AddOnScreenDebugMessage(-1, 0.005f, FColor::Silver,
 									*(FString::Printf(
 									TEXT("ActiveSatchels: %i"), ActiveSatchels)));
+	*/
+		
+	GEngine->AddOnScreenDebugMessage(-1, 0.0005f, FColor::Cyan,
+									 *(FString::Printf(
+										 TEXT("Satchel - Current: %f | Maximum: %f"), CurrentSatchels, MaxSatchels)));
+
+	if (CurrentSatchels != MaxSatchels)
+	{
+		// Keep track of the value before it is changed.
+		const float PreviousSatchelCount = CurrentSatchels;
 
 		
-	GEngine->AddOnScreenDebugMessage(-1, 0.005f, FColor::Cyan,
+		OnSatchelCountChanged.Broadcast(PreviousSatchelCount, CurrentSatchels, MaxSatchels);
+	}
+	else if (!GetMovementComponent()->IsFalling() && ActiveSatchels == 0.f)
+	{
+		CurrentSatchels = 2.f;
+		GEngine->AddOnScreenDebugMessage(-1, 0.0005f, FColor::Cyan,
 									 *(FString::Printf(
-										 TEXT("Satchel - Current: %f | Maximum: %i"), CurrentSatchels, MaxSatchels)));
+										 TEXT("I now have: %f Satchels"), CurrentSatchels)));
 
-	*/
-
-	
+	}
 }
 
 

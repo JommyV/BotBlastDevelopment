@@ -163,7 +163,7 @@ public:
 	float CurrentSatchels = MaxSatchels;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Player|Satchel")
-	int	MaxSatchels = 2;
+	float	MaxSatchels = 2.f;
 
 	
 	

@@ -165,6 +165,7 @@ void ATaraController::HandleCrouch()
 void ATaraController::HandleSatchel()
 {
 	PlayerCharacter->ThrowSatchel();
+	PlayerCharacter->BroadcastCurrentStats();
 }
 
 void ATaraController::HandleToggleSprint()

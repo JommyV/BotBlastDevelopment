@@ -3,6 +3,7 @@
 
 #include "SatchelsUIBase.h"
 #include "CustomLogging.h"
+#include "SNegativeActionButton.h"
 #include "Components/Border.h"
 #include "Components/Image.h"
 #include "Components/TextBlock.h"
@@ -32,24 +33,15 @@ void USatchelsUIBase::OnFloatStatUpdated(float OldValue, float NewValue, float M
 	// just in case someone passes invalid values
 
 	// Prevent divide by zero errors.
-	// The macro SMALL_NUMBER would be appropriate here..
-	// but KINDA_SMALL_NUMBER is the sort of Name which goes against all the 'stuffy' coding conventions,
-	// and it's official EPIC code, so I wanted to highlight that! ;-)
-	// I think its 'KINDA' amusing.
 	if (MaxValue == 0.f) MaxValue = KINDA_SMALL_NUMBER;
 
 	CurrentPercentage = FMath::Clamp(NewValue / MaxValue, 0.f, 1.f);
-	CurrentValue      = NewValue;
+	CurrentSatchelsNumber      = NewValue;
 	UpdateWidget();
 }
 
 void USatchelsUIBase::ProcessCurrentValueText()
 {
-	// Ultimately this should be handled in a culture appropriate matter,
-	// i.e suffixes like 'k' for thousands should be dependant on culture,
-	// and may be prefixes in some cultures.
-	// HOWEVER - for the purposes of this tutorial, we will keep it simple
-
 	// if the number is <10 then display it as a float to 2DP : 0.01
 	// if the number is <100, then display it as a float with 1DP : 99.9
 	// if the number is <1000 then display it as an integer with 0DP: 986
@@ -57,11 +49,11 @@ void USatchelsUIBase::ProcessCurrentValueText()
 
 	FString FloatString;
 
-	if (CurrentValue < 1000.f)
+	if (CurrentSatchelsNumber < 1000.f)
 	{
-		FloatString = FString::SanitizeFloat(CurrentValue);
+		FloatString = FString::SanitizeFloat(CurrentSatchelsNumber);
 
-		if (CurrentValue < 100.f)
+		if (CurrentSatchelsNumber < 100.f)
 		{
 			int32 StringLen = FloatString.Len();
 			if (StringLen > 4)
@@ -77,7 +69,7 @@ void USatchelsUIBase::ProcessCurrentValueText()
 	else
 	{
 		// scaled value
-		float ScaledValue = CurrentValue / 1000.f;
+		float ScaledValue = CurrentSatchelsNumber / 1000.f;
 		FloatString       = FString::SanitizeFloat(ScaledValue);
 		if (ScaledValue < 10.f)
 			FloatString = FloatString.Left(3).Append(TEXT("k"));
@@ -117,8 +109,11 @@ void USatchelsUIBase::UpdateWidget()
 	ProcessCurrentValueText();
 
 	ValueText->SetText(CurrentValueText);
-
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red,
+									 *(FString::Printf(
+										 TEXT("Satchel - Current: %f | Maximum: %f"), CurrentPercentage, MaxSatchels)));
 	PercentBars->SetVisibility(IsFullSize ? ESlateVisibility::Visible : ESlateVisibility::Collapsed);
+	
 }
 
 #if WITH_EDITOR

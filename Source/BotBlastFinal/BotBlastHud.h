@@ -69,7 +69,7 @@ protected:
 private:
 	// Determines what UI elements should be displayed.
 	UPROPERTY(EditAnywhere)
-	EHudViewMode CurrentViewMode = EHudViewMode::Moderate;
+	EHudViewMode CurrentViewMode = EHudViewMode::Minimal;
 
 	// whenever we change the view mode, this private function is called to show the appropriate widgets.
 	void UpdateWidgets();
@@ -82,7 +82,7 @@ private:
 	TObjectPtr<UWorld> World = nullptr;
 	
 	UPROPERTY()
-	TObjectPtr<UILayout>  LayoutWidget  = nullptr;
+	TObjectPtr<UILayout> LayoutWidget  = nullptr;
 
 	UPROPERTY()
 	TObjectPtr<ATaraCharacter> PlayerCharacter = nullptr;

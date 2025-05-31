@@ -109,9 +109,9 @@ void USatchelsUIBase::UpdateWidget()
 	ProcessCurrentValueText();
 
 	ValueText->SetText(CurrentValueText);
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red,
-									 *(FString::Printf(
-										 TEXT("Satchel - Current: %f | Maximum: %f"), CurrentPercentage, MaxSatchels)));
+	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red,
+									// *(FString::Printf(
+									//	 TEXT("Satchel - Current: %f | Maximum: %f"), CurrentPercentage, MaxSatchels)));
 	PercentBars->SetVisibility(IsFullSize ? ESlateVisibility::Visible : ESlateVisibility::Collapsed);
 	
 }

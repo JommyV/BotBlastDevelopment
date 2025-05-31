@@ -79,9 +79,9 @@ void ATaraCharacter::Tick(float DeltaTime)
 	else if (!GetMovementComponent()->IsFalling() && ActiveSatchels == 0.f)
 	{
 		CurrentSatchels = 2.f;
-		GEngine->AddOnScreenDebugMessage(-1, 0.0005f, FColor::Cyan,
-									 *(FString::Printf(
-										 TEXT("I now have: %f Satchels"), CurrentSatchels)));
+		//GEngine->AddOnScreenDebugMessage(-1, 0.0005f, FColor::Cyan,
+									// *(FString::Printf(
+									//	 TEXT("I now have: %f Satchels"), CurrentSatchels)));
 
 	}
 }

@@ -21,7 +21,7 @@ class BOTBLASTFINAL_API UInGameMenu : public UUserWidget
 {
 protected:
 
-	virtual void NativeOnInitialized() override;
+	virtual void NativeConstruct() override;
 
 	UPROPERTY(BlueprintReadOnly, Category = "Constituent Controls", meta = (BindWidget))
 	TObjectPtr<UBorder> MainBorder = nullptr;
@@ -51,6 +51,14 @@ private:
 	
 	UFUNCTION()
 	void OnQuitButtonClicked();
+
+	
+public:
+	
+	UFUNCTION()
+	void OnPause(bool isPaused);
+
+	
 
 	GENERATED_BODY()
 	

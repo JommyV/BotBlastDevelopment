@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "InGameMenu.h"
 #include "BotBlastFinal/WidgetBase.h"
 #include "Blueprint/UserWidget.h"
 #include "BarBase.generated.h"
@@ -12,6 +13,7 @@
  */
 
 class USatchelsUIBase;
+class UInGameMenu;
 
 UCLASS(Abstract)
 class BOTBLASTFINAL_API UBarBase : public UWidgetBase
@@ -20,6 +22,9 @@ class BOTBLASTFINAL_API UBarBase : public UWidgetBase
 public:
 	UPROPERTY(BlueprintReadOnly, Category = "Constituent Controls", meta = (BindWidget))
 	TObjectPtr<USatchelsUIBase> SatchelBarMain = nullptr;
+
+	UPROPERTY(BlueprintReadOnly, Category = "Constituent Controls", meta = (BindWidget))
+	TObjectPtr<UInGameMenu> MainMenu = nullptr;
 	
 	//For future if different variables are needed.
 	//UPROPERTY(BlueprintReadOnly, Category = "Constituent Controls", meta = (BindWidget))
@@ -27,8 +32,6 @@ public:
 	
 	//UPROPERTY(BlueprintReadOnly, Category = "Constituent Controls", meta = (BindWidget))
 	//TObjectPtr<USatchelsUIBase> PsiBar = nullptr;
-
-protected:
 
 
 private:

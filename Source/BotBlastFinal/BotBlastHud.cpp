@@ -47,8 +47,8 @@ void ABotBlastHud::BeginPlay()
 	// Set the initial viewmode to the 'current' one, which allows setting via the editor.
 	//SetCurrentViewMode(CurrentViewMode);
 	UpdateWidgets();
+	
 }
-
 
 
 
@@ -85,6 +85,7 @@ void ABotBlastHud::UpdateWidgets()
 		case EHudViewMode::Minimal:
 			PlayerCharacter->OnSatchelCountChanged.AddDynamic(LayoutWidget->ItemBar->SatchelBarMain,
 													   &USatchelsUIBase::OnFloatStatUpdated);
+			
 
 			//For future if different HUDS are needed.
 			//PlayerCharacter->OnStaminaChanged.AddDynamic(MinimalLayoutWidget->HSPBar->StaminaBar,

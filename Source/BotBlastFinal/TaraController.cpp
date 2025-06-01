@@ -59,9 +59,9 @@ void ATaraController::OnPossess(APawn* aPawn)
 	if (ActionRestartGame)
 		EnhancedInputComponent->BindAction(ActionRestartGame, ETriggerEvent::Triggered, this,
 											&ATaraController::HandleRestartGame);
-	if (ActionCycleUI)
-		EnhancedInputComponent->BindAction(ActionCycleUI, ETriggerEvent::Triggered, this,
-											&ATaraController::HandleCycleUI);
+	if (ActionPauseGame)
+		EnhancedInputComponent->BindAction(ActionPauseGame, ETriggerEvent::Triggered, this,
+											&ATaraController::HandlePause);
 
 
 }
@@ -184,6 +184,24 @@ void ATaraController::HandleCycleUI()
 {
 	if (PlayerHud)
 		PlayerHud->CycleToNextViewMode();
+}
+
+void ATaraController::HandlePause()
+{
+	if (!bIsPaused)
+	{
+		PlayerCharacter->OnPause.Broadcast(true);
+		//UGameplayStatics::SetGamePaused(GetWorld(), true); // Pause
+		bIsPaused = true;
+		SetShowMouseCursor(true);
+	}
+	else
+	{
+		bIsPaused = false;
+		PlayerCharacter->OnPause.Broadcast(false);
+		//UGameplayStatics::SetGamePaused(GetWorld(), false); // Pause
+		SetShowMouseCursor(false);
+	}
 }
 
 

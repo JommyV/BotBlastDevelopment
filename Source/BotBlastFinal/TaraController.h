@@ -46,15 +46,20 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Player Input|Game Control")
 	TObjectPtr<UInputAction> ActionRestartGame = nullptr;
 
-
-	// The Input Action to map to Restart PlayInEditor
+	// The Input Action to map to Pause/call main menu
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Player Input|UI")
-	TObjectPtr<UInputAction> ActionCycleUI = nullptr;
+	TObjectPtr<UInputAction> ActionPauseGame = nullptr;
 	
 
 	// The Input Mapping Context to use.
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Player Input|Character Movement")
 	TObjectPtr<UInputMappingContext> InputMappingContent = nullptr;
+
+
+	// Used to store a reference to the HUD we want to change.
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="HUD")
+	TObjectPtr<ABotBlastHud> PlayerHud = nullptr;
+
 
 	//Variables to change how much air control you have on each axis.
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "AirMovement")
@@ -65,6 +70,8 @@ public:
 	float SideWaysAirControl = 0.3f;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "GroundMovement")
 	float GroundStrafingSpeed = 0.5f;
+
+	bool bIsPaused = false;
 	
 	
 protected:
@@ -77,6 +84,7 @@ protected:
 	void		 HandleToggleSprint();
 	void		 HandleRestartGame();
 	void		 HandleCycleUI();
+	void		 HandlePause();
 	
 	virtual void OnPossess(APawn* aPawn) override;
 	virtual void OnUnPossess() override;
@@ -92,9 +100,6 @@ private:
 	UPROPERTY()
 	TObjectPtr<ATaraCharacter> PlayerCharacter = nullptr;
 
-	// USed to store a reference to the HUD we want to change.
-	UPROPERTY()
-	TObjectPtr<ABotBlastHud> PlayerHud = nullptr;
-
+	
 	GENERATED_BODY()
 };

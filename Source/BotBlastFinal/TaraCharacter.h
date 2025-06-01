@@ -14,8 +14,9 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FIntStatUpdated,
 											   int32, NewValue,
 											   int32, MaxValue);
 
-// Delegate for when the player dies
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FPlayerIsDead);
+// Delegate for when the game is paused
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPauseTheGame,
+											bool, Ispaused);
 
 // Delegate for when stats based on floats are changed.
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FFloatStatUpdated,
@@ -113,7 +114,11 @@ public:
 	UPROPERTY(BlueprintAssignable, Category = "Player|Satchel")
 	FFloatStatUpdated OnSatchelCountChanged;
 	
+	// Triggered when player pauses.
+	UPROPERTY(BlueprintAssignable, Category = "Player|Satchel")
+	FPauseTheGame OnPause;
 
+	
 	// Add a key to the wallet if it isn't already in there.
 	// If it is already in there, dont do anything.
 	UFUNCTION(BluePrintCallable,Category="Player|KeyWallet")

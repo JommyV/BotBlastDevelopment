@@ -5,3 +5,6 @@
 #pragma once
 
 #include "UILayout.h"
+
+#include "BarBase.h"
+

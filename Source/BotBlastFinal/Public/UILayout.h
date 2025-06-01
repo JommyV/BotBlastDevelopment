@@ -20,8 +20,6 @@ public:
 	//UPROPERTY(BlueprintReadOnly, Category = "Constituent Controls", meta = (BindWidget))
 	//TObjectPtr<UImage> Crosshair = nullptr;
 
-	//UPROPERTY(BlueprintReadOnly, Category = "Constituent Controls", meta = (BindWidget))
-	//TObjectPtr<UBarBase> Menu = nullptr;
 	
 protected:
 

@@ -44,10 +44,13 @@ inline EHudViewMode& operator--(EHudViewMode& ViewMode)
 UCLASS()
 class BOTBLASTFINAL_API ABotBlastHud : public AHUD
 {
+public: 
+
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<UILayout> LayoutClass = nullptr;
 	
-
+	void OnShow();
+	void OnHide();
 
 public:
 	// Allow code and blueprints to put the hud in a specific viewmode directly

@@ -86,6 +86,8 @@ private:
 
 	UPROPERTY()
 	TObjectPtr<ATaraCharacter> PlayerCharacter = nullptr;
+
+	FString MapName;
 	
 	GENERATED_BODY()
 };

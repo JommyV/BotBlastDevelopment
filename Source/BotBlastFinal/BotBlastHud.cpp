@@ -7,7 +7,7 @@
 #include "BarBase.h"
 #include "UILayout.h"
 #include "SatchelsUIBase.h"
-
+#include "Kismet/GameplayStatics.h"
 
 
 void ABotBlastHud::BeginPlay()
@@ -31,12 +31,18 @@ void ABotBlastHud::BeginPlay()
 	LayoutWidget->AddToViewport();
 	LayoutWidget->SetVisibility(ESlateVisibility::Collapsed);
 
-	
+	MapName = UGameplayStatics::GetCurrentLevelName(World, true) ;
+	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Cyan,
+		FString::Printf(TEXT("I now have: %s Satchels"), *MapName));
 
+	
 	// Get a reference to the character, and hook up the stat handlers
-	if (APlayerController* PlayerController = GetOwningPlayerController())
-		PlayerCharacter = Cast<ATaraCharacter>(PlayerController->GetPawn());
-	checkf(PlayerCharacter, TEXT("Unable to get a reference to the player character"));
+	if (MapName != "MainMenu")
+	{
+		if (APlayerController* PlayerController = GetOwningPlayerController())
+			PlayerCharacter = Cast<ATaraCharacter>(PlayerController->GetPawn());
+		checkf(PlayerCharacter, TEXT("Unable to get a reference to the player character"));
+	}
 
 	// Set the initial viewmode to the 'current' one, which allows setting via the editor.
 	//SetCurrentViewMode(CurrentViewMode);
@@ -59,65 +65,68 @@ void ABotBlastHud::CycleToNextViewMode()
 
 void ABotBlastHud::UpdateWidgets()
 {
-	// Unhook any delegate handlers.
-	ClearAllHandlers();
-
-	// Set all the widgets so we see none of them
-	LayoutWidget->SetVisibility(ESlateVisibility::Collapsed);
-
-	//For future if different HUDS are needed.
-	//ModerateLayoutWidget->SetVisibility(ESlateVisibility::Collapsed);
-	//OverloadLayoutWidget->SetVisibility(ESlateVisibility::Collapsed);
-
-	switch (CurrentViewMode)
+	if (MapName != "MainMenu")
 	{
-	case EHudViewMode::CleanAndPristine:
-		// Currently there isn't actually anything to do here!
-		break;
-	case EHudViewMode::Minimal:
-		PlayerCharacter->OnSatchelCountChanged.AddDynamic(LayoutWidget->ItemBar->SatchelBarMain,
-		                                            &USatchelsUIBase::OnFloatStatUpdated);
+		// Unhook any delegate handlers.
+		ClearAllHandlers();
+
+		// Set all the widgets so we see none of them
+		LayoutWidget->SetVisibility(ESlateVisibility::Collapsed);
 
 		//For future if different HUDS are needed.
-		//PlayerCharacter->OnStaminaChanged.AddDynamic(MinimalLayoutWidget->HSPBar->StaminaBar,
-		                                           //  &UStatBarBase::OnFloatStatUpdated);
-		//PlayerCharacter->OnPsiPowerChanged.AddDynamic(MinimalLayoutWidget->HSPBar->PsiBar,
-		                                           //   &UStatBarBase::OnFloatStatUpdated);
+		//ModerateLayoutWidget->SetVisibility(ESlateVisibility::Collapsed);
+		//OverloadLayoutWidget->SetVisibility(ESlateVisibility::Collapsed);
+
+		switch (CurrentViewMode)
+		{
+		case EHudViewMode::CleanAndPristine:
+			// Currently there isn't actually anything to do here!
+			break;
+		case EHudViewMode::Minimal:
+			PlayerCharacter->OnSatchelCountChanged.AddDynamic(LayoutWidget->ItemBar->SatchelBarMain,
+													   &USatchelsUIBase::OnFloatStatUpdated);
+
+			//For future if different HUDS are needed.
+			//PlayerCharacter->OnStaminaChanged.AddDynamic(MinimalLayoutWidget->HSPBar->StaminaBar,
+			//  &UStatBarBase::OnFloatStatUpdated);
+			//PlayerCharacter->OnPsiPowerChanged.AddDynamic(MinimalLayoutWidget->HSPBar->PsiBar,
+			//   &UStatBarBase::OnFloatStatUpdated);
 		
-		LayoutWidget->SetVisibility(ESlateVisibility::Visible);
-		break;
+			LayoutWidget->SetVisibility(ESlateVisibility::Visible);
+			break;
 
 
-		//For future, if different HUDS are needed.
-		/*case EHudViewMode::Moderate:
-		PlayerCharacter->OnHealthChanged.AddDynamic(ModerateLayoutWidget->HSPBar->HealthBar,
-		                                            &UStatBarBase::OnIntStatUpdated);
-		PlayerCharacter->OnStaminaChanged.AddDynamic(ModerateLayoutWidget->HSPBar->StaminaBar,
-		                                             &UStatBarBase::OnFloatStatUpdated);
-		PlayerCharacter->OnPsiPowerChanged.AddDynamic(ModerateLayoutWidget->HSPBar->PsiBar,
-		                                              &UStatBarBase::OnFloatStatUpdated);
-		ModerateLayoutWidget->SetVisibility(ESlateVisibility::Visible);
-		break;
-	case EHudViewMode::SensoryOverload:
-		PlayerCharacter->OnHealthChanged.AddDynamic(OverloadLayoutWidget->HSPBar->HealthBar,
-		                                            &UStatBarBase::OnIntStatUpdated);
-		PlayerCharacter->OnStaminaChanged.AddDynamic(OverloadLayoutWidget->HSPBar->StaminaBar,
-		                                             &UStatBarBase::OnFloatStatUpdated);
-		PlayerCharacter->OnPsiPowerChanged.AddDynamic(OverloadLayoutWidget->HSPBar->PsiBar,
-		                                              &UStatBarBase::OnFloatStatUpdated);
-		OverloadLayoutWidget->SetVisibility(ESlateVisibility::Visible);
-		break;*/
-	default: ;
+			//For future, if different HUDS are needed.
+			/*case EHudViewMode::Moderate:
+			PlayerCharacter->OnHealthChanged.AddDynamic(ModerateLayoutWidget->HSPBar->HealthBar,
+														&UStatBarBase::OnIntStatUpdated);
+			PlayerCharacter->OnStaminaChanged.AddDynamic(ModerateLayoutWidget->HSPBar->StaminaBar,
+														 &UStatBarBase::OnFloatStatUpdated);
+			PlayerCharacter->OnPsiPowerChanged.AddDynamic(ModerateLayoutWidget->HSPBar->PsiBar,
+														  &UStatBarBase::OnFloatStatUpdated);
+			ModerateLayoutWidget->SetVisibility(ESlateVisibility::Visible);
+			break;
+		case EHudViewMode::SensoryOverload:
+			PlayerCharacter->OnHealthChanged.AddDynamic(OverloadLayoutWidget->HSPBar->HealthBar,
+														&UStatBarBase::OnIntStatUpdated);
+			PlayerCharacter->OnStaminaChanged.AddDynamic(OverloadLayoutWidget->HSPBar->StaminaBar,
+														 &UStatBarBase::OnFloatStatUpdated);
+			PlayerCharacter->OnPsiPowerChanged.AddDynamic(OverloadLayoutWidget->HSPBar->PsiBar,
+														  &UStatBarBase::OnFloatStatUpdated);
+			OverloadLayoutWidget->SetVisibility(ESlateVisibility::Visible);
+			break;*/
+		default: ;
+		}
+
+		// This ensures that even if something has not changed recently, the newly switched-to widget will get sent
+		// the latest character stats, so it can update itself.
+		PlayerCharacter->BroadcastCurrentStats();
 	}
-
-	// This ensures that even if something has not changed recently, the newly switched-to widget will get sent
-	// the latest character stats, so it can update itself.
-	PlayerCharacter->BroadcastCurrentStats();
 }
 
 void ABotBlastHud::ClearAllHandlers()
 { 
-	if (PlayerCharacter)
+	if (PlayerCharacter && MapName != "MainMenu")
 	{
 		//PlayerCharacter->OnHealthChanged.Clear();
 		//PlayerCharacter->OnStaminaChanged.Clear();
@@ -128,9 +137,12 @@ void ABotBlastHud::ClearAllHandlers()
 
 void ABotBlastHud::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
-	// Release any event handlers
-	ClearAllHandlers();
-
+	if (MapName != "MainMenu")
+	{
+		// Release any event handlers
+		ClearAllHandlers();
+	}
+		
 	Super::EndPlay(EndPlayReason);
 }
 	

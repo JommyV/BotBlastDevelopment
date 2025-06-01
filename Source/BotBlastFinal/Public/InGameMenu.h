@@ -41,7 +41,16 @@ protected:
 	UPROPERTY(BlueprintReadOnly, Category = "Constituent Controls", meta = (BindWidget))
 	TObjectPtr<UTextBlock> ValueText = nullptr;
 
+private:
 
+	UFUNCTION()
+	void OnRestartButtonClicked();
+	
+	UFUNCTION()
+	void OnExitButtonClicked();
+	
+	UFUNCTION()
+	void OnQuitButtonClicked();
 
 	GENERATED_BODY()
 	

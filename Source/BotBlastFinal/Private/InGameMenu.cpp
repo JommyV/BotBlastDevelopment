@@ -5,26 +5,30 @@
 
 #include "CustomLogging.h"
 #include "BotBlastFinal/TaraCharacter.h"
+#include "BotBlastFinal/TaraController.h"
 #include "Components/Button.h"
 #include "Kismet/GameplayStatics.h"
 
 void UInGameMenu::NativeConstruct()
 {
-		
+	//Binds the buttons to the respective functions.	
 	if (RestartButton)
-	{
-		RestartButton->OnClicked.AddDynamic(this, &UInGameMenu::OnRestartButtonClicked);
-	}
+			RestartButton->OnClicked.AddDynamic(this, &UInGameMenu::OnRestartButtonClicked);
+	
 	if (ExitButton)
-	{
-		ExitButton->OnClicked.AddDynamic(this, &UInGameMenu::OnExitButtonClicked);
-	}
+			ExitButton->OnClicked.AddDynamic(this, &UInGameMenu::OnExitButtonClicked);
+	
 	if (QuitButton)
-	{
-		QuitButton->OnClicked.AddDynamic(this, &UInGameMenu::OnQuitButtonClicked);
-	}
+			QuitButton->OnClicked.AddDynamic(this, &UInGameMenu::OnQuitButtonClicked);
+	
+	if (ResumeButton)
+			ResumeButton->OnClicked.AddDynamic(this, &UInGameMenu::OnResumeButtonClicked);
+
+	//Sets the menu to be invisible when the game starts.
 	SetVisibility(ESlateVisibility::Hidden);
-	ATaraCharacter* PlayerCharacter = Cast<ATaraCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));
+
+	//Gets a reference to the player and adds the delegate to call the pause function.
+	PlayerCharacter = Cast<ATaraCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));
 	if (PlayerCharacter)
 	{
 		PlayerCharacter->OnPause.AddDynamic(this, &UInGameMenu::OnPause);
@@ -34,23 +38,37 @@ void UInGameMenu::NativeConstruct()
 
 void UInGameMenu::OnRestartButtonClicked()
 {
-	
+	//Restarts the level we are currently at
 	UGameplayStatics::OpenLevel(this, FName(*GetWorld()->GetName()), false);
 		
 }
 
 void UInGameMenu::OnExitButtonClicked()
 {
+	//Opens the main menu, virtually exiting to it.
 	UGameplayStatics::OpenLevel(this,"MainMenu", false);
 }
 
 void UInGameMenu::OnQuitButtonClicked()
 {
+	//Quits the whole game.
 	UKismetSystemLibrary::QuitGame(GetWorld(), nullptr, EQuitPreference::Quit, false);
+}
+
+void UInGameMenu::OnResumeButtonClicked()
+{
+	//Unpauses the game when clicked. For now it's the only way to unpause. Hides the menu.
+	UGameplayStatics::SetGamePaused(GetWorld(), false); // UnPause
+	SetVisibility(ESlateVisibility::Hidden);
+	
+	AController* Controller = PlayerCharacter->GetController();
+	ATaraController* MyController = Cast<ATaraController>(Controller);
+	MyController->HandleUnPause();
 }
 
 void UInGameMenu::OnPause(bool isPaused)
 {
+	//When the player plays the pause button, sets the menu to visible if its not paused and to hidden if paused.
 	if (isPaused)
 	{
 		SetVisibility(ESlateVisibility::Visible);
@@ -58,11 +76,10 @@ void UInGameMenu::OnPause(bool isPaused)
 	else
 	{
 		SetVisibility(ESlateVisibility::Hidden);
-	}
-		
-		
-	
+	}	
 }
+
+
 
 
 

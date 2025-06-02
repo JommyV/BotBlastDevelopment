@@ -84,12 +84,14 @@ protected:
 	void		 HandleToggleSprint();
 	void		 HandleRestartGame();
 	void		 HandleCycleUI();
-	void		 HandlePause();
+	
 	
 	virtual void OnPossess(APawn* aPawn) override;
 	virtual void OnUnPossess() override;
 
-	
+public:
+	void		 HandlePause();
+	void		 HandleUnPause();
 
 private:
 	// Used to store a reference to the InputComponent cast to an EnhancedInputComponent.

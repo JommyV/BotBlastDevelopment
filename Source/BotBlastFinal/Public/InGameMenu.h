@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
+#include "BotBlastFinal/TaraCharacter.h"
 #include "InGameMenu.generated.h"
 
 /**
@@ -39,6 +40,9 @@ protected:
 	TObjectPtr<UButton> QuitButton = nullptr;
 
 	UPROPERTY(BlueprintReadOnly, Category = "Constituent Controls", meta = (BindWidget))
+	TObjectPtr<UButton> ResumeButton = nullptr;
+
+	UPROPERTY(BlueprintReadOnly, Category = "Constituent Controls", meta = (BindWidget))
 	TObjectPtr<UTextBlock> ValueText = nullptr;
 
 private:
@@ -51,6 +55,13 @@ private:
 	
 	UFUNCTION()
 	void OnQuitButtonClicked();
+
+	UFUNCTION()
+	void OnResumeButtonClicked();
+
+	// Used to store a reference to the pawn we are controlling.
+	UPROPERTY()
+	TObjectPtr<ATaraCharacter> PlayerCharacter = nullptr;
 
 	
 public:

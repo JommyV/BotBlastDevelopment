@@ -13,6 +13,7 @@ void ATaraController::OnPossess(APawn* aPawn)
 {
 	// Call the parent method, to let it do anything it needs to
 	Super::OnPossess(aPawn);
+	SetShowMouseCursor(false);
 
 	// Store a reference to the Player's Pawn
 	PlayerCharacter = Cast<ATaraCharacter>(aPawn);
@@ -191,17 +192,18 @@ void ATaraController::HandlePause()
 	if (!bIsPaused)
 	{
 		PlayerCharacter->OnPause.Broadcast(true);
-		//UGameplayStatics::SetGamePaused(GetWorld(), true); // Pause
+		UGameplayStatics::SetGamePaused(GetWorld(), true); // Pause
 		bIsPaused = true;
 		SetShowMouseCursor(true);
 	}
-	else
-	{
-		bIsPaused = false;
-		PlayerCharacter->OnPause.Broadcast(false);
-		//UGameplayStatics::SetGamePaused(GetWorld(), false); // Pause
-		SetShowMouseCursor(false);
-	}
+}
+
+void ATaraController::HandleUnPause()
+{
+	bIsPaused = false;
+	//PlayerCharacter->OnPause.Broadcast(false);
+	//UGameplayStatics::SetGamePaused(GetWorld(), false); // Unpause
+	SetShowMouseCursor(false);
 }
 
 

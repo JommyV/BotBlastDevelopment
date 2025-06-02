@@ -3,7 +3,6 @@
 
 #include "SatchelsUIBase.h"
 #include "CustomLogging.h"
-#include "SNegativeActionButton.h"
 #include "Components/Border.h"
 #include "Components/Image.h"
 #include "Components/TextBlock.h"

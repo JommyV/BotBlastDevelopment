@@ -64,6 +64,8 @@ void UInGameMenu::OnResumeButtonClicked()
 	AController* Controller = PlayerCharacter->GetController();
 	ATaraController* MyController = Cast<ATaraController>(Controller);
 	MyController->HandleUnPause();
+	
+	
 }
 
 void UInGameMenu::OnPause(bool isPaused)

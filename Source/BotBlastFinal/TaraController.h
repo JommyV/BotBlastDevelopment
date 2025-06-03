@@ -70,8 +70,18 @@ public:
 	float SideWaysAirControl = 0.3f;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "GroundMovement")
 	float GroundStrafingSpeed = 0.5f;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "GroundMovement")
+	float MovementLock = 1.0f;
 
 	bool bIsPaused = false;
+
+	UFUNCTION(BlueprintCallable, Category = "Settings")
+	float SetMouseSensitivity(float NewSensitivity);
+
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Settings")
+	float MouseSensitivity = 1.0f;
+
+
 	
 	
 protected:
@@ -102,6 +112,8 @@ private:
 	UPROPERTY()
 	TObjectPtr<ATaraCharacter> PlayerCharacter = nullptr;
 
+	FInputModeGameOnly GameInputMode;
+	FInputModeUIOnly UIInputMode;
 	
 	GENERATED_BODY()
 };

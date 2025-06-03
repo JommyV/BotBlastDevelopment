@@ -13,4 +13,6 @@ class BOTBLASTFINAL_API UBotBlastGameInstance : public UGameInstance
 
 public:
 	virtual void Init() override;
+	UPROPERTY(BlueprintReadWrite, Category="Settings")
+	float StoredMouseSensitivity = 1.0f;
 };

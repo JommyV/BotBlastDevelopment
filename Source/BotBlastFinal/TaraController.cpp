@@ -2,6 +2,8 @@
 
 
 #include "TaraController.h"
+
+#include "BotBlastGameInstance.h"
 #include "TaraCharacter.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
@@ -64,6 +66,8 @@ void ATaraController::OnPossess(APawn* aPawn)
 		EnhancedInputComponent->BindAction(ActionPauseGame, ETriggerEvent::Triggered, this,
 											&ATaraController::HandlePause);
 
+	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Cyan,
+		FString::Printf(TEXT("The sensitivity is: %f"), MouseSensitivity));
 
 }
 
@@ -76,6 +80,12 @@ void ATaraController::OnUnPossess()
 	Super::OnUnPossess();
 }
 
+float ATaraController::SetMouseSensitivity(float NewSensitivity)
+{
+	MouseSensitivity = NewSensitivity;
+	return MouseSensitivity;
+}
+
 void ATaraController::HandleLook(const FInputActionValue& InputActionValue)
 {
 	// Input is a Vector2D
@@ -83,8 +93,8 @@ void ATaraController::HandleLook(const FInputActionValue& InputActionValue)
 
 	// Add yaw and pitch input to controller
 	
-	PlayerCharacter->AddControllerYawInput(LookAxisVector.X);
-	PlayerCharacter->AddControllerPitchInput(LookAxisVector.Y);
+	PlayerCharacter->AddControllerYawInput(LookAxisVector.X * MouseSensitivity);
+	PlayerCharacter->AddControllerPitchInput(LookAxisVector.Y * MouseSensitivity);
 }
 
 void ATaraController::HandleMove(const FInputActionValue& InputActionValue)
@@ -120,18 +130,21 @@ void ATaraController::HandleMove(const FInputActionValue& InputActionValue)
 	else
 	{
 		// Apply movement input
-		PlayerCharacter->AddMovementInput(Forward, MovementVector.Y);
+		PlayerCharacter->AddMovementInput(Forward*MovementLock, MovementVector.Y);
 		//If player is wallrunning, don't allow sideways movement
 		if (!PlayerCharacter->bIsWallRunning)
 		{
-			PlayerCharacter->AddMovementInput(Right*GroundStrafingSpeed, MovementVector.X);
+			PlayerCharacter->AddMovementInput(Right*GroundStrafingSpeed*MovementLock, MovementVector.X);
 		}
 		else
 		{
 			PlayerCharacter->AddMovementInput(Right, MovementVector.X, false);
 		}
 	}
-	
+	if (UBotBlastGameInstance* GI = Cast<UBotBlastGameInstance>(GetGameInstance()))
+	{
+		SetMouseSensitivity(GI->StoredMouseSensitivity);
+	}
 	
 }
 
@@ -195,6 +208,7 @@ void ATaraController::HandlePause()
 		UGameplayStatics::SetGamePaused(GetWorld(), true); // Pause
 		bIsPaused = true;
 		SetShowMouseCursor(true);
+		SetInputMode(UIInputMode);
 	}
 }
 

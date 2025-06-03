@@ -11,6 +11,7 @@
  * 
  */
 
+class ATaraController;
 class UVerticalBox;
 class UBorder;
 class UImage;
@@ -63,6 +64,15 @@ private:
 	UPROPERTY()
 	TObjectPtr<ATaraCharacter> PlayerCharacter = nullptr;
 
+	UPROPERTY()
+	TObjectPtr<AController> Controller = nullptr;
+
+	UPROPERTY()
+	TObjectPtr<ATaraController> MyController = nullptr;
+
+	//Input modes to be changed as the player opens/closes the menu.
+	FInputModeGameOnly GameInputMode;
+	FInputModeUIOnly UIInputMode;
 	
 public:
 	

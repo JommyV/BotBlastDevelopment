@@ -15,6 +15,7 @@ class UVerticalBox;
 class UBorder;
 class UImage;
 class UTextBlock;
+class UCanvasPanel;
 
 
 UCLASS()
@@ -43,19 +44,24 @@ protected:
 	TObjectPtr<UBorder> MainBorder = nullptr;
 
 	UPROPERTY(BlueprintReadOnly, Category = "Constituent Controls", meta = (BindWidget))
-	TObjectPtr<UVerticalBox> PercentBars = nullptr;
+	TObjectPtr<UCanvasPanel> PercentBars = nullptr;
 
-	UPROPERTY(BlueprintReadOnly, Category = "Constituent Controls", meta = (BindWidget))
-	TObjectPtr<UImage> Icon = nullptr;
+	//UPROPERTY(BlueprintReadOnly, Category = "Constituent Controls", meta = (BindWidget))
+	//TObjectPtr<UImage> Icon = nullptr;
 
-	UPROPERTY(BlueprintReadOnly, Category = "Constituent Controls", meta = (BindWidget))
-	TObjectPtr<UBorder> Bar_Empty = nullptr;
+	UPROPERTY(EditAnywhere, Category = "Constituent Controls", meta = (BindWidget))
+	TObjectPtr<UImage> Bar_Empty = nullptr;
 
-	UPROPERTY(BlueprintReadOnly, Category = "Constituent Controls", meta = (BindWidget))
-	TObjectPtr<UBorder> Bar_Filled = nullptr;
+	UPROPERTY(EditAnywhere, Category = "Constituent Controls", meta = (BindWidget))
+	TObjectPtr<UImage> Bar_Filled = nullptr;
 
-	UPROPERTY(BlueprintReadOnly, Category = "Constituent Controls", meta = (BindWidget))
-	TObjectPtr<UTextBlock> ValueText = nullptr;
+	UPROPERTY(EditAnywhere, Category = "Constituent Controls", meta = (BindWidget))
+	TObjectPtr<UImage> Bar_SemiFilled = nullptr;
+
+	//UPROPERTY(BlueprintReadOnly, Category = "Constituent Controls", meta = (BindWidget))
+	//TObjectPtr<UTextBlock> ValueText = nullptr;
+
+
 
 
 private:
@@ -63,10 +69,10 @@ private:
 	FSlateBrush IconBrush;
 
 	UPROPERTY(EditAnywhere, Category="Stat Bar")
-	FLinearColor BarBackgroundColor = FLinearColor(0.3f, 0.f, 0.f, 0.3f);
+	FLinearColor BarBackgroundColor;
 
 	UPROPERTY(EditAnywhere, Category="Stat Bar")
-	FLinearColor BarForegroundColor = FLinearColor(1.f, 0.f, 0.f, 0.75f);
+	FLinearColor BarForegroundColor;
 
 	// Display the Bar as full size, or minimized
 	UPROPERTY(EditAnywhere, Category="Stat Bar")

@@ -33,13 +33,19 @@ void UInGameMenu::NativeConstruct()
 	{
 		PlayerCharacter->OnPause.AddDynamic(this, &UInGameMenu::OnPause);
 	}
+	
 	Super::NativeConstruct();
 }
 
 void UInGameMenu::OnRestartButtonClicked()
 {
 	//Restarts the level we are currently at
+	Controller = PlayerCharacter->GetController();
+	MyController = Cast<ATaraController>(Controller);
+	MyController->SetShowMouseCursor(false);
+	MyController->SetInputMode(GameInputMode);
 	UGameplayStatics::OpenLevel(this, FName(*GetWorld()->GetName()), false);
+	
 		
 }
 
@@ -60,9 +66,10 @@ void UInGameMenu::OnResumeButtonClicked()
 	//Unpauses the game when clicked. For now it's the only way to unpause. Hides the menu.
 	UGameplayStatics::SetGamePaused(GetWorld(), false); // UnPause
 	SetVisibility(ESlateVisibility::Hidden);
-	
-	AController* Controller = PlayerCharacter->GetController();
-	ATaraController* MyController = Cast<ATaraController>(Controller);
+	Controller = PlayerCharacter->GetController();
+	MyController = Cast<ATaraController>(Controller);
+	MyController->SetShowMouseCursor(false);
+	MyController->SetInputMode(GameInputMode);
 	MyController->HandleUnPause();
 	
 	

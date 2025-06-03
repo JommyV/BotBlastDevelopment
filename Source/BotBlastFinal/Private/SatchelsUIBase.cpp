@@ -3,10 +3,8 @@
 
 #include "SatchelsUIBase.h"
 #include "CustomLogging.h"
-#include "Components/Border.h"
 #include "Components/Image.h"
 #include "Components/TextBlock.h"
-#include "Components/VerticalBox.h"
 #include "Components/VerticalBoxSlot.h"
 #include "Blueprint/UserWidget.h"
 
@@ -15,6 +13,8 @@ void USatchelsUIBase::NativeOnInitialized()
 {
 	Super::NativeOnInitialized();
 	UE_LOG(BBLog, Warning, TEXT("NativeOnInitialized()"));
+	Bar_Filled->SetVisibility(ESlateVisibility::Visible);
+	Bar_SemiFilled->SetVisibility(ESlateVisibility::Visible);
 	UpdateWidget();
 }
 
@@ -32,10 +32,10 @@ void USatchelsUIBase::OnFloatStatUpdated(float OldValue, float NewValue, float M
 	// just in case someone passes invalid values
 
 	// Prevent divide by zero errors.
-	if (MaxValue == 0.f) MaxValue = KINDA_SMALL_NUMBER;
+	//if (MaxValue == 0.f) MaxValue = KINDA_SMALL_NUMBER;
 
-	CurrentPercentage = FMath::Clamp(NewValue / MaxValue, 0.f, 1.f);
-	CurrentSatchelsNumber      = NewValue;
+	CurrentSatchelsNumber= NewValue;
+	
 	UpdateWidget();
 }
 
@@ -86,32 +86,48 @@ void USatchelsUIBase::UpdateWidget()
 	// Check that the controls we want actually exist
 	if (!Bar_Filled ||
 		!Bar_Empty ||
-		!MainBorder ||
-		!Icon) return;
+		!MainBorder) return;
 
-	FSlateChildSize EmptySize = FSlateChildSize(ESlateSizeRule::Fill);
-	EmptySize.Value           = 1.f - CurrentPercentage;
+	//FSlateChildSize EmptySize = FSlateChildSize(ESlateSizeRule::Fill);
+	//EmptySize.Value           = 1.f - CurrentPercentage;
 
-	FSlateChildSize FilledSize = FSlateChildSize(ESlateSizeRule::Fill);
-	FilledSize.Value           = CurrentPercentage;
+	//FSlateChildSize FilledSize = FSlateChildSize(ESlateSizeRule::Fill);
+	//FilledSize.Value           = CurrentPercentage;
 
-	if (UVerticalBoxSlot* FilledSlot = Cast<UVerticalBoxSlot>(Bar_Filled->Slot))
-		FilledSlot->SetSize(FilledSize);
+	//if (UVerticalBoxSlot* FilledSlot = Cast<UVerticalBoxSlot>(Bar_Filled->Slot))
+	//	FilledSlot->SetSize(FilledSize);
 
-	if (UVerticalBoxSlot* EmptySlot = Cast<UVerticalBoxSlot>(Bar_Empty->Slot))
-		EmptySlot->SetSize(EmptySize);
+	//if (UVerticalBoxSlot* EmptySlot = Cast<UVerticalBoxSlot>(Bar_Empty->Slot))
+	//	EmptySlot->SetSize(EmptySize);
+	if (CurrentSatchelsNumber == 2.f)
+	{
+		Bar_Filled->SetVisibility(ESlateVisibility::Visible);
+		Bar_SemiFilled->SetVisibility(ESlateVisibility::Visible);
+	}
+	if (CurrentSatchelsNumber == 1.f)
+	{
+		Bar_Filled->SetVisibility(ESlateVisibility::Hidden);
+		Bar_SemiFilled->SetVisibility(ESlateVisibility::Visible);
+	}
+	if (CurrentSatchelsNumber == 0.f)
+	{
+		Bar_Filled->SetVisibility(ESlateVisibility::Hidden);
+		Bar_SemiFilled->SetVisibility(ESlateVisibility::Hidden);
+	}
+	
+	
 
-	MainBorder->SetBrushColor(BarBackgroundColor);
-	Bar_Filled->SetBrushColor(BarForegroundColor);
-	Icon->SetBrush(IconBrush);
+	//MainBorder->SetBrushColor(BarBackgroundColor);
+	//Bar_Filled->SetBrushColor(BarForegroundColor);
+	//Icon->SetBrush(IconBrush);
 
 	ProcessCurrentValueText();
 
-	ValueText->SetText(CurrentValueText);
+	//ValueText->SetText(CurrentValueText);
 	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red,
 									// *(FString::Printf(
 									//	 TEXT("Satchel - Current: %f | Maximum: %f"), CurrentPercentage, MaxSatchels)));
-	PercentBars->SetVisibility(IsFullSize ? ESlateVisibility::Visible : ESlateVisibility::Collapsed);
+	//PercentBars->SetVisibility(IsFullSize ? ESlateVisibility::Visible : ESlateVisibility::Collapsed);
 	
 }
 

@@ -1,0 +1,20 @@
+Versão 0.3.0.0: Versão de apresentação/envio de build.
+Fixes:
+Fix ao botão de restart que não escondia o mouse até carregar com o botão esquerdo;,
+Fix ao botão de unpause que não dava o controlo da câmera até carregar com o botão esquerdo;,
+Fix ao in-game menu que só funcionava no segundo click;,
+Fix ao menu inicial que só funcionava no segundo click;,
+
+Menu:
+Adicionado funcionalidade ao botão de Settings;,
+Adicionado 4 botões de gráficos: Low, Medium, High e Voltar ao menu inicial;,
+Adicionado Slider de sensibilidade do rato, de 0 a 2, com valor default de 1;,
+Adicionado botão de voltar ao menu da seleção de níveis.,
+
+UI:
+Aumentado o tamanho do timer e movido mais para baixo para melhor visibilidade;,
+Modificado a UI dos satchels, agora tem os icones do satchel que o Alex fez;,
+Adicionado contagem regressiva para início da tentativa.,
+
+Gameplay:
+O jogo agora pausa 2 segundos antes de começar, para dar tempo ao player de se ajustar antes de começar, há um timer a contar de 2 a 0 para informar. Se segurar o W o psg se move assim que possível. Não consegue andar nem usar satchels mas sim mover a câmera.

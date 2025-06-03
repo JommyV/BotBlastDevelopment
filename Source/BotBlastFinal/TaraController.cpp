@@ -48,8 +48,12 @@ void ATaraController::OnPossess(APawn* aPawn)
 		EnhancedInputComponent->BindAction(ActionLook, ETriggerEvent::Triggered, this,
 		                                   &ATaraController::HandleLook);
 	if (ActionJump)
-		EnhancedInputComponent->BindAction(ActionJump, ETriggerEvent::Triggered, this,
-		                                   &ATaraController::HandleJump);
+	{
+		EnhancedInputComponent->BindAction(ActionJump, ETriggerEvent::Started, this,
+										  &ATaraController::HandleJump);
+		EnhancedInputComponent->BindAction(ActionJump, ETriggerEvent::Completed, this,
+										   &ATaraController::HandleStopJump);
+	}
 	if (ActionCrouch)
 		EnhancedInputComponent->BindAction(ActionCrouch, ETriggerEvent::Triggered, this,
 										   &ATaraController::HandleCrouch);
@@ -117,14 +121,14 @@ void ATaraController::HandleMove(const FInputActionValue& InputActionValue)
 	if (PlayerCharacter->GetCharacterMovement()->IsFalling())
 	{
 		PlayerCharacter->GetCharacterMovement()->bOrientRotationToMovement = false;
-		PlayerCharacter->AddMovementInput(Right*SideWaysAirControl, MovementVector.X);
+		PlayerCharacter->AddMovementInput(Right*SideWaysAirControl*MovementLock, MovementVector.X);
 		if (MovementVector.Y > 0.0f)
 		{
-			PlayerCharacter->AddMovementInput(Forward*ForwardAirControl, MovementVector.Y);
+			PlayerCharacter->AddMovementInput(Forward*ForwardAirControl*MovementLock, MovementVector.Y);
 		}
 		else
 		{
-			PlayerCharacter->AddMovementInput(Forward*BackwardsAirControl, MovementVector.Y);
+			PlayerCharacter->AddMovementInput(Forward*BackwardsAirControl*MovementLock, MovementVector.Y);
 		}
 	}
 	else
@@ -151,15 +155,23 @@ void ATaraController::HandleMove(const FInputActionValue& InputActionValue)
 
 void ATaraController::HandleJump()
 {
-	// Input is 'Digital' (value not used here)
-
 	// Make the Player's Character Pawn jump, disabling crouch if it was active
-	if (PlayerCharacter)
+	// And he can jump (not able in the first seconds of the map).
+	if (bCanJump)
 	{
-		PlayerCharacter->UnCrouch();
-		PlayerCharacter->Jump();
-		PlayerCharacter->StopJumping();
+		if (PlayerCharacter)
+		{
+			PlayerCharacter->UnCrouch();
+			PlayerCharacter->Jump();
+			
+		}
 	}
+}
+
+void ATaraController::HandleStopJump()
+{
+	if (PlayerCharacter)
+		PlayerCharacter->StopJumping();
 }
 
 void ATaraController::HandleCrouch()
@@ -199,6 +211,8 @@ void ATaraController::HandleCycleUI()
 	if (PlayerHud)
 		PlayerHud->CycleToNextViewMode();
 }
+
+
 
 void ATaraController::HandlePause()
 {

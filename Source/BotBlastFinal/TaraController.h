@@ -71,7 +71,9 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "GroundMovement")
 	float GroundStrafingSpeed = 0.5f;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "GroundMovement")
-	float MovementLock = 1.0f;
+	int MovementLock = 1;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "AirMovement")
+	bool bCanJump = true;
 
 	bool bIsPaused = false;
 
@@ -94,7 +96,7 @@ protected:
 	void		 HandleToggleSprint();
 	void		 HandleRestartGame();
 	void		 HandleCycleUI();
-	
+	void		 HandleStopJump();
 	
 	virtual void OnPossess(APawn* aPawn) override;
 	virtual void OnUnPossess() override;

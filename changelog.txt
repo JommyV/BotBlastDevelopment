@@ -1,20 +1,34 @@
-Versão 0.3.0.0: Versão de apresentação/envio de build.
+Version 0.3.0.0: Presentation version/send build.
 Fixes:
-Fix ao botão de restart que não escondia o mouse até carregar com o botão esquerdo;,
-Fix ao botão de unpause que não dava o controlo da câmera até carregar com o botão esquerdo;,
-Fix ao in-game menu que só funcionava no segundo click;,
-Fix ao menu inicial que só funcionava no segundo click;,
+- Fix to the restart button that didn't hide the mouse until left-clicked on the game, meaning you couldn't move the câmera;
+- Fix to the unpause button that didn't give control of the camera until you pressed the left button, even if it hid the mouse;
+- Fix to the in-game menu that only worked on the second click;
+- Fix to the start menu that only worked on the second click;
 
 Menu:
-Adicionado funcionalidade ao botão de Settings;,
-Adicionado 4 botões de gráficos: Low, Medium, High e Voltar ao menu inicial;,
-Adicionado Slider de sensibilidade do rato, de 0 a 2, com valor default de 1;,
-Adicionado botão de voltar ao menu da seleção de níveis.,
+- Added functionality to the Settings button;
+- Added 4 graphics buttons: Low, Medium, High and Back to the start menu;
+- Added mouse sensitivity slider, from 0 to 2, with default value of 1;
+- Added back button to the level selection menu.
 
 UI:
-Aumentado o tamanho do timer e movido mais para baixo para melhor visibilidade;,
-Modificado a UI dos satchels, agora tem os icones do satchel que o Alex fez;,
-Adicionado contagem regressiva para início da tentativa.,
+- Increased the size of the timer and moved it lower for better visibility;
+- Modified the satchel UI, it now has the satchel icons that Alex made;
+- Added countdown to start of attempt.
 
 Gameplay:
-O jogo agora pausa 2 segundos antes de começar, para dar tempo ao player de se ajustar antes de começar, há um timer a contar de 2 a 0 para informar. Se segurar o W o psg se move assim que possível. Não consegue andar nem usar satchels mas sim mover a câmera.
+- The game now pauses 2 seconds before starting, to give the player time to adjust before starting, there is a timer counting down from 2 to 0 to inform you. If you hold down W the character moves as soon as possible. You can't walk or use satchels, but you can move the camera.
+
+
+
+Version 0.3.0.1:
+Fixes:
+- Fixed being able to jump on initial freeze, I changed the logic to be more in line with the code,
+- Fixed the jump logic in c++, it didn't do anything and the jump was managed by blueprints by chance. Now, if we want, we can use a variable jump to load less or more space. It's normal for now.
+
+UI: 
+- Reduced the size of the satchel UI, 
+
+Maps: 
+- Modified a level 4 platform,
+- Modified some of Tara's spawn points.

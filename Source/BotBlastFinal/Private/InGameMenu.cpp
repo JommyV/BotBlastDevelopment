@@ -71,6 +71,7 @@ void UInGameMenu::OnResumeButtonClicked()
 	MyController->SetShowMouseCursor(false);
 	MyController->SetInputMode(GameInputMode);
 	MyController->HandleUnPause();
+	MyController->StopTimer();
 	
 	
 }

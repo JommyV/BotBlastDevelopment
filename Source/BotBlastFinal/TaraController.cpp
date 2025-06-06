@@ -190,6 +190,8 @@ void ATaraController::HandleCrouch()
 
 void ATaraController::HandleSatchel()
 {
+	//Satchel throwing logic is made in blueprints, for now this funcion
+	//only serves for the UI.
 	PlayerCharacter->ThrowSatchel();
 	PlayerCharacter->BroadcastCurrentStats();
 }
@@ -232,6 +234,7 @@ void ATaraController::HandleUnPause()
 	//PlayerCharacter->OnPause.Broadcast(false);
 	//UGameplayStatics::SetGamePaused(GetWorld(), false); // Unpause
 	SetShowMouseCursor(false);
+	
 }
 
 

@@ -21,6 +21,8 @@ Gameplay:
 
 
 
+
+
 Version 0.3.0.1:
 Fixes:
 - Fixed being able to jump on initial freeze, I changed the logic to be more in line with the code,
@@ -32,3 +34,17 @@ UI:
 Maps: 
 - Modified a level 4 platform,
 - Modified some of Tara's spawn points.
+
+
+
+
+Version 0.3.0.2:
+Fixes:
+- Fixed death menu not hiding mouse on restart;
+- Fix to the initial jump in the pause time;
+
+Inputs:
+- Added gamepad support:
+> - Satchel on right trigger,
+> - Jump on left trigger,
+> - Restart on Y/triangle (top face button)

@@ -170,14 +170,17 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Player|Satchel")
 	float	MaxSatchels = 2.f;
 
+	UFUNCTION(BlueprintImplementableEvent, Category = "Player|Timer")
+	void	RestartTimer();
 	
 	
 private:
+
 	//Player keys
 	TArray<FString>KeyWallet;
 
 	
-	bool				 IsSatchelActive = false;
+	bool IsSatchelActive = false;
 
 	//Has a satchel been thrown
 	bool bHasThrownSatchel = false;

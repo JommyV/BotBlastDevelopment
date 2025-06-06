@@ -15,4 +15,7 @@ public:
 	virtual void Init() override;
 	UPROPERTY(BlueprintReadWrite, Category="Settings")
 	float StoredMouseSensitivity = 1.0f;
+
+	UPROPERTY(BlueprintReadWrite, Category="Settings")
+	int StoredMouseInvertion = 1;
 };

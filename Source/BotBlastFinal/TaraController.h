@@ -83,9 +83,13 @@ public:
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Settings")
 	float MouseSensitivity = 1.0f;
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Settings")
+	int LookInversion = 1;
 
-	
-	
+	UFUNCTION(BlueprintCallable, Category = "Settings")
+	int SetLookInversion(int Inverted);
+
+		
 protected:
 	// Action Handler Functions
 	void         HandleLook(const FInputActionValue& InputActionValue);

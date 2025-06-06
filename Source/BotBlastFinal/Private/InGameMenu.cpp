@@ -4,6 +4,7 @@
 #include "InGameMenu.h"
 
 #include "CustomLogging.h"
+#include "Blueprint/WidgetBlueprintLibrary.h"
 #include "BotBlastFinal/TaraCharacter.h"
 #include "BotBlastFinal/TaraController.h"
 #include "Components/Button.h"
@@ -44,6 +45,7 @@ void UInGameMenu::OnRestartButtonClicked()
 	MyController = Cast<ATaraController>(Controller);
 	MyController->SetShowMouseCursor(false);
 	MyController->SetInputMode(GameInputMode);
+	PlayerCharacter->RestartTimer();
 	UGameplayStatics::OpenLevel(this, FName(*GetWorld()->GetName()), false);
 	
 		
@@ -71,7 +73,7 @@ void UInGameMenu::OnResumeButtonClicked()
 	MyController->SetShowMouseCursor(false);
 	MyController->SetInputMode(GameInputMode);
 	MyController->HandleUnPause();
-	MyController->StopTimer();
+	PlayerCharacter->RestartTimer();
 	
 	
 }
@@ -82,6 +84,8 @@ void UInGameMenu::OnPause(bool isPaused)
 	if (isPaused)
 	{
 		SetVisibility(ESlateVisibility::Visible);
+		FSlateApplication::Get().SetKeyboardFocus(RestartButton->TakeWidget());
+		
 	}
 	else
 	{

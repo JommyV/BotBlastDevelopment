@@ -90,6 +90,12 @@ float ATaraController::SetMouseSensitivity(float NewSensitivity)
 	return MouseSensitivity;
 }
 
+int ATaraController::SetLookInversion(int Inverted)
+{
+	LookInversion = Inverted;
+	return LookInversion;
+}
+
 void ATaraController::HandleLook(const FInputActionValue& InputActionValue)
 {
 	// Input is a Vector2D
@@ -98,7 +104,13 @@ void ATaraController::HandleLook(const FInputActionValue& InputActionValue)
 	// Add yaw and pitch input to controller
 	
 	PlayerCharacter->AddControllerYawInput(LookAxisVector.X * MouseSensitivity);
-	PlayerCharacter->AddControllerPitchInput(LookAxisVector.Y * MouseSensitivity);
+	PlayerCharacter->AddControllerPitchInput(LookAxisVector.Y * MouseSensitivity * LookInversion);
+
+	if (UBotBlastGameInstance* GI = Cast<UBotBlastGameInstance>(GetGameInstance()))
+    	{
+    		SetLookInversion(GI->StoredMouseInvertion);
+    		
+    	}
 }
 
 void ATaraController::HandleMove(const FInputActionValue& InputActionValue)
@@ -148,6 +160,7 @@ void ATaraController::HandleMove(const FInputActionValue& InputActionValue)
 	if (UBotBlastGameInstance* GI = Cast<UBotBlastGameInstance>(GetGameInstance()))
 	{
 		SetMouseSensitivity(GI->StoredMouseSensitivity);
+		
 	}
 	
 }

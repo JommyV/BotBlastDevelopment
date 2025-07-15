@@ -2,6 +2,8 @@
 
 
 #include "BotBlastGameInstance.h"
+
+#include "MySave.h"
 #include "GameFramework/GameUserSettings.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -9,7 +11,7 @@ void UBotBlastGameInstance::Init()
 {
 	Super::Init();
 
-	// Force graphics preset to "High"
+	// Force graphics preset to "Medium"
 	UGameUserSettings* Settings = GEngine->GetGameUserSettings();
 	if (Settings)
 	{
@@ -18,3 +20,6 @@ void UBotBlastGameInstance::Init()
 		Settings->SaveSettings();
 	}
 }
+
+
+

@@ -5,6 +5,9 @@
 #include "CoreMinimal.h"
 #include "ShadowComponent.h"
 #include "GameFramework/Character.h"
+#include "FMODBlueprintStatics.h"
+#include "FMODAudioComponent.h"
+#include "FMODEvent.h"
 #include "TaraCharacter.generated.h"
 
 
@@ -173,7 +176,11 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, Category = "Player|Timer")
 	void	RestartTimer();
 	
-	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Audio")
+	TObjectPtr<UFMODEvent> FootStepEvent;
+
+	/*UFUNCTION(BlueprintCallable, Category = "SaveGame")
+	void	SaveFinalTime(float time);*/
 private:
 
 	//Player keys
@@ -191,6 +198,9 @@ private:
 	//Camera
 	FVector2D CameraInput;
 
+	float TimeSinceLastStep = 0.0f;
+	float StepInterval = 0.5f; // or dynamically calculated
+	
 	
 	GENERATED_BODY()
 };

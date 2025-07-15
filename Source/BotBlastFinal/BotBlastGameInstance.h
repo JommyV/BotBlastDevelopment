@@ -18,4 +18,6 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, Category="Settings")
 	int StoredMouseInvertion = 1;
+	
+
 };

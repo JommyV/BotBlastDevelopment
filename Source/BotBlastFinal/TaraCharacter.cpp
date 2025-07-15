@@ -8,7 +8,11 @@
 #include "Components/SceneComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
-
+#include "FMODBlueprintStatics.h"
+#include "FMODAudioComponent.h"
+#include "FMODEvent.h"
+#include "Kismet/GameplayStatics.h"
+#include "MySave.h"
 
 
 // Sets default values
@@ -83,6 +87,28 @@ void ATaraCharacter::Tick(float DeltaTime)
 									// *(FString::Printf(
 									//	 TEXT("I now have: %f Satchels"), CurrentSatchels)));
 
+	}
+
+	FVector Velocity = GetVelocity();
+	bool bIsOnGround = GetCharacterMovement()->IsMovingOnGround();
+	bool bIsMoving = !Velocity.IsNearlyZero(1.0f) && bIsOnGround;
+	
+	if (bIsMoving)
+	{
+		TimeSinceLastStep += DeltaTime;
+    
+		float Speed = GetVelocity().Size();
+		StepInterval = FMath::Clamp(600.0f / Speed, 0.2f, 0.6f);  // Example mapping
+
+		if (TimeSinceLastStep >= StepInterval)
+		{
+			UFMODBlueprintStatics::PlayEventAtLocation(this, FootStepEvent, GetActorTransform(), true);
+			TimeSinceLastStep = 0.0f;
+		}
+	}
+	else
+	{
+		TimeSinceLastStep = StepInterval;  // reset so next move triggers instantly
 	}
 }
 
@@ -182,6 +208,22 @@ void ATaraCharacter::BroadcastCurrentStats()
 
 	OnKeyWalletAction.Broadcast(AllKeys, EPlayerKeyAction::CountKeys, true);
 }
+
+/*void ATaraCharacter::SaveFinalTime(float time)
+{
+	if (UMySave* SaveGameInstance = Cast<UMySave>(UGameplayStatics::CreateSaveGameObject(UMySave::StaticClass())))
+	{
+		// Set data on the savegame object.
+		SaveGameInstance->EndTime = time;
+ 
+		// Save the data immediately.
+		if (UGameplayStatics::SaveGameToSlot(SaveGameInstance, "Joao", 1))
+		{
+			// Save succeeded.
+		}
+	}
+	
+}*/
 
 
 

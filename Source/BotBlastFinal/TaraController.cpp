@@ -10,6 +10,9 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameModeBotBlast.h"
 #include "Kismet/GameplayStatics.h"
+#include "FMODBlueprintStatics.h"
+#include "FMODAudioComponent.h"
+#include "FMODEvent.h"
 
 void ATaraController::OnPossess(APawn* aPawn)
 {
@@ -162,7 +165,6 @@ void ATaraController::HandleMove(const FInputActionValue& InputActionValue)
 		SetMouseSensitivity(GI->StoredMouseSensitivity);
 		
 	}
-	
 }
 
 

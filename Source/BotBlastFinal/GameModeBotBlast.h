@@ -13,4 +13,5 @@ UCLASS()
 class BOTBLASTFINAL_API AGameModeBotBlast : public AGameModeBase
 {
 	GENERATED_BODY()
+	
 };

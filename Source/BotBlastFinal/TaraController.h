@@ -13,6 +13,9 @@
 class UEnhancedInputComponent;
 class ATaraCharacter;
 class UInputMappingContext;
+class UFMODEvent;
+class UFMODAudioEvent;
+class UFMODAudioComponent;
 
 UCLASS(Abstract)
 class ATaraController : public APlayerController
@@ -49,7 +52,10 @@ public:
 	// The Input Action to map to Pause/call main menu
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Player Input|UI")
 	TObjectPtr<UInputAction> ActionPauseGame = nullptr;
-	
+
+	// FMOD event for footsteps.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Audio")
+	TObjectPtr<UFMODEvent> FootStepEvent;
 
 	// The Input Mapping Context to use.
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Player Input|Character Movement")
@@ -101,7 +107,13 @@ protected:
 	void		 HandleRestartGame();
 	void		 HandleCycleUI();
 	void		 HandleStopJump();
-	
+
+	// Footstep audio component reference
+	UFMODAudioComponent* FootstepAudioComponent = nullptr;
+
+	// Track if footstep sound is playing
+	bool bIsFootstepPlaying = false;
+		
 	virtual void OnPossess(APawn* aPawn) override;
 	virtual void OnUnPossess() override;
 

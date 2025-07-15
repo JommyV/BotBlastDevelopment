@@ -53,7 +53,7 @@ struct FLeaderboardGroup
 	UPROPERTY(BlueprintReadWrite)
 	TArray<FLeaderboardEntry> Entries;
 
-	FLeaderboardGroup()
+	/*FLeaderboardGroup()
 	{
 		const int32 DefaultEntryCount = 3;
 		for (int32 i = 0; i < DefaultEntryCount; ++i)
@@ -65,6 +65,6 @@ struct FLeaderboardGroup
 
 			Entries.Add(Entry);
 		}
-	}
+	}*/
 	
 };

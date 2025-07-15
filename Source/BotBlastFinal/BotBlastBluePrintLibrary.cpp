@@ -26,7 +26,7 @@ TArray<FLeaderboardEntry> UBotBlastBluePrintLibrary::LoadLeaderboardSave(const F
 	for (int32 i = 0; i < 3; ++i)
 	{
 		FLeaderboardEntry Entry;
-		Entry.PlayerName = FString::Printf(TEXT("Slot %d"), i + 1);
+		Entry.PlayerName;
 		Entry.EndTime = 9999.0f;
 		Entry.Date = FDateTime(2000, 1, 1);
 		DefaultEntries.Add(Entry);

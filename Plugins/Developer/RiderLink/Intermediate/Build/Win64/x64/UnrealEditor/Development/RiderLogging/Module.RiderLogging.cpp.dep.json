@@ -590,7 +590,10 @@
             "d:\\ue_5.5\\engine\\source\\runtime\\core\\public\\misc\\parse.h",
             "d:\\ue_5.5\\engine\\source\\runtime\\core\\public\\misc\\largeworldcoordinatesserializer.h",
             "d:\\ue_5.5\\engine\\source\\runtime\\core\\public\\internationalization\\regex.h",
-            "d:\\ue_5.5\\engine\\source\\runtime\\core\\public\\misc\\datetime.h"
+            "d:\\ue_5.5\\engine\\source\\runtime\\core\\public\\misc\\datetime.h",
+            "d:\\unrealprojects2\\botblastdevelopment\\plugins\\developer\\riderlink\\source\\riderlogging\\private\\rideroutputdevice.cpp",
+            "d:\\ue_5.5\\engine\\source\\runtime\\core\\public\\misc\\outputdeviceredirector.h",
+            "d:\\ue_5.5\\engine\\source\\runtime\\core\\public\\templates\\pimplptr.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

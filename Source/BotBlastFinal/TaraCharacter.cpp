@@ -76,9 +76,8 @@ void ATaraCharacter::Tick(float DeltaTime)
 	{
 		// Keep track of the value before it is changed.
 		const float PreviousSatchelCount = CurrentSatchels;
-
-		
-		OnSatchelCountChanged.Broadcast(PreviousSatchelCount, CurrentSatchels, MaxSatchels);
+		OnSatchelCountChanged.Broadcast(PreviousSatchelCount, CurrentSatchels, MaxSatchels, bIsSatchelActive);
+			
 	}
 	else if (!GetMovementComponent()->IsFalling() && ActiveSatchels == 0.f)
 	{
@@ -193,7 +192,7 @@ void ATaraCharacter::YawCamera(float AxisValue)
 
 void ATaraCharacter::BroadcastCurrentStats()
 {
-	OnSatchelCountChanged.Broadcast(CurrentSatchels, CurrentSatchels, MaxSatchels);
+	OnSatchelCountChanged.Broadcast(CurrentSatchels, CurrentSatchels, MaxSatchels, bIsSatchelActive);
 	//OnStaminaChanged.Broadcast(CurrentStamina, CurrentStamina, MaxStamina);
 	//OnPsiPowerChanged.Broadcast(CurrentPsiPower, CurrentPsiPower, MaxPsiPower);
 

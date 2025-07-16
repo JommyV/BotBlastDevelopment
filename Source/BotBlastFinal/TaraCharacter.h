@@ -22,10 +22,11 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPauseTheGame,
 											bool, Ispaused);
 
 // Delegate for when stats based on floats are changed.
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FFloatStatUpdated,
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FFloatStatUpdated,
 											   float, OldValue,
 											   float, NewValue,
-											   float, MaxValue);
+											   float, MaxValue,
+											   bool, IsSatchelActive);
 
 // Different actions involving the key wallet.
 UENUM(BlueprintType)
@@ -166,6 +167,9 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	int	ActiveSatchels = 0;
+
+	UPROPERTY(BlueprintReadWrite)
+	bool bIsSatchelActive = false;
 
 	UPROPERTY(BlueprintReadWrite)
 	float CurrentSatchels = MaxSatchels;

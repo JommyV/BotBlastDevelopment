@@ -12,19 +12,20 @@
 void USatchelsUIBase::NativeOnInitialized()
 {
 	Super::NativeOnInitialized();
-	UE_LOG(BBLog, Warning, TEXT("NativeOnInitialized()"));
 	Bar_Filled->SetVisibility(ESlateVisibility::Visible);
 	Bar_SemiFilled->SetVisibility(ESlateVisibility::Visible);
+	Satchel_On->SetVisibility(ESlateVisibility::Hidden);
+	Satchel_Off->SetVisibility(ESlateVisibility::Visible);
 	UpdateWidget();
 }
 
-void USatchelsUIBase::OnIntStatUpdated(int32 OldValue, int32 NewValue, int32 MaxValue)
+/*void USatchelsUIBase::OnIntStatUpdated(int32 OldValue, int32 NewValue, int32 MaxValue)
 {
 	// Just use the float version of the function!
 	OnFloatStatUpdated(static_cast<float>(OldValue), static_cast<float>(NewValue), static_cast<float>(MaxValue));
-}
+}*/
 
-void USatchelsUIBase::OnFloatStatUpdated(float OldValue, float NewValue, float MaxValue)
+void USatchelsUIBase::OnFloatStatUpdated(float OldValue, float NewValue, float MaxValue, bool currentsatchels)
 {
 	// For now, we can ignore the OldValue, this will be used later for animating the bar.
 
@@ -35,6 +36,7 @@ void USatchelsUIBase::OnFloatStatUpdated(float OldValue, float NewValue, float M
 	//if (MaxValue == 0.f) MaxValue = KINDA_SMALL_NUMBER;
 
 	CurrentSatchelsNumber= NewValue;
+	bIsActiveSatchel = currentsatchels;
 	
 	UpdateWidget();
 }
@@ -113,6 +115,16 @@ void USatchelsUIBase::UpdateWidget()
 	{
 		Bar_Filled->SetVisibility(ESlateVisibility::Hidden);
 		Bar_SemiFilled->SetVisibility(ESlateVisibility::Hidden);
+	}
+	if (bIsActiveSatchel)
+	{
+		Satchel_On->SetVisibility(ESlateVisibility::Visible);
+		Satchel_Off->SetVisibility(ESlateVisibility::Hidden);
+	}
+	else
+	{
+		Satchel_On->SetVisibility(ESlateVisibility::Hidden);
+		Satchel_Off->SetVisibility(ESlateVisibility::Visible);
 	}
 	
 	

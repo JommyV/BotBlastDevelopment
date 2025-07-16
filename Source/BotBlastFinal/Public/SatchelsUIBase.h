@@ -23,12 +23,12 @@ class BOTBLASTFINAL_API USatchelsUIBase : public UWidgetBase
 {
 public:
 	// Function that can be called to update the bar using int values
-	UFUNCTION()
-	void OnIntStatUpdated(int32 OldValue, int32 NewValue, int32 MaxValue);
+	/*UFUNCTION()
+	void OnIntStatUpdated(int32 OldValue, int32 NewValue, int32 MaxValue);*/
 
 	// Function that can be called to update the bar using float values
 	UFUNCTION()
-	void OnFloatStatUpdated(float OldValue, float NewValue, float MaxValue);
+	void OnFloatStatUpdated(float OldValue, float NewValue, float MaxValue, bool currentsatchel);
 
 #if WITH_EDITOR
 	virtual void OnDesignerChanged(const FDesignerChangedEventArgs& EventArgs) override;
@@ -57,6 +57,12 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category = "Constituent Controls", meta = (BindWidget))
 	TObjectPtr<UImage> Bar_SemiFilled = nullptr;
+
+	UPROPERTY(Blueprintable, EditAnywhere, Category = "Constituent Controls", meta = (BindWidget))
+	TObjectPtr<UImage> Satchel_On = nullptr;
+
+	UPROPERTY(Blueprintable, EditAnywhere, Category = "Constituent Controls", meta = (BindWidget))
+	TObjectPtr<UImage> Satchel_Off = nullptr;
 
 	//UPROPERTY(BlueprintReadOnly, Category = "Constituent Controls", meta = (BindWidget))
 	//TObjectPtr<UTextBlock> ValueText = nullptr;
@@ -90,6 +96,9 @@ private:
 
 	UPROPERTY(EditAnywhere, Category="Stat Bar|Testing", meta=(ClampMin=0, UIMin=0))
 	float MaxSatchels = 2.f;
+
+	UPROPERTY(EditAnywhere, Category="Stat Bar|Testing")
+	bool bIsActiveSatchel = false	;
 
 	// This does not need to be a property as it is never serialized,
 	// and is totally dependent on the CurrentValue.

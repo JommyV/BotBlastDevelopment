@@ -101,7 +101,10 @@ void ATaraCharacter::Tick(float DeltaTime)
 
 		if (TimeSinceLastStep >= StepInterval)
 		{
-			UFMODBlueprintStatics::PlayEventAtLocation(this, FootStepEvent, GetActorTransform(), true);
+			UFMODBlueprintStatics::PlayEventAtLocation(this, FootStepEvent,
+				GetActorTransform(), true);
+			UFMODBlueprintStatics::PlayEventAtLocation(this, FootStepEvent2,
+				GetActorTransform(), true);
 			TimeSinceLastStep = 0.0f;
 		}
 	}

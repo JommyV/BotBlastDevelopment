@@ -5,6 +5,7 @@
 #include "MySave.h"
 #include "Kismet/GameplayStatics.h"
 #include "SaveInput.h"
+#include "SaveKeys.h"
 #include "GameFramework/PlayerController.h"
 
 TArray<FLeaderboardEntry> UBotBlastBluePrintLibrary::LoadLeaderboardSave(const FString& LevelName)
@@ -130,4 +131,30 @@ void UBotBlastBluePrintLibrary::LoadInputKeys(FKey& Forward, FKey& Backward, FKe
 		Jump = LoadedGame->SavedJumpKey;
 		Satchel = LoadedGame->SavedSatchelKey;
 	}
+}
+
+void UBotBlastBluePrintLibrary::SaveCollectibleKeys(FString Key)
+{
+	USaveKeys* SaveKey;
+
+	if (UGameplayStatics::DoesSaveGameExist("Collectibles", 0))
+	{
+		SaveKey = Cast<USaveKeys>(UGameplayStatics::LoadGameFromSlot("Collectibles", 0));
+	}
+	else
+	{
+		SaveKey = Cast<USaveKeys>(UGameplayStatics::CreateSaveGameObject(USaveKeys::StaticClass()));
+	}
+
+	SaveKey->Key = Key;
+	
+}
+
+void UBotBlastBluePrintLibrary::LoadCollectibleKeys(FString& Key)
+{
+	if (!UGameplayStatics::DoesSaveGameExist("Collectibles", 0))
+		return;
+
+	USaveKeys* LoadedGame = Cast<USaveKeys>(UGameplayStatics::LoadGameFromSlot("Collectibles", 0));
+	Key = LoadedGame->Key;
 }

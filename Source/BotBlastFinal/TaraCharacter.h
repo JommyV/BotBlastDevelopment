@@ -183,6 +183,10 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Audio")
 	TObjectPtr<UFMODEvent> FootStepEvent;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Audio")
+	TObjectPtr<UFMODEvent> FootStepEvent2;
+	
+
 	/*UFUNCTION(BlueprintCallable, Category = "SaveGame")
 	void	SaveFinalTime(float time);*/
 private:

@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "BotBlastFinal/Collectibles.h"
 #include "GameFramework/SaveGame.h"
 #include "SaveKeys.generated.h"
 
@@ -15,8 +16,7 @@ class BOTBLASTFINAL_API USaveKeys : public USaveGame
 	GENERATED_BODY()
 	
 public:
-	UPROPERTY(BlueprintReadWrite, VisibleAnywhere,Category="Time")
-	FString Key;
 
-	
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere,Category="Collectibles")
+	FCollectibles Collectibles;
 };

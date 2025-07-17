@@ -137,6 +137,17 @@ void UBotBlastBluePrintLibrary::SaveCollectibleKeys(FString Key)
 {
 	USaveKeys* SaveKey;
 
+	TArray<FString> DefaultEntries;
+	DefaultEntries.Add(TEXT("One"));
+	DefaultEntries.Add(TEXT("Two"));
+	DefaultEntries.Add(TEXT("Three"));
+	DefaultEntries.Add(TEXT("Four"));
+	DefaultEntries.Add(TEXT("Five"));
+	DefaultEntries.Add(TEXT("Six"));
+	DefaultEntries.Add(TEXT("Seven"));
+	DefaultEntries.Add(TEXT("Eight"));
+	DefaultEntries.Add(TEXT("Nine"));
+	
 	if (UGameplayStatics::DoesSaveGameExist("Collectibles", 0))
 	{
 		SaveKey = Cast<USaveKeys>(UGameplayStatics::LoadGameFromSlot("Collectibles", 0));
@@ -146,19 +157,18 @@ void UBotBlastBluePrintLibrary::SaveCollectibleKeys(FString Key)
 		SaveKey = Cast<USaveKeys>(UGameplayStatics::CreateSaveGameObject(USaveKeys::StaticClass()));
 	}
 
-	SaveKey->Key = Key;
+	SaveKey->Collectibles.Key = Key;
+	SaveKey->Collectibles.Keys.Add(Key);
 
+	
 	UGameplayStatics::SaveGameToSlot(SaveKey, "Collectibles", 0);
 	
 }
 
-void UBotBlastBluePrintLibrary::LoadCollectibleKeys(FString& Key)
+FCollectibles UBotBlastBluePrintLibrary::LoadCollectibleKeys()
 {
-	if (!UGameplayStatics::DoesSaveGameExist("Collectibles", 0))
-		return;
 
 	USaveKeys* LoadedGame = Cast<USaveKeys>(UGameplayStatics::LoadGameFromSlot("Collectibles", 0));
 
-	if (LoadedGame)
-		Key = LoadedGame->Key;
+	return LoadedGame->Collectibles;
 }

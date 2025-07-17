@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Collectibles.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "BotBlastBluePrintLibrary.generated.h"
 
@@ -31,8 +32,9 @@ public:
 	static void SaveCollectibleKeys(FString Key);
 
 	UFUNCTION(BlueprintCallable, Category = "Input|Save")
-	static void LoadCollectibleKeys(FString& Key);
-	
+	static FCollectibles LoadCollectibleKeys();
+
+		
 	GENERATED_BODY()
 };
 

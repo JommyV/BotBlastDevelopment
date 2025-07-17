@@ -4,7 +4,8 @@
 #include "BotBlastBluePrintLibrary.h"
 #include "MySave.h"
 #include "Kismet/GameplayStatics.h"
-
+#include "SaveInput.h"
+#include "GameFramework/PlayerController.h"
 
 TArray<FLeaderboardEntry> UBotBlastBluePrintLibrary::LoadLeaderboardSave(const FString& LevelName)
 {
@@ -83,4 +84,50 @@ void UBotBlastBluePrintLibrary::SaveLeaderboard(const FString& LevelName, FStrin
 	}
 
 	UGameplayStatics::SaveGameToSlot(SaveGameInstance, SlotName, 0);
+}
+
+
+
+void UBotBlastBluePrintLibrary::SaveInput(FKey Forward, FKey Backward, FKey Left, FKey Right, FKey JumpKey, FKey SatchelKey)
+	{
+	UMyInputSaveGame* SaveGameObject;
+	
+	if (UGameplayStatics::DoesSaveGameExist("Input", 0))
+	{
+		SaveGameObject = Cast<UMyInputSaveGame>(UGameplayStatics::LoadGameFromSlot("Input", 0));
+	}
+	else
+	{
+		SaveGameObject = Cast<UMyInputSaveGame>(UGameplayStatics::CreateSaveGameObject(UMyInputSaveGame::StaticClass()));
+	}
+
+	
+
+	SaveGameObject->SavedFwdKey = Forward;
+	SaveGameObject->SavedBackKey = Backward;
+	SaveGameObject->SavedLeftKey = Left;
+	SaveGameObject->SavedRightKey = Right;
+	SaveGameObject->SavedJumpKey = JumpKey;
+	SaveGameObject->SavedSatchelKey = SatchelKey;
+
+	UGameplayStatics::SaveGameToSlot(SaveGameObject, "Input", 0);
+}
+
+
+void UBotBlastBluePrintLibrary::LoadInputKeys(FKey& Forward, FKey& Backward, FKey& Left, FKey& Right, FKey& Jump, FKey& Satchel)
+{
+	if (!UGameplayStatics::DoesSaveGameExist("Input", 0))
+		return;
+
+	UMyInputSaveGame* LoadedGame = Cast<UMyInputSaveGame>(UGameplayStatics::LoadGameFromSlot("Input", 0));
+
+	if (LoadedGame)
+	{
+		Forward = LoadedGame->SavedFwdKey;
+		Backward = LoadedGame->SavedBackKey;
+		Left = LoadedGame->SavedLeftKey;
+		Right = LoadedGame->SavedRightKey;
+		Jump = LoadedGame->SavedJumpKey;
+		Satchel = LoadedGame->SavedSatchelKey;
+	}
 }

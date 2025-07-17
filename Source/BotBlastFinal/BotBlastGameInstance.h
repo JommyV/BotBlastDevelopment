@@ -19,5 +19,17 @@ public:
 	UPROPERTY(BlueprintReadWrite, Category="Settings")
 	int StoredMouseInvertion = 1;
 	
+	UPROPERTY(BlueprintReadWrite, Category="Settings")
+	FKey FwdKey;
 
+	UPROPERTY(BlueprintReadWrite, Category="Settings")
+	FKey BackKey;
+
+	UPROPERTY(BlueprintReadWrite, Category="Settings")
+	FKey LeftKey;
+
+	UPROPERTY(BlueprintReadWrite, Category="Settings")
+	FKey RightKey;
+	
+	
 };

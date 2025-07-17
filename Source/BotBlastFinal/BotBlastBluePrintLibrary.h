@@ -21,6 +21,11 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Leaderboard")
 	static void SaveLeaderboard(const FString& LevelName, FString PlayerName, float Time);
 
+	UFUNCTION(BlueprintCallable, Category = "Input|Enhanced")
+	static void SaveInput(FKey FwdKey,FKey BackKey, FKey RightKey, FKey LeftKey, FKey JumpKey, FKey SatchelKey);
+
+	UFUNCTION(BlueprintCallable, Category = "Input|Save")
+	static void LoadInputKeys(FKey& Forward, FKey& Backward, FKey& Left, FKey& Right, FKey& JumpKey, FKey& SatchelKey);
 	
 	GENERATED_BODY()
 };

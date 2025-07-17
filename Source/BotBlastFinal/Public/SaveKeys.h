@@ -12,9 +12,11 @@
 UCLASS()
 class BOTBLASTFINAL_API USaveKeys : public USaveGame
 {
+	GENERATED_BODY()
+	
 public:
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere,Category="Time")
 	FString Key;
 
-	GENERATED_BODY()
+	
 };

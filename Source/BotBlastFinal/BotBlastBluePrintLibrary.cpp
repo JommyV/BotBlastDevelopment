@@ -147,6 +147,8 @@ void UBotBlastBluePrintLibrary::SaveCollectibleKeys(FString Key)
 	}
 
 	SaveKey->Key = Key;
+
+	UGameplayStatics::SaveGameToSlot(SaveKey, "Collectibles", 0);
 	
 }
 
@@ -156,5 +158,7 @@ void UBotBlastBluePrintLibrary::LoadCollectibleKeys(FString& Key)
 		return;
 
 	USaveKeys* LoadedGame = Cast<USaveKeys>(UGameplayStatics::LoadGameFromSlot("Collectibles", 0));
-	Key = LoadedGame->Key;
+
+	if (LoadedGame)
+		Key = LoadedGame->Key;
 }

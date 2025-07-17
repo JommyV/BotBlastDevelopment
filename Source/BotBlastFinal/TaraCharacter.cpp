@@ -97,7 +97,7 @@ void ATaraCharacter::Tick(float DeltaTime)
 		TimeSinceLastStep += DeltaTime;
     
 		float Speed = GetVelocity().Size();
-		StepInterval = FMath::Clamp(600.0f / Speed, 0.2f, 0.6f);  // Example mapping
+		StepInterval = FMath::Clamp(300.0f / Speed, 0.1f, 0.3f);  // Example mapping
 
 		if (TimeSinceLastStep >= StepInterval)
 		{

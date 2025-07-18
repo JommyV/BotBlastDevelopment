@@ -25,9 +25,7 @@ ATaraCharacter::ATaraCharacter()
 	//Create our components
 	StaticMeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMeshComponent"));
 	StaticMeshComp->SetupAttachment(GetCapsuleComponent()); // Attach to the capsule
-
-	FeetComponent
-
+	
 	SpringArmComp = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComponent"));
 	SpringArmComp->SetupAttachment(GetCapsuleComponent());  // Attach to capsule too
 

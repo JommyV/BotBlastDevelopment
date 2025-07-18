@@ -26,6 +26,8 @@ ATaraCharacter::ATaraCharacter()
 	StaticMeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMeshComponent"));
 	StaticMeshComp->SetupAttachment(GetCapsuleComponent()); // Attach to the capsule
 
+	FeetComponent
+
 	SpringArmComp = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComponent"));
 	SpringArmComp->SetupAttachment(GetCapsuleComponent());  // Attach to capsule too
 
@@ -56,6 +58,15 @@ void ATaraCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	if (GetMovementComponent()) GetMovementComponent()->GetNavAgentPropertiesRef().bCanCrouch = true;
+	UFMODBlueprintStatics::PlayEventAttached(
+	   Music,
+	   UGameplayStatics::GetPlayerPawn(this, 0)->GetRootComponent(), 
+	   NAME_None,                      
+	   FVector::ZeroVector,            
+	   EAttachLocation::KeepRelativeOffset,
+	   true,                           
+	   true,                           
+	   true);                    
 	BroadcastCurrentStats();
 }
 
@@ -97,7 +108,7 @@ void ATaraCharacter::Tick(float DeltaTime)
 		TimeSinceLastStep += DeltaTime;
     
 		float Speed = GetVelocity().Size();
-		StepInterval = FMath::Clamp(300.0f / Speed, 0.1f, 0.3f);  // Example mapping
+		StepInterval = FMath::Clamp(500.0f / Speed, 0.3f, 0.6f);  // Example mapping
 
 		if (TimeSinceLastStep >= StepInterval)
 		{

@@ -135,6 +135,7 @@ void UBotBlastBluePrintLibrary::LoadInputKeys(FKey& Forward, FKey& Backward, FKe
 
 void UBotBlastBluePrintLibrary::SaveCollectibleKeys(FString Key)
 {
+
 	USaveKeys* SaveKey;
 
 	TArray<FString> DefaultEntries;
@@ -167,8 +168,16 @@ void UBotBlastBluePrintLibrary::SaveCollectibleKeys(FString Key)
 
 FCollectibles UBotBlastBluePrintLibrary::LoadCollectibleKeys()
 {
+	FCollectibles DefaultCollectibles;
 
-	USaveKeys* LoadedGame = Cast<USaveKeys>(UGameplayStatics::LoadGameFromSlot("Collectibles", 0));
-
-	return LoadedGame->Collectibles;
+	if (UGameplayStatics::DoesSaveGameExist("Collectibles", 0))
+		
+	{
+		USaveKeys* LoadedGame = Cast<USaveKeys>(UGameplayStatics::LoadGameFromSlot("Collectibles", 0));
+		return LoadedGame->Collectibles;
+	}
+	else
+	{
+		return DefaultCollectibles; 
+	}
 }

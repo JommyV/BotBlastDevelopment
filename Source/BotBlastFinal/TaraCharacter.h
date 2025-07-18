@@ -68,7 +68,8 @@ protected:
 	UPROPERTY(EditAnywhere)
 	UShadowComponent* ShadowComp;
 
-	
+	UPROPERTY(EditAnywhere)
+	USceneComponent* FeetComponent;
 
 public:
 	// Sets default values for this character's properties
@@ -185,7 +186,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Audio")
 	TObjectPtr<UFMODEvent> FootStepEvent2;
-	
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Audio")
+	TObjectPtr<UFMODEvent> Music;
 
 	/*UFUNCTION(BlueprintCallable, Category = "SaveGame")
 	void	SaveFinalTime(float time);*/

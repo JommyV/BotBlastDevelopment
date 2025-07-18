@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Engine/GameInstance.h"
+#include "FMODEvent.h"
 #include "BotBlastGameInstance.generated.h"
 
 UCLASS()
@@ -30,6 +31,7 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, Category="Settings")
 	FKey RightKey;
-	
-	
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Audio")
+	TObjectPtr<UFMODEvent> Music;
 };

@@ -95,6 +95,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Settings")
 	int SetLookInversion(int Inverted);
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Audio")
+	TObjectPtr<UFMODEvent> JumpSound;
+
 		
 protected:
 	// Action Handler Functions

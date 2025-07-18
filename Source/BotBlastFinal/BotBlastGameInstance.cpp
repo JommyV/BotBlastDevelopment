@@ -3,9 +3,11 @@
 
 #include "BotBlastGameInstance.h"
 
+#include "FMODBlueprintStatics.h"
 #include "MySave.h"
 #include "GameFramework/GameUserSettings.h"
 #include "Kismet/GameplayStatics.h"
+#include "FMODEvent.h"
 
 void UBotBlastGameInstance::Init()
 {
@@ -19,6 +21,8 @@ void UBotBlastGameInstance::Init()
 		Settings->ApplySettings(false);          // false = no restart needed
 		Settings->SaveSettings();
 	}
+	FTransform CenterTransform(FRotator::ZeroRotator, FVector::ZeroVector, FVector(1.0f));
+	UFMODBlueprintStatics::PlayEventAtLocation(this, Music, CenterTransform, true);
 }
 
 

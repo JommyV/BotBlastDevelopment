@@ -178,6 +178,15 @@ void ATaraController::HandleJump()
 		{
 			PlayerCharacter->UnCrouch();
 			PlayerCharacter->Jump();
+			UFMODBlueprintStatics::PlayEventAttached(
+	   JumpSound,
+	   UGameplayStatics::GetPlayerPawn(this, 0)->GetRootComponent(), 
+	   NAME_None,                      
+	   FVector::ZeroVector,            
+	   EAttachLocation::KeepRelativeOffset,
+	   true,                           
+	   true,                           
+	   true);    
 			
 		}
 	}

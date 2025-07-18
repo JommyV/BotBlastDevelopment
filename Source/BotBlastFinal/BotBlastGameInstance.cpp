@@ -22,10 +22,22 @@ void UBotBlastGameInstance::Init()
 		Settings->ApplySettings(false);          // false = no restart needed
 		Settings->SaveSettings();
 	}
-	UFMODBlueprintStatics::PlayEvent2D(this, Music, true);
+	
+	if (Music && !MusicComponent)
+	{
+
+		// Create the FMOD audio component manually
+		MusicComponent = NewObject<UFMODAudioComponent>(this); // attach to GameInstance so it survives
+		MusicComponent->RegisterComponent(); // important!
+		MusicComponent->SetEvent(Music);
+		MusicComponent->bAutoActivate = true;
+		MusicComponent->Play();
+	}
+}
+
 
 	
-}
+
 
 
 

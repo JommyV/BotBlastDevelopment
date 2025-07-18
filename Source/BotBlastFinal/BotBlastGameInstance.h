@@ -6,6 +6,7 @@
 #include "Engine/GameInstance.h"
 #include "FMODEvent.h"
 #include "FMODBank.h"
+#include "FMODAudioComponent.h"
 #include "BotBlastGameInstance.generated.h"
 
 UCLASS()
@@ -34,8 +35,11 @@ public:
 	FKey RightKey;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Audio")
-	TObjectPtr<UFMODEvent> Music;
+	UFMODEvent* Music;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Audio")
 	TObjectPtr<UFMODBank> MasterBank;
+	
+	UPROPERTY()
+	UFMODAudioComponent* MusicComponent;
 };

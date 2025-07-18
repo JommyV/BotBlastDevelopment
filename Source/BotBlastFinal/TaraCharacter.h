@@ -68,14 +68,15 @@ protected:
 	UPROPERTY(EditAnywhere)
 	UShadowComponent* ShadowComp;
 
-	UPROPERTY(EditAnywhere)
-	USceneComponent* FeetComponent;
+
 
 public:
 	// Sets default values for this character's properties
 	ATaraCharacter();
 
-
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	USceneComponent* FeetComponent;
+	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 

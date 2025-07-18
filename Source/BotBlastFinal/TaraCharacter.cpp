@@ -25,6 +25,9 @@ ATaraCharacter::ATaraCharacter()
 	//Create our components
 	StaticMeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMeshComponent"));
 	StaticMeshComp->SetupAttachment(GetCapsuleComponent()); // Attach to the capsule
+
+	FeetComponent = CreateDefaultSubobject<USceneComponent>(TEXT("FeetComponent"));
+	FeetComponent->SetupAttachment(GetCapsuleComponent()); // Attach to the capsule
 	
 	SpringArmComp = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComponent"));
 	SpringArmComp->SetupAttachment(GetCapsuleComponent());  // Attach to capsule too
@@ -56,7 +59,7 @@ void ATaraCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	if (GetMovementComponent()) GetMovementComponent()->GetNavAgentPropertiesRef().bCanCrouch = true;
-	UFMODBlueprintStatics::PlayEventAttached(
+	/*UFMODBlueprintStatics::PlayEventAttached(
 	   Music,
 	   UGameplayStatics::GetPlayerPawn(this, 0)->GetRootComponent(), 
 	   NAME_None,                      
@@ -64,7 +67,7 @@ void ATaraCharacter::BeginPlay()
 	   EAttachLocation::KeepRelativeOffset,
 	   true,                           
 	   true,                           
-	   true);                    
+	   true);                    */
 	BroadcastCurrentStats();
 }
 

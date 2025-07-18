@@ -111,6 +111,7 @@ protected:
 	void		 HandleCycleUI();
 	void		 HandleStopJump();
 
+
 	// Footstep audio component reference
 	UFMODAudioComponent* FootstepAudioComponent = nullptr;
 

@@ -170,8 +170,6 @@ void ATaraController::HandleMove(const FInputActionValue& InputActionValue)
 
 void ATaraController::HandleJump()
 {
-	// Make the Player's Character Pawn jump, disabling crouch if it was active
-	// And he can jump (not able in the first seconds of the map).
 	if (bCanJump)
 	{
 		if (PlayerCharacter)
@@ -179,15 +177,15 @@ void ATaraController::HandleJump()
 			PlayerCharacter->UnCrouch();
 			PlayerCharacter->Jump();
 			UFMODBlueprintStatics::PlayEventAttached(
-	   JumpSound,
-	   UGameplayStatics::GetPlayerPawn(this, 0)->GetRootComponent(), 
-	   NAME_None,                      
-	   FVector::ZeroVector,            
-	   EAttachLocation::KeepRelativeOffset,
-	   true,                           
-	   true,                           
-	   true);    
-			
+				JumpSound,
+			   PlayerCharacter->FeetComponent,
+			   NAME_None,                      
+			   FVector::ZeroVector,            
+			   EAttachLocation::KeepRelativeOffset,
+			   true,                           
+			   true,                           
+			   true);    
+					bCanJump = false;
 		}
 	}
 }
@@ -197,6 +195,7 @@ void ATaraController::HandleStopJump()
 	if (PlayerCharacter)
 		PlayerCharacter->StopJumping();
 }
+
 
 void ATaraController::HandleCrouch()
 {
@@ -260,6 +259,8 @@ void ATaraController::HandleUnPause()
 	SetShowMouseCursor(false);
 	
 }
+
+
 
 
 

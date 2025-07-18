@@ -12,6 +12,7 @@
 void UBotBlastGameInstance::Init()
 {
 	Super::Init();
+	UFMODBlueprintStatics::LoadBank(MasterBank, true, true);
 
 	// Force graphics preset to "Medium"
 	UGameUserSettings* Settings = GEngine->GetGameUserSettings();
@@ -21,9 +22,11 @@ void UBotBlastGameInstance::Init()
 		Settings->ApplySettings(false);          // false = no restart needed
 		Settings->SaveSettings();
 	}
-	FTransform CenterTransform(FRotator::ZeroRotator, FVector::ZeroVector, FVector(1.0f));
-	UFMODBlueprintStatics::PlayEventAtLocation(this, Music, CenterTransform, true);
+	UFMODBlueprintStatics::PlayEvent2D(this, Music, true);
+
+	
 }
+
 
 
 

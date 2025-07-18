@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Engine/GameInstance.h"
 #include "FMODEvent.h"
+#include "FMODBank.h"
 #include "BotBlastGameInstance.generated.h"
 
 UCLASS()
@@ -34,4 +35,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Audio")
 	TObjectPtr<UFMODEvent> Music;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Audio")
+	TObjectPtr<UFMODBank> MasterBank;
 };

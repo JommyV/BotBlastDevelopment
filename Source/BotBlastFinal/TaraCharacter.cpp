@@ -59,15 +59,6 @@ void ATaraCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	if (GetMovementComponent()) GetMovementComponent()->GetNavAgentPropertiesRef().bCanCrouch = true;
-	/*UFMODBlueprintStatics::PlayEventAttached(
-	   Music,
-	   UGameplayStatics::GetPlayerPawn(this, 0)->GetRootComponent(), 
-	   NAME_None,                      
-	   FVector::ZeroVector,            
-	   EAttachLocation::KeepRelativeOffset,
-	   true,                           
-	   true,                           
-	   true);                    */
 	BroadcastCurrentStats();
 }
 

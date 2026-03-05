@@ -19,7 +19,7 @@ void UBotBlastGameInstance::Init()
 	if (Settings)
 	{
 		Settings->SetOverallScalabilityLevel(1); // 0=Low, 1=Med, 2=High, 3=Epic
-		Settings->ApplySettings(false);          // false = no restart needed
+		Settings->ApplySettings(false); // false = no restart needed
 		Settings->SaveSettings();
 	}
 	
@@ -28,7 +28,7 @@ void UBotBlastGameInstance::Init()
 
 		// Create the FMOD audio component manually
 		MusicComponent = NewObject<UFMODAudioComponent>(this); // attach to GameInstance so it survives
-		MusicComponent->RegisterComponent(); // important!
+		MusicComponent->RegisterComponent(); //Register this component, creating any rendering/physics state.
 		MusicComponent->SetEvent(Music);
 		MusicComponent->bAutoActivate = true;
 		MusicComponent->Play();

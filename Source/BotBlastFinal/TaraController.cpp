@@ -57,21 +57,26 @@ void ATaraController::OnPossess(APawn* aPawn)
 		EnhancedInputComponent->BindAction(ActionJump, ETriggerEvent::Completed, this,
 										   &ATaraController::HandleStopJump);
 	}
-	if (ActionCrouch)
-		EnhancedInputComponent->BindAction(ActionCrouch, ETriggerEvent::Triggered, this,
-										   &ATaraController::HandleCrouch);
+	//if (ActionCrouch)
+		//EnhancedInputComponent->BindAction(ActionCrouch, ETriggerEvent::Triggered, this,
+										   //&ATaraController::HandleCrouch);
 	if (ActionSatchel)
 		EnhancedInputComponent->BindAction(ActionSatchel, ETriggerEvent::Triggered, this,
 										   &ATaraController::HandleSatchel);
-	if (ActionCrouch)
-		EnhancedInputComponent->BindAction(ActionToggleSprint, ETriggerEvent::Triggered, this,
-										   &ATaraController::HandleToggleSprint);
+	//if (ActionCrouch)
+		//EnhancedInputComponent->BindAction(ActionToggleSprint, ETriggerEvent::Triggered, this,
+										   //&ATaraController::HandleToggleSprint);
 	if (ActionRestartGame)
 		EnhancedInputComponent->BindAction(ActionRestartGame, ETriggerEvent::Triggered, this,
 											&ATaraController::HandleRestartGame);
 	if (ActionPauseGame)
 		EnhancedInputComponent->BindAction(ActionPauseGame, ETriggerEvent::Triggered, this,
 											&ATaraController::HandlePause);
+		/*EnhancedInputComponent->BindAction(ActionPauseGame, ETriggerEvent::Triggered, this,
+											&ATaraController::HandleUnPause);*/
+		
+		
+	
 
 	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Cyan,
 		FString::Printf(TEXT("The sensitivity is: %f"), MouseSensitivity));
@@ -229,6 +234,9 @@ void ATaraController::HandleRestartGame()
 	
 	//AGameModeBotBlast* GameMode = Cast<AGameModeBotBlast>(UGameplayStatics::GetGameMode(this));
 	UGameplayStatics::OpenLevel(this, FName(*GetWorld()->GetName()), false);
+	SetInputMode(GameInputMode);
+	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Red,
+		FString::Printf(TEXT("GAMEPLAY")));
 }
 
 void ATaraController::HandleCycleUI()
@@ -241,22 +249,32 @@ void ATaraController::HandleCycleUI()
 
 void ATaraController::HandlePause()
 {
+	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Red,
+		FString::Printf(TEXT("Im here")));
 	if (!bIsPaused)
 	{
 		PlayerCharacter->OnPause.Broadcast(true);
 		UGameplayStatics::SetGamePaused(GetWorld(), true); // Pause
-		bIsPaused = true;
 		SetShowMouseCursor(true);
-		SetInputMode(UIInputMode);
+		SetInputMode(GameInputModeAndUI);
+		bIsPaused = true;
+		GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Red,
+		FString::Printf(TEXT("Paused")));
+	}
+	else
+	{
+		PlayerCharacter->OnPause.Broadcast(false);
+		UGameplayStatics::SetGamePaused(GetWorld(), false); // Unpause
+		SetShowMouseCursor(false);
+		bIsPaused = false;
+		SetInputMode(GameInputMode);
+		GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Red,
+		FString::Printf(TEXT("Unpaused")));
 	}
 }
 
 void ATaraController::HandleUnPause()
 {
-	bIsPaused = false;
-	//PlayerCharacter->OnPause.Broadcast(false);
-	//UGameplayStatics::SetGamePaused(GetWorld(), false); // Unpause
-	SetShowMouseCursor(false);
 	
 }
 

@@ -4,6 +4,7 @@
 #include "InGameMenu.h"
 
 #include "CustomLogging.h"
+#include "SkeletalRenderPublic.h"
 #include "Blueprint/WidgetBlueprintLibrary.h"
 #include "BotBlastFinal/TaraCharacter.h"
 #include "BotBlastFinal/TaraController.h"
@@ -24,6 +25,9 @@ void UInGameMenu::NativeConstruct()
 	
 	if (ResumeButton)
 			ResumeButton->OnClicked.AddDynamic(this, &UInGameMenu::OnResumeButtonClicked);
+	
+	if (SettingsButton)
+			SettingsButton->OnClicked.AddDynamic(this, &UInGameMenu::OnSettingsButtonClicked);
 
 	//Sets the menu to be invisible when the game starts.
 	SetVisibility(ESlateVisibility::Hidden);
@@ -78,9 +82,15 @@ void UInGameMenu::OnResumeButtonClicked()
 	
 }
 
+void UInGameMenu::OnSettingsButtonClicked()
+{
+	SettingsMenu->SetVisibility(ESlateVisibility::Hidden);
+}
+
 void UInGameMenu::OnPause(bool isPaused)
 {
-	//When the player plays the pause button, sets the menu to visible if its not paused and to hidden if paused.
+	//When the player plays the pause button, sets the menu to visible if its not paused and to hidden if paused. 
+	//Unused for now.
 	if (isPaused)
 	{
 		SetVisibility(ESlateVisibility::Visible);

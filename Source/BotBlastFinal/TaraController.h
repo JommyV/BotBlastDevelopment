@@ -136,6 +136,8 @@ private:
 
 	FInputModeGameOnly GameInputMode;
 	FInputModeUIOnly UIInputMode;
+	FInputModeGameAndUI GameInputModeAndUI;
+	
 	
 	GENERATED_BODY()
 };

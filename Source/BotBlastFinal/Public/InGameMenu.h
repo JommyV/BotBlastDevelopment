@@ -37,6 +37,9 @@ protected:
 
 	UPROPERTY(BlueprintReadOnly, Category = "Constituent Controls", meta = (BindWidget))
 	TObjectPtr<UButton> ExitButton = nullptr;
+	
+	UPROPERTY(BlueprintReadOnly, Category = "Constituent Controls", meta = (BindWidget))
+	TObjectPtr<UButton> SettingsButton = nullptr;
 
 	UPROPERTY(BlueprintReadOnly, Category = "Constituent Controls", meta = (BindWidget))
 	TObjectPtr<UButton> QuitButton = nullptr;
@@ -46,7 +49,11 @@ protected:
 
 	UPROPERTY(BlueprintReadOnly, Category = "Constituent Controls", meta = (BindWidget))
 	TObjectPtr<UTextBlock> ValueText = nullptr;
-
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Settings")
+	TObjectPtr<UUserWidget> SettingsMenu = nullptr;
+	
+	
 private:
 
 	UFUNCTION()
@@ -60,6 +67,9 @@ private:
 
 	UFUNCTION()
 	void OnResumeButtonClicked();
+	
+	UFUNCTION()
+	void OnSettingsButtonClicked();
 
 	// Used to store a reference to the pawn we are controlling.
 	UPROPERTY()
@@ -74,6 +84,9 @@ private:
 	//Input modes to be changed as the player opens/closes the menu.
 	FInputModeGameOnly GameInputMode;
 	FInputModeUIOnly UIInputMode;
+	FInputModeGameAndUI GameInputModeAndUI;
+	
+	
 	
 public:
 	

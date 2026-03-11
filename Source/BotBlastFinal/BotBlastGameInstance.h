@@ -40,6 +40,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Audio")
 	TObjectPtr<UFMODBank> MasterBank;
 
+	
+	
 	UPROPERTY()
 	UFMODAudioComponent* MusicComponent;
 };

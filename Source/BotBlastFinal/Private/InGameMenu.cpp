@@ -31,6 +31,9 @@ void UInGameMenu::NativeConstruct()
 
 	//Sets the menu to be invisible when the game starts.
 	SetVisibility(ESlateVisibility::Hidden);
+	
+	SettingsMenu = CreateDefaultSubobject<UUserWidget>(TEXT("StaticMeshComponent"));
+	
 
 	//Gets a reference to the player and adds the delegate to call the pause function.
 	PlayerCharacter = Cast<ATaraCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));

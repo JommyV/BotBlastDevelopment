@@ -140,7 +140,7 @@ void ATaraController::HandleMove(const FInputActionValue& InputActionValue)
 	//If not, apply normal movement. If wallrunning, stop sideways inputs.
 	if (PlayerCharacter->GetCharacterMovement()->IsFalling())
 	{
-		PlayerCharacter->GetCharacterMovement()->bOrientRotationToMovement = false;
+		//PlayerCharacter->GetCharacterMovement()->bOrientRotationToMovement = false;
 		PlayerCharacter->AddMovementInput(Right*SideWaysAirControl*MovementLock, MovementVector.X);
 		if (MovementVector.Y > 0.0f)
 		{

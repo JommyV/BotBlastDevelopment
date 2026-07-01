@@ -18,6 +18,5 @@ public:
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere,Category="Time")
 	TArray<FLeaderboardGroup> LeaderboardsByLevel;
 	
-
 	GENERATED_BODY()
 };

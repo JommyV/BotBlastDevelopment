@@ -40,7 +40,11 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Audio")
 	TObjectPtr<UFMODBank> MasterBank;
 
+	UPROPERTY(BlueprintReadWrite, Category="Settings")
+	int BronzeMedalsTotal = 0;
 	
+	UPROPERTY(BlueprintReadWrite, Category="Settings")
+	int GoldMedalsTotal = 0;
 	
 	UPROPERTY()
 	UFMODAudioComponent* MusicComponent;

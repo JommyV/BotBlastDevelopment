@@ -33,8 +33,16 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Input|Save")
 	static FCollectibles LoadCollectibleKeys();
+	
+	UFUNCTION(BlueprintCallable, Category="Medals")
+	static void SaveLevelMedal(const FString& LevelName, EMedalType NewMedal);
 
-		
+	UFUNCTION(BlueprintCallable, Category="Medals")
+	static EMedalType LoadLevelMedal(const FString& LevelName);
+
+	UFUNCTION(BlueprintCallable, Category="Medals")
+	static bool HasMedalOrBetter(const FString& LevelName, EMedalType RequiredMedal);
+	
 	GENERATED_BODY()
 };
 

@@ -7,6 +7,7 @@
 #include "SaveInput.h"
 #include "SaveKeys.h"
 #include "GameFramework/PlayerController.h"
+#include "SaveMedals.h"
 
 TArray<FLeaderboardEntry> UBotBlastBluePrintLibrary::LoadLeaderboardSave(const FString& LevelName)
 {
@@ -180,4 +181,91 @@ FCollectibles UBotBlastBluePrintLibrary::LoadCollectibleKeys()
 	{
 		return DefaultCollectibles; 
 	}
+}
+
+void UBotBlastBluePrintLibrary::SaveLevelMedal(const FString& LevelName,EMedalType NewMedal)
+{
+	const FString SlotName = TEXT("Medals");
+
+	USaveMedals* SaveGame = nullptr;
+
+	if (UGameplayStatics::DoesSaveGameExist(SlotName, 0))
+	{
+		SaveGame = Cast<USaveMedals>(
+			UGameplayStatics::LoadGameFromSlot(SlotName, 0));
+	}
+	else
+	{
+		SaveGame = Cast<USaveMedals>(
+			UGameplayStatics::CreateSaveGameObject(
+				USaveMedals::StaticClass()));
+	}
+
+	if (!SaveGame)
+		return;
+
+	FLevelMedalData* Found = SaveGame->LevelMedals.FindByPredicate(
+		[&LevelName](const FLevelMedalData& Data)
+		{
+			return Data.LevelName == LevelName;
+		});
+
+	if (!Found)
+	{
+		FLevelMedalData NewData;
+		NewData.LevelName = LevelName;
+		NewData.BestMedal = NewMedal;
+
+		SaveGame->LevelMedals.Add(NewData);
+	}
+	else
+	{
+		if (static_cast<uint8>(NewMedal) > static_cast<uint8>(Found->BestMedal))
+		{
+			Found->BestMedal = NewMedal;
+		}
+	}
+
+	UGameplayStatics::SaveGameToSlot(SaveGame, SlotName, 0);
+}
+
+EMedalType UBotBlastBluePrintLibrary::LoadLevelMedal(
+	const FString& LevelName)
+{
+	const FString SlotName = TEXT("Medals");
+
+	if (!UGameplayStatics::DoesSaveGameExist(SlotName, 0))
+	{
+		return EMedalType::None;
+	}
+
+	USaveMedals* SaveGame = Cast<USaveMedals>(
+		UGameplayStatics::LoadGameFromSlot(SlotName, 0));
+
+	if (!SaveGame)
+	{
+		return EMedalType::None;
+	}
+
+	FLevelMedalData* Found = SaveGame->LevelMedals.FindByPredicate(
+		[&LevelName](const FLevelMedalData& Data)
+		{
+			return Data.LevelName == LevelName;
+		});
+
+	if (Found)
+	{
+		return Found->BestMedal;
+	}
+
+	return EMedalType::None;
+}
+
+bool UBotBlastBluePrintLibrary::HasMedalOrBetter(
+	const FString& LevelName,
+	EMedalType RequiredMedal)
+{
+	EMedalType CurrentMedal = LoadLevelMedal(LevelName);
+
+	return static_cast<uint8>(CurrentMedal) >= static_cast<uint8>(RequiredMedal);
 }

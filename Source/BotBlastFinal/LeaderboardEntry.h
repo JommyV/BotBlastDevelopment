@@ -15,8 +15,36 @@ enum class ELevelsID : uint8
 	Level_07	  UMETA(DisplayName = "Level 07"),
 	Level_08	  UMETA(DisplayName = "Level 08"),
 	Level_09	  UMETA(DisplayName = "Level 09"),
+	Level_10	  UMETA(DisplayName = "Level 10"),
+	Level_11	  UMETA(DisplayName = "Level 11"),
+	Level_12	  UMETA(DisplayName = "Level 12"),
+	Level_13	  UMETA(DisplayName = "Level 13"),
+	Level_14	  UMETA(DisplayName = "Level 14"),
+	Level_15	  UMETA(DisplayName = "Level 15"),
 	
 };
+
+/*UENUM(BlueprintType)
+enum class EMedalType : uint8
+{
+	None	UMETA(DisplayName="None"),
+	Bronze	UMETA(DisplayName="Bronze"),
+	Silver	UMETA(DisplayName="Silver"),
+	Gold	UMETA(DisplayName="Gold"),
+	Author	UMETA(DisplayName="Author")
+};*/
+
+/*USTRUCT(BlueprintType)
+struct FLevelMedalData
+{
+	GENERATED_BODY()
+
+	UPROPERTY(BlueprintReadWrite)
+	FString LevelName;
+
+	/*UPROPERTY(BlueprintReadWrite)
+	EMedalType BestMedal = EMedalType::None;
+};*/
 
 USTRUCT(BlueprintType)
 struct FLeaderboardEntry
@@ -31,7 +59,10 @@ struct FLeaderboardEntry
 	
 	UPROPERTY(BlueprintReadWrite, Category="Time")
 	FString PlayerName;
-
+	
+	//UPROPERTY(BlueprintReadWrite, Category="Time")
+	//EMedalType BestMedal;
+	
 	FLeaderboardEntry()
 	   : PlayerName("Player"), EndTime(0.0f), Date(FDateTime::Now())
 	{}

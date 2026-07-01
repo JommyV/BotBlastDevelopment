@@ -30,7 +30,7 @@ TArray<FLeaderboardEntry> UBotBlastBluePrintLibrary::LoadLeaderboardSave(const F
 	{
 		FLeaderboardEntry Entry;
 		Entry.PlayerName;
-		Entry.EndTime = 9999.0f;
+		Entry.EndTime = 0.0f;
 		Entry.Date = FDateTime(2000, 1, 1);
 		DefaultEntries.Add(Entry);
 	}
